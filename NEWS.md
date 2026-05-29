@@ -1,11 +1,17 @@
+# daisugi (development)
+* add support for **ebm**
+    - fit with `grow_explainable_trees`
+    - predict with `harvest_explainable_trees`
+    - a 'glassbox' novel gam boosting machine
+
 # daisugi 0.0.2
 
-* add support for **wildwood**
+* added support for **wildwood**
     - fit with `grow_wild_trees`
     - predict with `harvest_wild_trees`
     - a *newer and advanced* random forest algorithm 
 
-* add support for **perpetual**
+* added support for **perpetual**
     - fit with `grow_perpetual_trees`
     - predict with `harvest_perpetual_trees`
     - a budget-based autoML-type tree machine

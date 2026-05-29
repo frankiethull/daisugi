@@ -4,6 +4,7 @@
 .pkg_env$KTBoost <- NULL
 .pkg_env$ngboost <- NULL
 .pkg_env$nrgboost <- NULL
+.pkg_env$perpetual <- NULL
 .pkg_env$snapml <- NULL
 .pkg_env$wildwood <- NULL
 .pkg_env$ydf <- NULL
@@ -50,7 +51,11 @@
     delay_load = TRUE
   )
   # Perpetual -------
-  # R imports
+  reticulate::py_require("perpetual")
+  .pkg_env$perpetual <- reticulate::import(
+    "perpetual",
+    delay_load = TRUE
+  )
 
   # SnapBoost -------
   reticulate::py_require("snapml")
