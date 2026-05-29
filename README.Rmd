@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of daisugi is to curate novel tree & boosting algorithms for use in R. daisugi unifies machines that are 1) not on CRAN, 2) not directly available in R, 3) or well known. Hence, daisugi does not have XGBoost, lightGBM, or catboost support. Those can be found via their base repos or supported via bonsai in tidymodels.  
+daisugi is an R package that curates novel tree & boosting algorithms. It focuses on methods that are not on CRAN, not directly available in R, or less widely known. Popular libraries like XGBoost, LightGBM, and CatBoost are intentionally excluded & can be accessed through their official packages or via bonsai in tidymodels.
 
 ## Machines 
 
@@ -36,9 +36,9 @@ novelty trees found within daisugi:
  - [ ] ms
  - [ ] ng
  - [ ] nrg
- - [ ] perpetual
+ - [x] perpetual
  - [x] snap
- - [ ] wild
+ - [x] wild
  - [x] yggdrasil
 
 ## Installation
