@@ -19,10 +19,21 @@ base repos or supported via bonsai in tidymodels.
 
 ## Machines
 
-``` r
-# yggdrasil boosting
-# snap boosting
-```
+novelty trees found within daisugi:
+
+- [ ] boulevard
+- [ ] ebm
+- [ ] fair
+- [ ] grande
+- [ ] kt
+- [ ] morph
+- [ ] ms
+- [ ] ng
+- [ ] nrg
+- [ ] perpetual
+- [x] snap
+- [ ] wild
+- [x] yggdrasil
 
 ## Installation
 
@@ -32,32 +43,4 @@ You can install the development version of daisugi from
 ``` r
 # install.packages("pak")
 pak::pak("frankiethull/daisugi")
-```
-
-## A Classification Task
-
-``` r
-library(daisugi)
-library(forested)
-library(rsample)
-
-splits <- rsample::initial_split(forested::forested)
-training <- rsample::training(splits)
-testing <- rsample::testing(splits)
-```
-
-### yggdrasil decision forests (YDF)
-
-YDF provides various methods such as boosters, decisions, forests. what
-is unique is the a oblique random split technique. daisugi provides the
-boosted method with yggdrasil.
-
-``` r
-# ydf_model <- grow_yggdrasil_trees(training, "forested", trees = 20L)
-```
-
-### Snap Boosting Machine
-
-``` r
-# snap_model <- grow_snap_trees(training, "forested", trees = 20L)
 ```

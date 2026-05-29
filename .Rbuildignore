@@ -1,0 +1,6 @@
+^daisugi\.Rproj$
+^\.Rproj\.user$
+^README\.Rmd$
+^[.]?air[.]toml$
+^\.vscode$
+^LICENSE\.md$
