@@ -15,7 +15,8 @@ Suggests:
     knitr,
     rmarkdown,
     forested,
-    rsample
+    rsample,
+    dplyr
 VignetteBuilder: knitr
 Imports: 
     reticulate
