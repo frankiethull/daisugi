@@ -14,7 +14,7 @@ RoxygenNote: 7.3.2
 Suggests: 
     knitr,
     rmarkdown,
-    forester,
+    forested,
     rsample
 VignetteBuilder: knitr
 Imports: 
