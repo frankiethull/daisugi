@@ -130,5 +130,5 @@ natural_trees <- grow_natural_trees(
   trees = 100L
 )
 
-harvest_natural_trees(wild_trees, x_test) |> head()
+harvest_natural_trees(natural_trees, x_test) |> head()
 ```

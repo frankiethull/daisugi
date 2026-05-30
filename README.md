@@ -33,7 +33,7 @@ novelty trees found within daisugi:
 - [x] Perpetual
 - [x] SnapBoost
 - [x] WildWood
-- [x] Yggdrasil’s Gradient Booster
+- [x] Yggdrasil
 
 ## Installation
 
