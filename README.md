@@ -21,15 +21,15 @@ official packages or via bonsai in tidymodels.
 
 novelty trees found within daisugi:
 
-- [ ] boulevard
-- [ ] ebm
-- [ ] fair
-- [ ] grande
-- [ ] kt
-- [ ] morph
-- [ ] ms
-- [ ] ng
-- [ ] nrg
+- [ ] Boulevard
+- [x] EBM
+- [ ] FairGBM
+- [ ] GRANDE
+- [ ] KTBoost
+- [ ] MorphBoost
+- [ ] MSBoost
+- [ ] NGBoost
+- [ ] NRGBoost
 - [x] perpetual
 - [x] snap
 - [x] wild
