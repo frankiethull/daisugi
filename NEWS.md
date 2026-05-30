@@ -1,16 +1,20 @@
 # daisugi (development)
+* added support for **NGBoost**
+    - fit with `grow_explainable_trees`
+    - predict with `harvest_explainable_trees`
+    - a 'glassbox' novel gam boosting machine
+
+* added documentation for package. 
+    - `daisugi.Rmd`
+        - getting started vignette
+    - `glossary.Rmd`
+        - a note on machines & nomenclature 
 
 # daisugi 0.0.3
 * added support for **EBMs**
     - fit with `grow_explainable_trees`
     - predict with `harvest_explainable_trees`
     - a 'glassbox' novel gam boosting machine
-* added support for **NGBoost**
-    - fit with `grow_explainable_trees`
-    - predict with `harvest_explainable_trees`
-    - a 'glassbox' novel gam boosting machine
-
-
 
 # daisugi 0.0.2
 
