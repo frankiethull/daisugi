@@ -2,12 +2,12 @@
 % Please edit documentation in R/ebm.R
 \name{harvest_explainable_trees}
 \alias{harvest_explainable_trees}
-\title{Harvest Wild Trees}
+\title{Harvest Explainable Trees}
 \usage{
 harvest_explainable_trees(fit, x, ...)
 }
 \arguments{
-\item{fit}{a fitted wildwood model}
+\item{fit}{a fitted ebm model}
 
 \item{x}{a set of predictors}
 
@@ -17,5 +17,5 @@ harvest_explainable_trees(fit, x, ...)
 predictions
 }
 \description{
-Harvest Wild Trees
+Harvest Explainable Trees
 }

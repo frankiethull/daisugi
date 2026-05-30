@@ -1,0 +1,86 @@
+---
+title: "glossary"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{glossary}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(daisugi)
+```
+
+# Glossary 
+daisugi is designed as an engine curation metarepo. there are a handful of nomenclature below that will be helpful for navigating the package. all machines are fitted with (x, y) interfaces. the machines are dictated with a prefix verb. Those are listed below: 
+
+## Keywords
+#### fit machines with: *grow_*
+#### infer machines with: *harvest_*
+
+
+## Machine Information
+
+in addition to the typical reference page, this should be helpful for practitioners who would like to dive a bit deeper into the root repos, whitepapers, or other information. 
+
+```{r}
+#| include: false
+# list source, alias, haikus ------------------
+
+ebm <- c(
+  "https://interpret.ml/docs/ebm.html",
+  "explainable",
+  "each feature speaks alone \n the sum is the whole model \n darkness becomes light"
+)
+
+perpetual <- c(
+  "https://perpetual-ml.github.io/perpetual/",
+  "perpetual",
+  "one knob, the budget \n self-generalizing design \n no search, just descent"
+)
+
+snap <- c(
+  "https://ibmsoe.github.io/snap-ml-doc/v1.6.0/manual.html#snapboost",
+  "snap",
+  "depth rolls like dice \n decision or linear \n random number tricks"
+)
+
+wild <- c(
+  "https://github.com/pyensemble/wildwood",
+  "wild",
+  "every pruning weighed \n out-of-bag shadows voting \n wilder than the rest"
+)
+
+yggdrasil <- c(
+  "https://github.com/google/yggdrasil-decision-forests",
+  "yggdrasil",
+  "sacred trunk rises \n c++ decision trees \n fast quiet giant"
+)
+
+# combine -------------------------------------------
+
+df <- rbind(
+  ebm = ebm,
+  perpetual = perpetual,
+  snap = snap,
+  wild = wild,
+  yggdrasil = yggdrasil
+)
+
+colnames(df) <- c("docsource", "alias", "haiku")
+
+df <- as.data.frame(df, stringsAsFactors = FALSE)
+```
+
+
+
+```{r}
+knitr::kable(df, format = "simple")
+```

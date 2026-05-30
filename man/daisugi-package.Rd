@@ -10,6 +10,13 @@
 
 daisugi provides an interface for not-so-well-known tree machines. particularly focused on novel tree and boosting algorithms for machine learning tasks. those tasks being tabular regression and classification problems. daisugi provides a unified interface to YDF, SnapBoost, WildWood, Perpetual, and more.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://frankiethull.github.io/daisugi/}
+}
+
+}
 \author{
 \strong{Maintainer}: frank hull \email{frankiethull@proton.me}
 

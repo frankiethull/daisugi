@@ -17,3 +17,4 @@ Suggests:
 VignetteBuilder: knitr
 Imports: 
     reticulate
+URL: https://frankiethull.github.io/daisugi/
