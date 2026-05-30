@@ -28,12 +28,12 @@ novelty trees found within daisugi:
 - [ ] KTBoost
 - [ ] MorphBoost
 - [ ] MSBoost
-- [ ] NGBoost
+- [x] NGBoost
 - [ ] NRGBoost
-- [x] perpetual
-- [x] snap
-- [x] wild
-- [x] yggdrasil
+- [x] Perpetual
+- [x] SnapBoost
+- [x] WildWood
+- [x] Yggdrasil’s Gradient Booster
 
 ## Installation
 
