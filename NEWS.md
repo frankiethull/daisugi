@@ -1,8 +1,8 @@
 # daisugi (development)
 * added support for **NGBoost**
-    - fit with `grow_explainable_trees`
-    - predict with `harvest_explainable_trees`
-    - a 'glassbox' novel gam boosting machine
+    - fit with `grow_natural_trees`
+    - predict with `harvest_natural_trees`
+    - a natural gradient booster from Stanford ML Group
 
 * added documentation for package. 
     - `daisugi.Rmd`
