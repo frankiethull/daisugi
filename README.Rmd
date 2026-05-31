@@ -30,8 +30,9 @@ daisugi is an R package that curates novel tree & boosting algorithms. It focuse
 novelty trees found within daisugi:
 
  - [ ] Boulevard
+ - [ ] Conditional
  - [x] EBM
- - [ ] evtree
+ - [ ] Evolutionary
  - [ ] FairGBM 
  - [ ] GRANDE
  - [ ] KTBoost

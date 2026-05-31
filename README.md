@@ -22,8 +22,9 @@ official packages or via bonsai in tidymodels.
 novelty trees found within daisugi:
 
 - [ ] Boulevard
+- [ ] Conditional
 - [x] EBM
-- [ ] evtree
+- [ ] Evolutionary
 - [ ] FairGBM
 - [ ] GRANDE
 - [ ] KTBoost
