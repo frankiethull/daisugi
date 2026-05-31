@@ -3,3 +3,4 @@
 /.quarto/
 inst/doc
 docs
+pkgdown

@@ -14,6 +14,8 @@ daisugi provides an interface for not-so-well-known tree machines. particularly 
 Useful links:
 \itemize{
   \item \url{https://frankiethull.github.io/daisugi/}
+  \item \url{https://github.com/frankiethull/daisugi}
+  \item Report bugs at \url{https://github.com/frankiethull/daisugi/issues}
 }
 
 }

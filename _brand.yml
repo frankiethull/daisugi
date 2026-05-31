@@ -1,0 +1,67 @@
+color:
+  palette:
+    paper: "#F2E6C9"
+    parchment: "#E3D2AE"
+    sumi: "#1E1E1A"
+    charcoal: "#2B2A28"
+    indigo: "#264B63"
+    storm: "#39434F"
+    cedar: "#6B4E3D"
+    bark: "#4A3427"
+    moss: "#5C6B4D"
+    pine: "#2F4A3A"
+    snow: "#D9D8D2"
+    vermillion: "#A3482F"
+    goldleaf: "#C7A96B"
+
+  foreground: sumi
+  background: paper
+  primary: indigo
+  secondary: cedar
+  success: pine
+  warning: goldleaf
+  danger: vermillion
+  light: parchment
+  dark: charcoal
+
+typography:
+  fonts:
+    - family: "Cormorant Garamond"
+      source: google
+    - family: "Noto Serif JP"
+      source: google
+    - family: "IBM Plex Sans"
+      source: google
+    - family: "IBM Plex Mono"
+      source: google
+
+  base:
+    family: "IBM Plex Sans"
+    size: 17px
+    line-height: 1.7
+    weight: 400
+
+  headings:
+    family: "Cormorant Garamond"
+    weight: 600
+    line-height: 1.15
+    color: "#1E1E1A"
+
+  monospace:
+    family: "IBM Plex Mono"
+    size: 0.92em
+
+  monospace-inline:
+    background-color: "#E3D2AE"
+    color: "#4A3427"
+
+  monospace-block:
+    background-color: "#232323"
+    color: "#E8E1D4"
+
+defaults:
+  bootstrap:
+    defaults:
+      border-radius: 0.15rem
+      code-border-radius: 0.2rem
+      btn-border-radius: 0.15rem

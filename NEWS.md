@@ -1,4 +1,17 @@
 # daisugi (development)
+
+* add support for **KTBoost**
+    - fit with `grow_kernel_trees`
+    - predict with `harvest_kernel_trees`
+    - each boosting iteration chooses either tree or RKHS regression 
+
+* add support for **NRGBoost**
+    - fit with `grow_energy_trees`
+    - predict with `harvest_energy_trees`
+    - a tree-based generative algorithm for tabular data
+        - "Unlike discriminative methods, NRGBoost can be used to predict any column in the data, not just a specific "target" column."
+
+# daisugi 0.0.4
 * added support for **NGBoost**
     - fit with `grow_natural_trees`
     - predict with `harvest_natural_trees`
@@ -9,6 +22,8 @@
         - getting started vignette
     - `glossary.Rmd`
         - a note on machines & nomenclature 
+* added images for vignettes and README documentation
+
 
 # daisugi 0.0.3
 * added support for **EBMs**

@@ -1,6 +1,6 @@
 Package: daisugi
 Title: Novel Tree Machines for Classification and Regression
-Version: 0.0.3.9000
+Version: 0.0.4
 Authors@R: 
     person("frank", "hull", , "frankiethull@proton.me", role = c("aut", "cre"))
 Description: daisugi provides an interface for not-so-well-known tree machines. 

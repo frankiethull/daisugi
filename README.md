@@ -1,11 +1,11 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# daisugi
+# <img src="man/figures/readme.png" align="right" height="600" alt="" />
 
-# <img src="man/figures/logo.png" align="right" height="1000" alt="" />
+# <img src="man/figures/logo.png" align="left" height="350" alt="" /> daisugi
 
-## daisugi: not-so-well-known tree machines
+# daisugi: not-so-well-known tree machines
 
 <!-- badges: start -->
 
@@ -23,6 +23,7 @@ novelty trees found within daisugi:
 
 - [ ] Boulevard
 - [x] EBM
+- [ ] evtree
 - [ ] FairGBM
 - [ ] GRANDE
 - [ ] KTBoost
@@ -44,3 +45,13 @@ You can install the development version of daisugi from
 # install.packages("pak")
 pak::pak("frankiethull/daisugi")
 ```
+
+## Further Information
+
+- [glossary of
+  machines](https://frankiethull.github.io/daisugi/articles/glossary.html)
+- [getting
+  started](https://frankiethull.github.io/daisugi/articles/daisugi.html)
+- [package
+  reference](https://frankiethull.github.io/daisugi/reference/index.html)
+- [changelog](https://frankiethull.github.io/daisugi/news/index.html)

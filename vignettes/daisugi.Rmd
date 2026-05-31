@@ -14,6 +14,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+# <img src="getting-started.png" align="right" height="1000" alt="" />
+
 ## Getting Started with daisugi 
 
 daisugi uses (x, y) nomenclature for fitting machines & primarily focus is for classification and regression tasks. to fit a machine, typically these machines are prefixed by `grow_` and to infer with a **grown** machine, one will `harvest_`. 
@@ -131,4 +133,19 @@ natural_trees <- grow_natural_trees(
 )
 
 harvest_natural_trees(natural_trees, x_test) |> head()
+```
+
+
+### energy-based generative boosted trees
+
+NRGBoost ... TBD
+
+```{r}
+# energy_trees <- grow_energy_trees(
+#  x_train,
+#  y_train,
+#  trees = 100L
+# )
+
+# harvest_energy_trees(energy_trees, x_test) |> head()
 ```

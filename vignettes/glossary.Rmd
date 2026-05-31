@@ -19,12 +19,14 @@ library(daisugi)
 ```
 
 # Glossary 
+# <img src="glossary.png" align="right" height="1000" alt="" />
 daisugi is designed as an engine curation metarepo. there are a handful of nomenclature below that will be helpful for navigating the package. all machines are fitted with (x, y) interfaces. the machines are dictated with a prefix verb. Those are listed below: 
 
 ## Keywords
-#### fit machines with: *grow_*
-#### infer machines with: *harvest_*
+#### fit machines with: *`grow_*`*
+#### infer machines with: *`harvest_*`*
 
+*num_rounds, iterations, etc. are mapped to the `trees` argument for each machine.*
 
 ## Machine Information
 
@@ -37,37 +39,44 @@ in addition to the typical reference page, this should be helpful for practition
 ebm <- c(
   "https://interpret.ml/docs/ebm.html",
   "explainable",
-  "each feature speaks alone \n the sum is the whole model \n darkness becomes light"
+  "each feature speaks alone <br> the sum is the whole model <br> darkness becomes light"
+)
+
+natural <- c(
+  "https://github.com/stanfordmlgroup/ngboost",
+  "natural",
+  "not a point, but cloud <br> the natural curve of space <br> to show all outcomes"
 )
 
 perpetual <- c(
   "https://perpetual-ml.github.io/perpetual/",
   "perpetual",
-  "one knob, the budget \n self-generalizing design \n no search, just descent"
+  "one knob, the budget <br> self-generalizing design <br> no search, just descent"
 )
 
 snap <- c(
   "https://ibmsoe.github.io/snap-ml-doc/v1.6.0/manual.html#snapboost",
   "snap",
-  "depth rolls like dice \n decision or linear \n random number tricks"
+  "depth rolls like dice <br> decision or linear <br> random number tricks"
 )
 
 wild <- c(
   "https://github.com/pyensemble/wildwood",
   "wild",
-  "every pruning weighed \n out-of-bag shadows voting \n wilder than the rest"
+  "every pruning weighed <br> out-of-bag shadows voting <br> wildest of all"
 )
 
 yggdrasil <- c(
   "https://github.com/google/yggdrasil-decision-forests",
   "yggdrasil",
-  "sacred trunk rises \n c++ decision trees \n fast quiet giant"
+  "sacred trunk rises <br> c++ decision trees <br> fast quiet giant"
 )
 
 # combine -------------------------------------------
 
 df <- rbind(
   ebm = ebm,
+  natural = natural,
   perpetual = perpetual,
   snap = snap,
   wild = wild,
@@ -82,5 +91,10 @@ df <- as.data.frame(df, stringsAsFactors = FALSE)
 
 
 ```{r}
-knitr::kable(df, format = "simple")
+#| echo: false
+knitr::kable(
+  df,
+  format = "html",
+  escape = FALSE
+)
 ```
