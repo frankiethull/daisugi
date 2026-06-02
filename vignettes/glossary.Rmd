@@ -19,22 +19,51 @@ library(daisugi)
 ```
 
 # Glossary 
-# <img src="glossary.png" align="right" height="1000" alt="" />
-daisugi is designed as an engine curation metarepo. there are a handful of nomenclature below that will be helpful for navigating the package. all machines are fitted with (x, y) interfaces. the machines are dictated with a prefix verb. Those are listed below: 
+<table>
+<tr><td width="58%" valign="top">
 
-## Keywords
-#### fit machines with: *`grow_*`*
-#### infer machines with: *`harvest_*`*
+daisugi is an experimental tree-machine curation repository focused on unconventional forests, probabilistic boosters, interpretable ensembles, and emerging recursive partition systems.
 
-*num_rounds, iterations, etc. are mapped to the `trees` argument for each machine.*
+This glossary acts as:
 
-## Machine Information
+- a machine registry
+- a terminology guide
+- a reference index
+- a research companion
 
-in addition to the typical reference page, this should be helpful for practitioners who would like to dive a bit deeper into the root repos, whitepapers, or other information. 
+Most engines in daisugi expose a lightweight "(x, y)" interface and follow a consistent verb-oriented workflow.
+
+</td><td width="42%" align="right"><img src="glossary.png" height="420"/></td></tr>
+</table>---
+
+## Core Verbs
+
+daisugi standardizes machine workflows through a small set of forestry-inspired verbs.    
+     
+"`grow_*()`": fit or train a machine       
+"`harvest_*()`": generate predictions       
+"`trees"`: unified argument for rounds / iterations / estimators    
+     
+---
+## Machine Registry
+
+The following registry links implemented and planned engines to their originating projects, papers, or repositories. Registy also lists the alias in daisugi as well as a set of haikus for TL/DR referencing. 
 
 ```{r}
 #| include: false
 # list source, alias, haikus ------------------
+
+cforest <- c(
+  "https://partykit.r-forge.r-project.org/partykit/",
+  "conditional",
+  "not gain, but a test <br> the split earns its place through chance <br> bias cannot root"
+)
+
+evtree <- c(
+  "https://cran.r-project.org/web/packages/evtree/index.html",
+  "evolutionary",
+  "natural selection <br> the whole tree evolves at once <br> no greedy shortcuts"
+)
 
 ebm <- c(
   "https://interpret.ml/docs/ebm.html",
@@ -42,7 +71,13 @@ ebm <- c(
   "each feature speaks alone <br> the sum is the whole model <br> darkness becomes light"
 )
 
-natural <- c(
+nrgboost <- c(
+  "https://github.com/ajoo/nrgboost",
+  "energy",
+  "non-discriminative <br> sample all columns with ease <br> no target required"
+)
+
+ngboost <- c(
   "https://github.com/stanfordmlgroup/ngboost",
   "natural",
   "not a point, but cloud <br> the natural curve of space <br> to show all outcomes"
@@ -75,11 +110,14 @@ yggdrasil <- c(
 # combine -------------------------------------------
 
 df <- rbind(
+  cforest = cforest,
   ebm = ebm,
-  natural = natural,
+  evtree = evtree,
+  nrgboost = nrgboost,
+  ngboost = ngboost,
   perpetual = perpetual,
-  snap = snap,
-  wild = wild,
+  snapboost = snap,
+  wildwood = wild,
   yggdrasil = yggdrasil
 )
 

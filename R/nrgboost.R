@@ -16,7 +16,7 @@ grow_energy_trees <- \(
   task = "classification",
   ...
 ) {
-  xy <- cbind(x, 'target' = y)
+  xy <- cbind(x, 'y' = y)
   xy_ds <- daisugi:::.pkg_env$nrgboost$Dataset(xy)
 
   if (task == "classification") {
@@ -49,9 +49,8 @@ grow_energy_trees <- \(
 #'
 #' @export
 harvest_energy_trees <- \(fit, x, ...) {
-  if (is.data.frame(x)) {
-    x <- as.matrix(x)
-  }
+  x$y <- NA
+
   #TODO: probas
-  fit$fit$predict(x, 'target')
+  fit$fit$predict(df = x, col = 'y')
 }
