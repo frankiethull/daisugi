@@ -1,6 +1,6 @@
 Package: daisugi
 Title: Novel Tree Machines for Classification and Regression
-Version: 0.0.4.9000
+Version: 0.0.5.9000
 Authors@R: 
     person("frank", "hull", , "frankiethull@proton.me", role = c("aut", "cre"))
 Description: daisugi provides an interface for not-so-well-known tree machines. 
@@ -21,6 +21,8 @@ VignetteBuilder: knitr
 Depends:
     R (>= 4.1.0)
 Imports: 
+    evtree,
+    partykit,
     reticulate
 URL: https://frankiethull.github.io/daisugi/, https://github.com/frankiethull/daisugi
 BugReports: https://github.com/frankiethull/daisugi/issues

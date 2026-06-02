@@ -5,6 +5,20 @@
     - predict with `harvest_kernel_trees`
     - each boosting iteration chooses either tree or RKHS regression 
 
+# daisugi 0.0.5 
+* improve documentation
+
+* add support for **cforest**
+    - fit with `grow_conditional_trees`
+    - predict with `harvest_conditional_trees`
+    - a ctree: "statistical approach [to recursive partitioning] which takes into account the distributional properties of the measures"
+        - cforest is a bagging ensemble of ctrees
+
+* add support for **evtree**
+    - fit with `grow_evolutionary_trees`
+    - predict with `harvest_evolutionary_trees`
+    - genetic tree optimization technique
+
 * add support for **NRGBoost**
     - fit with `grow_energy_trees`
     - predict with `harvest_energy_trees`
@@ -32,7 +46,6 @@
     - a 'glassbox' novel gam boosting machine
 
 # daisugi 0.0.2
-
 * added support for **WildWood**
     - fit with `grow_wild_trees`
     - predict with `harvest_wild_trees`
@@ -44,7 +57,6 @@
     - a budget-based autoML-type tree machine
 
 # daisugi 0.0.1
-
 * added support for **Yggdrasil Decision Forest**
     - fit with `grow_yggdrasil_trees`
     - predict with `harvest_yggdrasil_trees`
