@@ -23,6 +23,8 @@ Depends:
 Imports: 
     evtree,
     partykit,
-    reticulate
+    reticulate,
+    rpart,
+    treeClust
 URL: https://frankiethull.github.io/daisugi/, https://github.com/frankiethull/daisugi
 BugReports: https://github.com/frankiethull/daisugi/issues
