@@ -1,9 +1,27 @@
 # daisugi (development)
 
+* add support for **GRANDE**
+    - fit with `grow_grande_trees`
+    - predict with `harvest_grande_trees`
+    - a fairness-aware gradient boosting machine.
+        - requires a "sensitivity" contraint group for training. 
+
+* add support for **FairGBM**
+    - fit with `grow_fair_trees`
+    - predict with `harvest_fair_trees`
+    - a fairness-aware gradient boosting machine.
+        - requires a "sensitivity" contraint group for training. 
+
 * add support for **KTBoost**
     - fit with `grow_kernel_trees`
     - predict with `harvest_kernel_trees`
     - each boosting iteration chooses either tree or RKHS regression 
+
+# daisugi 0.0.6
+ * add support for **Boulevard**
+    - fit with `grow_boulevard_trees`
+    - predict with `harvest_boulevard_trees`
+    - "Regularized Stochastic Gradient Boosted Trees and Their Limiting Distribution"
 
 # daisugi 0.0.5 
 * improve documentation
@@ -37,7 +55,6 @@
     - `glossary.Rmd`
         - a note on machines & nomenclature 
 * added images for vignettes and README documentation
-
 
 # daisugi 0.0.3
 * added support for **EBMs**
