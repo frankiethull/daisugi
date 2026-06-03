@@ -2,4 +2,4 @@ url: https://frankiethull.github.io/daisugi/
 template:
   bslib:
     version: 5
-    brand: brand/_brand.yml
+#    brand: _brand.yml

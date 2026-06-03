@@ -53,6 +53,12 @@ The following registry links implemented engines to their originating projects, 
 #| include: false
 # list source, alias, haikus ------------------
 
+boulevard <- c(
+  "https://github.com/siriuz42/boulevard",
+  "boulevard",
+  "boosted trees converge <br> where the kernel always knew <br> the road was a proof"
+)
+
 cforest <- c(
   "https://partykit.r-forge.r-project.org/partykit/",
   "conditional",
@@ -110,6 +116,7 @@ yggdrasil <- c(
 # combine -------------------------------------------
 
 df <- rbind(
+  boulevard = boulevard,
   cforest = cforest,
   ebm = ebm,
   evtree = evtree,
@@ -121,7 +128,7 @@ df <- rbind(
   yggdrasil = yggdrasil
 )
 
-colnames(df) <- c("docsource", "alias", "haiku")
+colnames(df) <- c("link", "alias", "haiku")
 
 df <- as.data.frame(df, stringsAsFactors = FALSE)
 ```
@@ -136,3 +143,18 @@ knitr::kable(
   escape = FALSE
 )
 ```
+
+## Supported Tasks 
+
+| Machine | Classification | Regression |
+| --- | --- | --- |
+| Boulevard | ✅ | ❌ |
+| Conditional Trees | ✅ | ✅ |
+| EBM | ✅ | ✅ |
+| Evolutionary Trees | ✅ | ✅ |
+| NGBoost | ✅ | ✅ |
+| NRGBoost | ✅ | ✅ |
+| Perpetual | ✅ | ✅ |
+| SnapBoost | ✅ | ✅ |
+| WildWood | ✅ | ✅ |
+| Yggdrasil | ✅ | ✅ |
