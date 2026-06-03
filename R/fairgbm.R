@@ -1,17 +1,19 @@
-#' Grow kernel-Based Generative Trees
+#' Grow Fair Trees
 #'
 #' @param x a data X
 #' @param y a data Y
+#' @param s a contraint group sensitivity for fairness
 #' @param task a task
 #' @param trees num of trees
 #' @param ... other eng args
 #'
-#' @returns a fitted model
+#' @returns a fitted fairgbm model
 #'
 #' @export
-grow_kernel_trees <- \(
+grow_fair_trees <- \(
   x,
   y,
+  s,
   trees = 100L,
   task = "classification",
   ...
@@ -23,48 +25,47 @@ grow_kernel_trees <- \(
     y <- as.integer(y) - 1L
   }
   if (!is.array(y)) {
-    y <- as.array(y)
+    y <- as.numeric(as.array(y))
+  }
+  if (is.factor(s)) {
+    s <- as.numeric(as.integer(s) - 1L)
+  }
+  if (!is.array(s)) {
+    s <- as.array(s)
   }
 
   if (task == "classification") {
-    KTBoost <- daisugi:::.pkg_env$KTBoost$KTBoost$BoostingClassifier(
+    fair <- daisugi:::.pkg_env$fairgbm$FairGBMClassifier(
       n_estimators = trees,
-      loss = 'deviance',
-      base_learner = 'combined',
-      update_step = 'newton',
-      theta = 1,
       ...
     )
   } else if (task == "regression") {
-    KTBoost <- daisugi:::.pkg_env$KTBoost$KTBoost$BoostingRegressor(
+    fair <- daisugi:::.pkg_env$fairgbm$FairGBMRegressor(
       n_estimators = trees,
-      loss = 'ls', # or msr
-      base_learner = 'combined',
-      theta = 1,
       ...
     )
   }
 
-  model <- KTBoost$fit(x, y)
+  model <- fair$fit(x, y, constraint_group = s)
 
   ret <- list(fit = model)
 
-  class(ret) <- c("daisugi_kernel_mother", class(ret))
+  class(ret) <- c("daisugi_fair_mother", class(ret))
 
   ret
 }
 
 
-#' Harvest kernel-Based Generative Trees
+#' Harvest Fair Trees
 #'
-#' @param fit a fitted KTboost model
+#' @param fit a fitted fairgbm model
 #' @param x a set of predictors
 #' @param ... placeholder
 #'
 #' @returns predictions
 #'
 #' @export
-harvest_kernel_trees <- \(fit, x, ...) {
+harvest_fair_trees <- \(fit, x, ...) {
   if (is.data.frame(x)) {
     x <- as.matrix(x)
   }

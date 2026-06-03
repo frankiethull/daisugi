@@ -8,4 +8,4 @@
 ^docs$
 ^pkgdown$
 ^\.github$
-^_brand\.yml$
+# ^_brand\.yml$

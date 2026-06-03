@@ -1,4 +1,4 @@
-#' Grow kernel-Based Generative Trees
+#' Grow Morph Trees
 #'
 #' @param x a data X
 #' @param y a data Y
@@ -9,7 +9,7 @@
 #' @returns a fitted model
 #'
 #' @export
-grow_kernel_trees <- \(
+grow_morph_trees <- \(
   x,
   y,
   trees = 100L,
@@ -27,44 +27,37 @@ grow_kernel_trees <- \(
   }
 
   if (task == "classification") {
-    KTBoost <- daisugi:::.pkg_env$KTBoost$KTBoost$BoostingClassifier(
+    morph <- daisugi:::.pkg_env$morph$MorphBoost(
       n_estimators = trees,
-      loss = 'deviance',
-      base_learner = 'combined',
-      update_step = 'newton',
-      theta = 1,
       ...
     )
   } else if (task == "regression") {
-    KTBoost <- daisugi:::.pkg_env$KTBoost$KTBoost$BoostingRegressor(
+    morph <- daisugi:::.pkg_env$morph$MorphBoost(
       n_estimators = trees,
-      loss = 'ls', # or msr
-      base_learner = 'combined',
-      theta = 1,
       ...
     )
   }
 
-  model <- KTBoost$fit(x, y)
+  model <- morph$fit(x, y)
 
   ret <- list(fit = model)
 
-  class(ret) <- c("daisugi_kernel_mother", class(ret))
+  class(ret) <- c("daisugi_morph_mother", class(ret))
 
   ret
 }
 
 
-#' Harvest kernel-Based Generative Trees
+#' Harvest Morph Trees
 #'
-#' @param fit a fitted KTboost model
+#' @param fit a fitted morphboost model
 #' @param x a set of predictors
 #' @param ... placeholder
 #'
 #' @returns predictions
 #'
 #' @export
-harvest_kernel_trees <- \(fit, x, ...) {
+harvest_morph_trees <- \(fit, x, ...) {
   if (is.data.frame(x)) {
     x <- as.matrix(x)
   }
