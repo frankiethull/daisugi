@@ -51,23 +51,23 @@ packages or through tidymodels infrastructure.
 
 ## Included Machines v0.0.5
 
-| Status | Algorithm          | Focus                           |
-|--------|--------------------|---------------------------------|
-| 🚧     | Boulevard          | stochastic gradient boosting    |
-| ✅     | Conditional Trees  | unbiased recursive partitioning |
-| ✅     | EBM                | interpretable additive boosting |
-| ✅     | Evolutionary Trees | genetic tree optimization       |
-| 🚧     | FairGBM            | fairness-aware boosting         |
-| 🚧     | GRANDE             | differentiable tree ensembles   |
-| 🚧     | KTBoost            | kernel-tree hybrid boosting     |
-| 🚧     | MorphBoost         | adaptive boosting structures    |
-| 🚧     | MSBoost            | multi-stage boosting            |
-| ✅     | NGBoost            | probabilistic prediction        |
-| ✅     | NRGBoost           | natural gradient boosting       |
-| ✅     | Perpetual          | continual tree learning         |
-| ✅     | SnapBoost          | heterogeneous boosting systems  |
-| ✅     | WildWood           | randomized online forests       |
-| ✅     | Yggdrasil          | scalable tree ecosystems        |
+| Status | Algorithm          | Focus                            |
+|--------|--------------------|----------------------------------|
+| ✅     | Boulevard          | stochastic gradient boosting     |
+| ✅     | Conditional Trees  | unbiased recursive partitioning  |
+| ✅     | EBM                | interpretable additive boosting  |
+| ✅     | Evolutionary Trees | genetic tree optimization        |
+| 🚧     | FairGBM            | fairness-aware boosting          |
+| 🚧     | GRANDE             | differentiable tree ensembles    |
+| 🚧     | KTBoost            | kernel-tree hybrid boosting      |
+| 🚧     | MorphBoost         | adaptive boosting structures     |
+| 🚧     | MSBoost            | multi-stage boosting             |
+| ✅     | NGBoost            | natural gradient prediction      |
+| ✅     | NRGBoost           | energy-based generative boosting |
+| ✅     | Perpetual          | continual tree learning          |
+| ✅     | SnapBoost          | heterogeneous boosting systems   |
+| ✅     | WildWood           | randomized online forests        |
+| ✅     | Yggdrasil          | scalable tree ecosystems         |
 
 ------------------------------------------------------------------------
 
@@ -117,12 +117,14 @@ y = iris$Species
 harvest_yggdrasil_trees(model, iris[, 1:4])
 ```
 
-## Documentation
+## Further Documentation
 
-- [Getting
+- [Get
   Started](https://frankiethull.github.io/daisugi/articles/daisugi.html)
-- [Glossary of
-  Machines](https://frankiethull.github.io/daisugi/articles/glossary.html)
-- [Package
-  Reference](https://frankiethull.github.io/daisugi/reference/index.html)
-- [Changelog](https://frankiethull.github.io/daisugi/news/index.html)
+  with a Classification Task
+- Learn more about daisugi via the
+  [Glossary.](https://frankiethull.github.io/daisugi/articles/glossary.html)
+- A full list of models & their methods can be found in the [Package
+  Index](https://frankiethull.github.io/daisugi/reference/index.html)
+- Notes on each verstion at the
+  [Changelog](https://frankiethull.github.io/daisugi/news/index.html)

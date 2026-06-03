@@ -41,7 +41,7 @@ Popular libraries such as XGBoost, LightGBM, and CatBoost are intentionally excl
 
 | Status | Algorithm | Focus |
 | --- | --- | --- |
-| 🚧 | Boulevard | stochastic gradient boosting |
+| ✅ | Boulevard | stochastic gradient boosting |
 | ✅ | Conditional Trees | unbiased recursive partitioning |
 | ✅ | EBM | interpretable additive boosting |
 | ✅ | Evolutionary Trees | genetic tree optimization |
@@ -50,8 +50,8 @@ Popular libraries such as XGBoost, LightGBM, and CatBoost are intentionally excl
 | 🚧 | KTBoost | kernel-tree hybrid boosting |
 | 🚧 | MorphBoost | adaptive boosting structures |
 | 🚧 | MSBoost | multi-stage boosting |
-| ✅ | NGBoost | probabilistic prediction |
-| ✅ | NRGBoost | natural gradient boosting |
+| ✅ | NGBoost | natural gradient prediction |
+| ✅ | NRGBoost | energy-based generative boosting |
 | ✅ | Perpetual | continual tree learning |
 | ✅ | SnapBoost | heterogeneous boosting systems |
 | ✅ | WildWood | randomized online forests |
@@ -102,9 +102,9 @@ y = iris$Species
 harvest_yggdrasil_trees(model, iris[, 1:4])
 ```
 
-## Documentation
+## Further Documentation
 
-- [Getting Started](https://frankiethull.github.io/daisugi/articles/daisugi.html)
-- [Glossary of Machines](https://frankiethull.github.io/daisugi/articles/glossary.html)
-- [Package Reference](https://frankiethull.github.io/daisugi/reference/index.html)
-- [Changelog](https://frankiethull.github.io/daisugi/news/index.html)
+- [Get Started](https://frankiethull.github.io/daisugi/articles/daisugi.html) with a Classification Task
+- Learn more about daisugi via the [Glossary.](https://frankiethull.github.io/daisugi/articles/glossary.html)
+- A full list of models & their methods can be found in the [Package Index](https://frankiethull.github.io/daisugi/reference/index.html)
+- Notes on each verstion at the [Changelog](https://frankiethull.github.io/daisugi/news/index.html)

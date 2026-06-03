@@ -47,7 +47,7 @@ daisugi standardizes machine workflows through a small set of forestry-inspired 
 ---
 ## Machine Registry
 
-The following registry links implemented and planned engines to their originating projects, papers, or repositories. Registy also lists the alias in daisugi as well as a set of haikus for TL/DR referencing. 
+The following registry links implemented engines to their originating projects, papers, or repositories. Registy also lists the alias in daisugi as well as a set of haikus for TL/DR referencing. 
 
 ```{r}
 #| include: false
