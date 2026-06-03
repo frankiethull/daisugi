@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">daisugi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.6.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,6 +24,7 @@
 <li class="active nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/frankiethull/daisugi/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
 
@@ -32,9 +33,72 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Changelog</h1>
-
+      <small>Source: <a href="https://github.com/frankiethull/daisugi/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.0.6" id="daisugi-006">daisugi 0.0.6<a class="anchor" aria-label="anchor" href="#daisugi-006"></a></h2>
+<ul><li>add support for <strong>Boulevard</strong>
+<ul><li>fit with <code>grow_boulevard_trees</code>
+</li>
+<li>predict with <code>harvest_boulevard_trees</code>
+</li>
+<li>“Regularized Stochastic Gradient Boosted Trees and Their Limiting Distribution”</li>
+</ul></li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.0.5" id="daisugi-005">daisugi 0.0.5<a class="anchor" aria-label="anchor" href="#daisugi-005"></a></h2>
+<ul><li><p>improve documentation</p></li>
+<li>
+<p>add support for <strong>cforest</strong></p>
+<ul><li>fit with <code>grow_conditional_trees</code>
+</li>
+<li>predict with <code>harvest_conditional_trees</code>
+</li>
+<li>a ctree: “statistical approach [to recursive partitioning] which takes into account the distributional properties of the measures”
+<ul><li>cforest is a bagging ensemble of ctrees</li>
+</ul></li>
+</ul></li>
+<li>
+<p>add support for <strong>evtree</strong></p>
+<ul><li>fit with <code>grow_evolutionary_trees</code>
+</li>
+<li>predict with <code>harvest_evolutionary_trees</code>
+</li>
+<li>genetic tree optimization technique</li>
+</ul></li>
+<li>
+<p>add support for <strong>NRGBoost</strong></p>
+<ul><li>fit with <code>grow_energy_trees</code>
+</li>
+<li>predict with <code>harvest_energy_trees</code>
+</li>
+<li>a tree-based generative algorithm for tabular data
+<ul><li>“Unlike discriminative methods, NRGBoost can be used to predict any column in the data, not just a specific”target” column.”</li>
+</ul></li>
+</ul></li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.0.4" id="daisugi-004">daisugi 0.0.4<a class="anchor" aria-label="anchor" href="#daisugi-004"></a></h2>
+<ul><li>added support for <strong>NGBoost</strong>
+<ul><li>fit with <code>grow_natural_trees</code>
+</li>
+<li>predict with <code>harvest_natural_trees</code>
+</li>
+<li>a natural gradient booster from Stanford ML Group</li>
+</ul></li>
+<li>added documentation for package.
+<ul><li>
+<code>daisugi.Rmd</code>
+<ul><li>getting started vignette</li>
+</ul></li>
+<li>
+<code>glossary.Rmd</code>
+<ul><li>a note on machines &amp; nomenclature</li>
+</ul></li>
+</ul></li>
+<li>added images for vignettes and README documentation</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.0.3" id="daisugi-003">daisugi 0.0.3<a class="anchor" aria-label="anchor" href="#daisugi-003"></a></h2>
 <ul><li>added support for <strong>EBMs</strong>

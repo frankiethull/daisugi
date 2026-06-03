@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">daisugi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.6.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,6 +43,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/frankiethull/daisugi/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -58,7 +59,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>glossary</h1>
             
       
-
+      <small class="dont-index">Source: <a href="https://github.com/frankiethull/daisugi/blob/main/vignettes/glossary.Rmd" class="external-link"><code>vignettes/glossary.Rmd</code></a></small>
       <div class="d-none name"><code>glossary.Rmd</code></div>
     </div>
 
@@ -69,127 +70,189 @@
 <div class="section level2">
 <h2 id="glossary">Glossary<a class="anchor" aria-label="anchor" href="#glossary"></a>
 </h2>
-<p>daisugi is designed as an engine curation metarepo. there are a
-handful of nomenclature below that will be helpful for navigating the
-package. all machines are fitted with (x, y) interfaces. the machines
-are dictated with a prefix verb. Those are listed below:</p>
+<table class="table"><tr>
+<td width="58%" valign="top">
+<p>daisugi is an experimental tree-machine curation repository focused
+on unconventional forests, probabilistic boosters, interpretable
+ensembles, and emerging recursive partition systems.</p>
+<p>This glossary acts as:</p>
+<ul>
+<li>a machine registry</li>
+<li>a terminology guide</li>
+<li>a reference index</li>
+<li>a research companion</li>
+</ul>
+<p>Most engines in daisugi expose a lightweight “(x, y)” interface and
+follow a consistent verb-oriented workflow.</p>
+</td>
+<td width="42%" align="right">
+<img src="glossary.png" height="420">
+</td>
+</tr></table>
+<hr>
 <div class="section level3">
-<h3 id="keywords">Keywords<a class="anchor" aria-label="anchor" href="#keywords"></a>
+<h3 id="core-verbs">Core Verbs<a class="anchor" aria-label="anchor" href="#core-verbs"></a>
 </h3>
-<div class="section level5">
-<h5 id="fit-machines-with-grow_">fit machines with: <em>grow_</em><a class="anchor" aria-label="anchor" href="#fit-machines-with-grow_"></a>
-</h5>
-</div>
-<div class="section level5">
-<h5 id="infer-machines-with-harvest_">infer machines with: <em>harvest_</em><a class="anchor" aria-label="anchor" href="#infer-machines-with-harvest_"></a>
-</h5>
-</div>
+<p>daisugi standardizes machine workflows through a small set of
+forestry-inspired verbs.</p>
+<p>“<code>grow_*()</code>”: fit or train a machine<br>
+“<code>harvest_*()</code>”: generate predictions<br>
+“<code>trees"</code>: unified argument for rounds / iterations /
+estimators</p>
+<hr>
 </div>
 <div class="section level3">
-<h3 id="machine-information">Machine Information<a class="anchor" aria-label="anchor" href="#machine-information"></a>
+<h3 id="machine-registry">Machine Registry<a class="anchor" aria-label="anchor" href="#machine-registry"></a>
 </h3>
-<p>in addition to the typical reference page, this should be helpful for
-practitioners who would like to dive a bit deeper into the root repos,
-whitepapers, or other information.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">df</span>, format <span class="op">=</span> <span class="st">"simple"</span><span class="op">)</span></span></code></pre></div>
+<p>The following registry links implemented and planned engines to their
+originating projects, papers, or repositories. Registy also lists the
+alias in daisugi as well as a set of haikus for TL/DR referencing.</p>
 <table class="table">
-<thead><tr class="header">
-<th></th>
-<th align="left">docsource</th>
-<th align="left">alias</th>
-<th align="left">haiku</th>
+<thead><tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+docsource
+</th>
+<th style="text-align:left;">
+alias
+</th>
+<th style="text-align:left;">
+haiku
+</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
-<td>ebm</td>
-<td align="left"><a href="https://interpret.ml/docs/ebm.html" class="external-link uri">https://interpret.ml/docs/ebm.html</a></td>
-<td align="left">explainable</td>
-<td align="left">each feature speaks alone</td>
+<tr>
+<td style="text-align:left;">
+cforest
+</td>
+<td style="text-align:left;">
+<a href="https://partykit.r-forge.r-project.org/partykit/" class="external-link uri">https://partykit.r-forge.r-project.org/partykit/</a>
+</td>
+<td style="text-align:left;">
+conditional
+</td>
+<td style="text-align:left;">
+not gain, but a test <br> the split earns its place through chance <br>
+bias cannot root
+</td>
 </tr>
-<tr class="even">
-<td>the sum is</td>
-<td align="left">the whole model</td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+ebm
+</td>
+<td style="text-align:left;">
+<a href="https://interpret.ml/docs/ebm.html" class="external-link uri">https://interpret.ml/docs/ebm.html</a>
+</td>
+<td style="text-align:left;">
+explainable
+</td>
+<td style="text-align:left;">
+each feature speaks alone <br> the sum is the whole model <br> darkness
+becomes light
+</td>
 </tr>
-<tr class="odd">
-<td>darkness be</td>
-<td align="left">comes light</td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+evtree
+</td>
+<td style="text-align:left;">
+<a href="https://cran.r-project.org/web/packages/evtree/index.html" class="external-link uri">https://cran.r-project.org/web/packages/evtree/index.html</a>
+</td>
+<td style="text-align:left;">
+evolutionary
+</td>
+<td style="text-align:left;">
+natural selection <br> the whole tree evolves at once <br> no greedy
+shortcuts
+</td>
 </tr>
-<tr class="even">
-<td>perpetual</td>
-<td align="left"><a href="https://perpetual-ml.github.io/perpetual/" class="external-link uri">https://perpetual-ml.github.io/perpetual/</a></td>
-<td align="left">perpetual</td>
-<td align="left">one knob, the budget</td>
+<tr>
+<td style="text-align:left;">
+nrgboost
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/ajoo/nrgboost" class="external-link uri">https://github.com/ajoo/nrgboost</a>
+</td>
+<td style="text-align:left;">
+energy
+</td>
+<td style="text-align:left;">
+non-discriminative <br> sample all columns with ease <br> no target
+required
+</td>
 </tr>
-<tr class="odd">
-<td>self-genera</td>
-<td align="left">lizing design</td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+ngboost
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/stanfordmlgroup/ngboost" class="external-link uri">https://github.com/stanfordmlgroup/ngboost</a>
+</td>
+<td style="text-align:left;">
+natural
+</td>
+<td style="text-align:left;">
+not a point, but cloud <br> the natural curve of space <br> to show all
+outcomes
+</td>
 </tr>
-<tr class="even">
-<td>no search,</td>
-<td align="left">just descent</td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+perpetual
+</td>
+<td style="text-align:left;">
+<a href="https://perpetual-ml.github.io/perpetual/" class="external-link uri">https://perpetual-ml.github.io/perpetual/</a>
+</td>
+<td style="text-align:left;">
+perpetual
+</td>
+<td style="text-align:left;">
+one knob, the budget <br> self-generalizing design <br> no search, just
+descent
+</td>
 </tr>
-<tr class="odd">
-<td>snap</td>
-<td align="left"><a href="https://ibmsoe.github.io/snap-ml-doc/v1.6.0/manual.html#snapboost" class="external-link uri">https://ibmsoe.github.io/snap-ml-doc/v1.6.0/manual.html#snapboost</a></td>
-<td align="left">snap</td>
-<td align="left">depth rolls like dice</td>
+<tr>
+<td style="text-align:left;">
+snapboost
+</td>
+<td style="text-align:left;">
+<a href="https://ibmsoe.github.io/snap-ml-doc/v1.6.0/manual.html#snapboost" class="external-link uri">https://ibmsoe.github.io/snap-ml-doc/v1.6.0/manual.html#snapboost</a>
+</td>
+<td style="text-align:left;">
+snap
+</td>
+<td style="text-align:left;">
+depth rolls like dice <br> decision or linear <br> random number tricks
+</td>
 </tr>
-<tr class="even">
-<td>decision or</td>
-<td align="left">linear</td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+wildwood
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/pyensemble/wildwood" class="external-link uri">https://github.com/pyensemble/wildwood</a>
+</td>
+<td style="text-align:left;">
+wild
+</td>
+<td style="text-align:left;">
+every pruning weighed <br> out-of-bag shadows voting <br> wildest of all
+</td>
 </tr>
-<tr class="odd">
-<td>random numb</td>
-<td align="left">er tricks</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td>wild</td>
-<td align="left"><a href="https://github.com/pyensemble/wildwood" class="external-link uri">https://github.com/pyensemble/wildwood</a></td>
-<td align="left">wild</td>
-<td align="left">every pruning weighed</td>
-</tr>
-<tr class="odd">
-<td>out-of-bag</td>
-<td align="left">shadows voting</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td>wilder than</td>
-<td align="left">the rest</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td>yggdrasil</td>
-<td align="left"><a href="https://github.com/google/yggdrasil-decision-forests" class="external-link uri">https://github.com/google/yggdrasil-decision-forests</a></td>
-<td align="left">yggdrasil</td>
-<td align="left">sacred trunk rises</td>
-</tr>
-<tr class="even">
-<td>c++ decisio</td>
-<td align="left">n trees</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td>fast quiet</td>
-<td align="left">giant</td>
-<td align="left"></td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+yggdrasil
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/google/yggdrasil-decision-forests" class="external-link uri">https://github.com/google/yggdrasil-decision-forests</a>
+</td>
+<td style="text-align:left;">
+yggdrasil
+</td>
+<td style="text-align:left;">
+sacred trunk rises <br> c++ decision trees <br> fast quiet giant
+</td>
 </tr>
 </tbody>
 </table>

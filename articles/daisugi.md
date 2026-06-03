@@ -1,11 +1,18 @@
 # daisugi
 
-## Getting Started with daisugi
+[TABLE]
 
-daisugi uses (x, y) nomenclature for fitting machines & primarily focus
-is for classification and regression tasks. to fit a machine, typically
-these machines are prefixed by `grow_` and to infer with a **grown**
-machine, one will `harvest_`.
+### Workflow Overview
+
+A typical daisugi workflow:
+
+1.  prepare predictors and targets
+2.  grow a machine
+3.  harvest predictions
+4.  evaluate externally using your preferred tooling
+
+daisugi intentionally avoids imposing a modeling framework and instead
+focuses on exposing novel algorithms through a lightweight interface.
 
 ### A Classification Task
 
@@ -13,11 +20,14 @@ showcasing how to use daisugi for classification. our dataset comes from
 forested, a tabular data repo which lists forest attributes & whether an
 area is “forested” or “non-forested”.
 
+#### Prepare Dataset
+
 ``` r
 
 library(daisugi)
 library(forested)
 library(rsample)
+set.seed(5311)
 
 # defining splits for training and testing datasets
 splits <- rsample::initial_split(forested::forested)
@@ -40,46 +50,58 @@ x_test <- testing |>
 y_test <- testing |> dplyr::select(forested) |> dplyr::pull()
 
 head(y_test)
-#> [1] Yes Yes Yes Yes No  No 
+#> [1] No  Yes Yes Yes Yes Yes
 #> Levels: Yes No
 ```
 
-#### yggdrasil decision forests
+### yggdrasil decision forests
 
-YDF provides various methods such as boosters, decisions, forests. what
-is unique is the a oblique random split technique. daisugi provides the
-boosted method with yggdrasil.
+Yggdrasil Decision Forests (YDF) is Google’s high-performance tree
+ecosystem supporting gradient boosted trees, random forests, and
+specialized split strategies.
+
+The implementation exposed through daisugi emphasizes:
+
+- oblique random splits
+- scalable forest construction
+- modern decision forest infrastructure
 
 ``` r
 
 ydf_trees <- grow_yggdrasil_trees(
   x_train,
   y_train,
-  trees = 20L
+  trees = 5L
 )
 #> Downloading uv...Done!
 #> Train model on 5330 examples
-#> Model trained in 0:00:00.138209
+#> Model trained in 0:00:00.040509
 
 harvest_yggdrasil_trees(ydf_trees, x_test) |> head()
-#> [1] "Yes" "Yes" "Yes" "Yes" "No"  "No"
+#> [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"
 ```
 
 ### snap boosting machines
 
-SnapML is a IBM ML repository. within it, contains various ML engines,
-including their own implementation called SnapBoost. SnapBoost differs
-from XGBoost by using Heterogeneous Newton Boosting. In addition, for
-each iteration, SnapBoost method randomly chooses whether to use a
-decision tree with variable depth or a linear regressor with random
-fourier features.
+SnapBoost originates from IBM’s Snap ML ecosystem.
+
+Unlike traditional gradient boosting systems, SnapBoost uses
+heterogeneous Newton boosting where each iteration may alternate
+between:
+
+- decision trees
+- linear regressors
+- random Fourier feature approximators
+
+This creates a hybrid ensemble structure rather than a purely tree-based
+booster.
 
 ``` r
 
 snap_trees <- grow_snap_trees(
   x_train,
   y_train,
-  trees = 10L
+  trees = 5L
 )
 
 harvest_snap_trees(snap_trees, x_test) |> head()
@@ -88,10 +110,17 @@ harvest_snap_trees(snap_trees, x_test) |> head()
 
 ### perpetual
 
-Perpetual is a budget-based boosting methodology. perpetual is designed
-to be a drop-in automl-like booster that does not require hyperparameter
-optimization. The idea being, a user can increase the budget, the
-‘predictive power’ parameter, until loss plateaus.
+Perpetual is a budget-driven boosting methodology designed around
+adaptive predictive scaling rather than extensive hyperparameter tuning.
+
+The core idea is:
+
+- increase predictive budget
+- monitor loss stabilization
+- stop when improvement plateaus
+
+This creates an AutoML-like boosting workflow with minimal tuning
+overhead.
 
 ``` r
 
@@ -101,63 +130,144 @@ perpetual_trees <- grow_perpetual_trees(
 )
 
 harvest_perpetual_trees(perpetual_trees, x_test) |> head()
-#> [1] 0 0 0 0 1 1
+#> [1] 0 0 0 0 0 0
 ```
 
 ### wildwood
 
-WildWood is a *new (2021)* & *advanced* random forest algorithm. …
-“predictions produced by WildWood are an aggregation with exponential
-weights (computed on out-of-bag samples) of the predictions given by all
-the possible prunings of each tree.” which differs from a standard
-random forest.
+WildWood is an advanced probabilistic random forest algorithm
+emphasizing aggregation over multiple possible tree prunings.
+
+Unlike standard random forests, WildWood combines:
+
+- randomized forests
+- exponential weighting
+- out-of-bag pruning aggregation
+
+This produces highly adaptive ensemble behavior.
 
 ``` r
 
 wild_trees <- grow_wild_trees(
   x_train,
   y_train,
-  trees = 10L
+  trees = 5L
 )
 
 harvest_wild_trees(wild_trees, x_test) |> head()
-#> [1] "Yes" "Yes" "Yes" "Yes" "No"  "No"
+#> [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"
 ```
 
 ### explainable boosting machines
 
-“Explainable Boosting Machine (EBM) is a tree-based, cyclic gradient
-boosting Generalized Additive Model with automatic interaction
-detection.” EBMs are considered ‘glassbox’ as they are easier to
-interpret, more effective than traditional GAMS, and “…often as accurate
-as SOTA blackbox models” while maintaining interpetability.
+Explainable Boosting Machines (EBMs) are interpretable generalized
+additive boosting systems developed by Microsoft’s InterpretML project.
+
+EBMs aim to balance:
+
+- predictive performance
+- transparency
+- interaction discovery
+- human interpretability
+
+They are often considered “glassbox” models because their learned
+structure remains directly inspectable.
 
 ``` r
 
 explainable_trees <- grow_explainable_trees(
   x_train,
   y_train,
-  trees = 100L
+  trees = 5L
 )
 
 harvest_explainable_trees(wild_trees, x_test) |> head()
-#> [1] "Yes" "Yes" "Yes" "Yes" "No"  "No"
+#> [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"
 ```
 
 ### natural gradient boosting machines
 
-NGBoost from Stanford ML Group. bringing uncertainty and probabilistic
-estimation to gradient boosting.
+NGBoost introduces probabilistic prediction into gradient boosting
+systems.
+
+Rather than predicting only point estimates, NGBoost models predictive
+distributions directly using natural gradients.
+
+This enables:
+
+- uncertainty estimation
+- probabilistic forecasting
+- calibrated predictive intervals
 
 ``` r
 
 natural_trees <- grow_natural_trees(
   x_train,
   y_train,
-  trees = 100L
+  trees = 5L
 )
-#> [iter 0] loss=0.6887 val_loss=0.0000 scale=4.0000 norm=8.0000
+#> [iter 0] loss=0.6879 val_loss=0.0000 scale=4.0000 norm=8.0000
 
 harvest_natural_trees(natural_trees, x_test) |> head()
-#> [1] 0 0 0 0 1 1
+#> [1] 0 0 0 0 0 0
+```
+
+### energy-based generative boosted trees
+
+NRGBoost is an energy-based generative boosting algorithm. The design
+does not require a target(y) variable but this logic is added for
+daisugi for ease-of-use.
+
+``` r
+
+energy_trees <- grow_energy_trees(
+  x_train,
+  y_train |> as.integer() - 1,
+  trees = 5L
+)
+
+harvest_energy_trees(energy_trees, x_test) |> head()
+#> [1] 0.07814176 0.45390831 0.05710839 0.45356610 0.05710839 0.05710839
+
+# fun fact: NRG can draw samples: energy_trees$fit$sample(5L)
+```
+
+### evolutionary trees
+
+Evolutionary Trees comes from {evtree} R package. Which involves
+evolutionary learning of global optimal trees for both classification
+and regression.
+
+``` r
+
+evolutionary_trees <- grow_evolutionary_trees(
+  x_train,
+  y_train,
+  trees = 10L
+)
+
+harvest_evolutionary_trees(evolutionary_trees, x_test) |> head()
+#>   1   2   3   4   5   6 
+#> Yes Yes Yes Yes Yes Yes 
+#> Levels: Yes No
+```
+
+### conditional trees
+
+Conditional Trees (a conditional forest) are ported from the
+{partykit::cforest} implementation. cforest is a bagging algorithm for
+the ctree p-value tree-based algorithm.
+
+``` r
+
+conditional_trees <- grow_conditional_trees(
+  x_train,
+  y_train,
+  trees = 10L
+)
+
+harvest_conditional_trees(conditional_trees, x_test) |> head()
+#>   1   2   3   4   5   6 
+#> Yes Yes Yes Yes Yes Yes 
+#> Levels: Yes No
 ```

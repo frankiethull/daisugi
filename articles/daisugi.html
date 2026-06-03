@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">daisugi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.6.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,6 +43,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/frankiethull/daisugi/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -58,30 +59,62 @@
       <img src="../logo.png" class="logo" alt=""><h1>daisugi</h1>
             
       
-
+      <small class="dont-index">Source: <a href="https://github.com/frankiethull/daisugi/blob/main/vignettes/daisugi.Rmd" class="external-link"><code>vignettes/daisugi.Rmd</code></a></small>
       <div class="d-none name"><code>daisugi.Rmd</code></div>
     </div>
 
     
     
+<table class="table"><tr>
+<td width="58%" valign="top">
 <div class="section level2">
 <h2 id="getting-started-with-daisugi">Getting Started with daisugi<a class="anchor" aria-label="anchor" href="#getting-started-with-daisugi"></a>
 </h2>
-<p>daisugi uses (x, y) nomenclature for fitting machines &amp; primarily
-focus is for classification and regression tasks. to fit a machine,
-typically these machines are prefixed by <code>grow_</code> and to infer
-with a <strong>grown</strong> machine, one will
-<code>harvest_</code>.</p>
+<p>daisugi is an experimental machine learning package focused on
+unconventional tree systems, probabilistic boosting, interpretable
+ensembles, and emerging recursive partitioning methods.</p>
+<p>Most workflows in daisugi follow a simple pattern:</p>
+<ul>
+<li>“<code>grow_*()</code>” fits a machine<br>
+</li>
+<li>“<code>harvest_*()</code>” generates predictions</li>
+</ul>
+<p>The package primarily uses explicit “(x, y)” interfaces for
+classification and regression tasks.</p>
+</div>
+</td>
+<td width="42%" align="right">
+<img src="getting-started.png" height="480">
+</td>
+</tr></table>
+<div class="section level3">
+<h3 id="workflow-overview">Workflow Overview<a class="anchor" aria-label="anchor" href="#workflow-overview"></a>
+</h3>
+<p>A typical daisugi workflow:</p>
+<ol style="list-style-type: decimal">
+<li>prepare predictors and targets</li>
+<li>grow a machine</li>
+<li>harvest predictions</li>
+<li>evaluate externally using your preferred tooling</li>
+</ol>
+<p>daisugi intentionally avoids imposing a modeling framework and
+instead focuses on exposing novel algorithms through a lightweight
+interface.</p>
+</div>
 <div class="section level3">
 <h3 id="a-classification-task">A Classification Task<a class="anchor" aria-label="anchor" href="#a-classification-task"></a>
 </h3>
 <p>showcasing how to use daisugi for classification. our dataset comes
 from forested, a tabular data repo which lists forest attributes &amp;
 whether an area is “forested” or “non-forested”.</p>
+<div class="section level4">
+<h4 id="prepare-dataset">Prepare Dataset<a class="anchor" aria-label="anchor" href="#prepare-dataset"></a>
+</h4>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://frankiethull.github.io/daisugi/">daisugi</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/simonpcouch/forested" class="external-link">forested</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rsample.tidymodels.org" class="external-link">rsample</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5311</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># defining splits for training and testing datasets</span></span>
 <span><span class="va">splits</span> <span class="op">&lt;-</span> <span class="fu">rsample</span><span class="fu">::</span><span class="fu"><a href="https://rsample.tidymodels.org/reference/initial_split.html" class="external-link">initial_split</a></span><span class="op">(</span><span class="fu">forested</span><span class="fu">::</span><span class="va"><a href="https://simonpcouch.github.io/forested/reference/forested.html" class="external-link">forested</a></span><span class="op">)</span></span>
@@ -104,42 +137,54 @@ whether an area is “forested” or “non-forested”.</p>
 <span><span class="va">y_test</span> <span class="op">&lt;-</span> <span class="va">testing</span> <span class="op">|&gt;</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">forested</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">y_test</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] Yes Yes Yes Yes No  No </span></span>
+<span><span class="co">#&gt; [1] No  Yes Yes Yes Yes Yes</span></span>
 <span><span class="co">#&gt; Levels: Yes No</span></span></code></pre></div>
-<div class="section level4">
-<h4 id="yggdrasil-decision-forests">yggdrasil decision forests<a class="anchor" aria-label="anchor" href="#yggdrasil-decision-forests"></a>
-</h4>
-<p>YDF provides various methods such as boosters, decisions, forests.
-what is unique is the a oblique random split technique. daisugi provides
-the boosted method with yggdrasil.</p>
+</div>
+</div>
+<div class="section level3">
+<h3 id="yggdrasil-decision-forests">yggdrasil decision forests<a class="anchor" aria-label="anchor" href="#yggdrasil-decision-forests"></a>
+</h3>
+<p>Yggdrasil Decision Forests (YDF) is Google’s high-performance tree
+ecosystem supporting gradient boosted trees, random forests, and
+specialized split strategies.</p>
+<p>The implementation exposed through daisugi emphasizes:</p>
+<ul>
+<li>oblique random splits</li>
+<li>scalable forest construction</li>
+<li>modern decision forest infrastructure</li>
+</ul>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ydf_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_yggdrasil_trees.html">grow_yggdrasil_trees</a></span><span class="op">(</span></span>
 <span>  <span class="va">x_train</span>,</span>
 <span>  <span class="va">y_train</span>,</span>
-<span>  trees <span class="op">=</span> <span class="fl">20L</span></span>
+<span>  trees <span class="op">=</span> <span class="fl">5L</span></span>
 <span><span class="op">)</span></span>
 <span><span class="co">#&gt; Downloading uv...Done!</span></span>
 <span><span class="co">#&gt; Train model on 5330 examples</span></span>
-<span><span class="co">#&gt; Model trained in 0:00:00.138209</span></span>
+<span><span class="co">#&gt; Model trained in 0:00:00.040509</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/harvest_yggdrasil_trees.html">harvest_yggdrasil_trees</a></span><span class="op">(</span><span class="va">ydf_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "Yes" "Yes" "Yes" "Yes" "No"  "No"</span></span></code></pre></div>
-</div>
+<span><span class="co">#&gt; [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="snap-boosting-machines">snap boosting machines<a class="anchor" aria-label="anchor" href="#snap-boosting-machines"></a>
 </h3>
-<p>SnapML is a IBM ML repository. within it, contains various ML
-engines, including their own implementation called SnapBoost. SnapBoost
-differs from XGBoost by using Heterogeneous Newton Boosting. In
-addition, for each iteration, SnapBoost method randomly chooses whether
-to use a decision tree with variable depth or a linear regressor with
-random fourier features.</p>
+<p>SnapBoost originates from IBM’s Snap ML ecosystem.</p>
+<p>Unlike traditional gradient boosting systems, SnapBoost uses
+heterogeneous Newton boosting where each iteration may alternate
+between:</p>
+<ul>
+<li>decision trees</li>
+<li>linear regressors</li>
+<li>random Fourier feature approximators</li>
+</ul>
+<p>This creates a hybrid ensemble structure rather than a purely
+tree-based booster.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">snap_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_snap_trees.html">grow_snap_trees</a></span><span class="op">(</span></span>
 <span>  <span class="va">x_train</span>,</span>
 <span>  <span class="va">y_train</span>,</span>
-<span>  trees <span class="op">=</span> <span class="fl">10L</span></span>
+<span>  trees <span class="op">=</span> <span class="fl">5L</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/harvest_snap_trees.html">harvest_snap_trees</a></span><span class="op">(</span><span class="va">snap_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -148,10 +193,17 @@ random fourier features.</p>
 <div class="section level3">
 <h3 id="perpetual">perpetual<a class="anchor" aria-label="anchor" href="#perpetual"></a>
 </h3>
-<p>Perpetual is a budget-based boosting methodology. perpetual is
-designed to be a drop-in automl-like booster that does not require
-hyperparameter optimization. The idea being, a user can increase the
-budget, the ‘predictive power’ parameter, until loss plateaus.</p>
+<p>Perpetual is a budget-driven boosting methodology designed around
+adaptive predictive scaling rather than extensive hyperparameter
+tuning.</p>
+<p>The core idea is:</p>
+<ul>
+<li>increase predictive budget</li>
+<li>monitor loss stabilization</li>
+<li>stop when improvement plateaus</li>
+</ul>
+<p>This creates an AutoML-like boosting workflow with minimal tuning
+overhead.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">perpetual_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_perpetual_trees.html">grow_perpetual_trees</a></span><span class="op">(</span></span>
 <span>  <span class="va">x_train</span>,</span>
@@ -159,62 +211,213 @@ budget, the ‘predictive power’ parameter, until loss plateaus.</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/harvest_perpetual_trees.html">harvest_perpetual_trees</a></span><span class="op">(</span><span class="va">perpetual_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 0 0 0 0 1 1</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] 0 0 0 0 0 0</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="wildwood">wildwood<a class="anchor" aria-label="anchor" href="#wildwood"></a>
 </h3>
-<p>WildWood is a <em>new (2021)</em> &amp; <em>advanced</em> random
-forest algorithm. … “predictions produced by WildWood are an aggregation
-with exponential weights (computed on out-of-bag samples) of the
-predictions given by all the possible prunings of each tree.” which
-differs from a standard random forest.</p>
+<p>WildWood is an advanced probabilistic random forest algorithm
+emphasizing aggregation over multiple possible tree prunings.</p>
+<p>Unlike standard random forests, WildWood combines:</p>
+<ul>
+<li>randomized forests</li>
+<li>exponential weighting</li>
+<li>out-of-bag pruning aggregation</li>
+</ul>
+<p>This produces highly adaptive ensemble behavior.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">wild_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_wild_trees.html">grow_wild_trees</a></span><span class="op">(</span></span>
+<span>  <span class="va">x_train</span>,</span>
+<span>  <span class="va">y_train</span>,</span>
+<span>  trees <span class="op">=</span> <span class="fl">5L</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/harvest_wild_trees.html">harvest_wild_trees</a></span><span class="op">(</span><span class="va">wild_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="explainable-boosting-machines">explainable boosting machines<a class="anchor" aria-label="anchor" href="#explainable-boosting-machines"></a>
+</h3>
+<p>Explainable Boosting Machines (EBMs) are interpretable generalized
+additive boosting systems developed by Microsoft’s InterpretML
+project.</p>
+<p>EBMs aim to balance:</p>
+<ul>
+<li>predictive performance</li>
+<li>transparency</li>
+<li>interaction discovery</li>
+<li>human interpretability</li>
+</ul>
+<p>They are often considered “glassbox” models because their learned
+structure remains directly inspectable.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">explainable_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_explainable_trees.html">grow_explainable_trees</a></span><span class="op">(</span></span>
+<span>  <span class="va">x_train</span>,</span>
+<span>  <span class="va">y_train</span>,</span>
+<span>  trees <span class="op">=</span> <span class="fl">5L</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/harvest_explainable_trees.html">harvest_explainable_trees</a></span><span class="op">(</span><span class="va">wild_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="natural-gradient-boosting-machines">natural gradient boosting machines<a class="anchor" aria-label="anchor" href="#natural-gradient-boosting-machines"></a>
+</h3>
+<p>NGBoost introduces probabilistic prediction into gradient boosting
+systems.</p>
+<p>Rather than predicting only point estimates, NGBoost models
+predictive distributions directly using natural gradients.</p>
+<p>This enables:</p>
+<ul>
+<li>uncertainty estimation</li>
+<li>probabilistic forecasting</li>
+<li>calibrated predictive intervals</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">natural_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_natural_trees.html">grow_natural_trees</a></span><span class="op">(</span></span>
+<span>  <span class="va">x_train</span>,</span>
+<span>  <span class="va">y_train</span>,</span>
+<span>  trees <span class="op">=</span> <span class="fl">5L</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; [iter 0] loss=0.6879 val_loss=0.0000 scale=4.0000 norm=8.0000</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/harvest_natural_trees.html">harvest_natural_trees</a></span><span class="op">(</span><span class="va">natural_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0 0 0 0 0 0</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="energy-based-generative-boosted-trees">energy-based generative boosted trees<a class="anchor" aria-label="anchor" href="#energy-based-generative-boosted-trees"></a>
+</h3>
+<p>NRGBoost is an energy-based generative boosting algorithm. The design
+does not require a target(y) variable but this logic is added for
+daisugi for ease-of-use.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">energy_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_energy_trees.html">grow_energy_trees</a></span><span class="op">(</span></span>
+<span>  <span class="va">x_train</span>,</span>
+<span>  <span class="va">y_train</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span>,</span>
+<span>  trees <span class="op">=</span> <span class="fl">5L</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/harvest_energy_trees.html">harvest_energy_trees</a></span><span class="op">(</span><span class="va">energy_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.07814176 0.45390831 0.05710839 0.45356610 0.05710839 0.05710839</span></span>
+<span></span>
+<span><span class="co"># fun fact: NRG can draw samples: energy_trees$fit$sample(5L)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="evolutionary-trees">evolutionary trees<a class="anchor" aria-label="anchor" href="#evolutionary-trees"></a>
+</h3>
+<p>Evolutionary Trees comes from {evtree} R package. Which involves
+evolutionary learning of global optimal trees for both classification
+and regression.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">evolutionary_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_evolutionary_trees.html">grow_evolutionary_trees</a></span><span class="op">(</span></span>
 <span>  <span class="va">x_train</span>,</span>
 <span>  <span class="va">y_train</span>,</span>
 <span>  trees <span class="op">=</span> <span class="fl">10L</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/harvest_wild_trees.html">harvest_wild_trees</a></span><span class="op">(</span><span class="va">wild_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "Yes" "Yes" "Yes" "Yes" "No"  "No"</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/harvest_evolutionary_trees.html">harvest_evolutionary_trees</a></span><span class="op">(</span><span class="va">evolutionary_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   1   2   3   4   5   6 </span></span>
+<span><span class="co">#&gt; Yes Yes Yes Yes Yes Yes </span></span>
+<span><span class="co">#&gt; Levels: Yes No</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="explainable-boosting-machines">explainable boosting machines<a class="anchor" aria-label="anchor" href="#explainable-boosting-machines"></a>
+<h3 id="conditional-trees">conditional trees<a class="anchor" aria-label="anchor" href="#conditional-trees"></a>
 </h3>
-<p>“Explainable Boosting Machine (EBM) is a tree-based, cyclic gradient
-boosting Generalized Additive Model with automatic interaction
-detection.” EBMs are considered ‘glassbox’ as they are easier to
-interpret, more effective than traditional GAMS, and “…often as accurate
-as SOTA blackbox models” while maintaining interpetability.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">explainable_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_explainable_trees.html">grow_explainable_trees</a></span><span class="op">(</span></span>
+<p>Conditional Trees (a conditional forest) are ported from the
+{partykit::cforest} implementation. cforest is a bagging algorithm for
+the ctree p-value tree-based algorithm.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">conditional_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_conditional_trees.html">grow_conditional_trees</a></span><span class="op">(</span></span>
 <span>  <span class="va">x_train</span>,</span>
 <span>  <span class="va">y_train</span>,</span>
-<span>  trees <span class="op">=</span> <span class="fl">100L</span></span>
+<span>  trees <span class="op">=</span> <span class="fl">10L</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/harvest_explainable_trees.html">harvest_explainable_trees</a></span><span class="op">(</span><span class="va">wild_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "Yes" "Yes" "Yes" "Yes" "No"  "No"</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/harvest_conditional_trees.html">harvest_conditional_trees</a></span><span class="op">(</span><span class="va">conditional_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   1   2   3   4   5   6 </span></span>
+<span><span class="co">#&gt; Yes Yes Yes Yes Yes Yes </span></span>
+<span><span class="co">#&gt; Levels: Yes No</span></span></code></pre></div>
+</div>
+</main>
+</div>
+<div class="section level2">
+<h2 id="future-machines">future machines<a class="anchor" aria-label="anchor" href="#future-machines"></a>
+</h2>
+<div class="section level3">
+<h3 id="grande">GRANDE<a class="anchor" aria-label="anchor" href="#grande"></a>
+</h3>
+<p>TBD, WIP, special handlers to pass types .</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#grande_trees &lt;- grow_grande_trees(</span></span>
+<span><span class="co">#  x_train,</span></span>
+<span><span class="co">#  y_train,</span></span>
+<span><span class="co">#  trees = 10L</span></span>
+<span><span class="co">#)</span></span>
+<span></span>
+<span><span class="co"># harvest_grande_trees(grande_trees, x_test) |&gt; head()</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="natural-gradient-boosting-machines">natural gradient boosting machines<a class="anchor" aria-label="anchor" href="#natural-gradient-boosting-machines"></a>
+<h3 id="boulevard">Boulevard<a class="anchor" aria-label="anchor" href="#boulevard"></a>
 </h3>
-<p>NGBoost from Stanford ML Group. bringing uncertainty and
-probabilistic estimation to gradient boosting.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">natural_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_natural_trees.html">grow_natural_trees</a></span><span class="op">(</span></span>
+<p>Boulevard: Regularized Stochastic Gradient Boosted Trees and Their
+Limiting Distribution</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">boulevard_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_boulevard_trees.html">grow_boulevard_trees</a></span><span class="op">(</span></span>
 <span>  <span class="va">x_train</span>,</span>
-<span>  <span class="va">y_train</span>,</span>
-<span>  trees <span class="op">=</span> <span class="fl">100L</span></span>
+<span>  <span class="va">y_train</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  trees <span class="op">=</span> <span class="fl">10L</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; [iter 0] loss=0.6887 val_loss=0.0000 scale=4.0000 norm=8.0000</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/harvest_natural_trees.html">harvest_natural_trees</a></span><span class="op">(</span><span class="va">natural_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 0 0 0 0 1 1</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/harvest_boulevard_trees.html">harvest_boulevard_trees</a></span><span class="op">(</span><span class="va">boulevard_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 1.1563618 1.3625391 0.9486226 1.1628310 1.0813726 1.0374214</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="fairgbm">FairGBM<a class="anchor" aria-label="anchor" href="#fairgbm"></a>
+</h3>
+<p>TBD, WIP, out-of-date repo dependencies .</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sensitivity</span> <span class="op">&lt;-</span> <span class="va">training</span><span class="op">$</span><span class="va">tree_no_tree</span></span>
+<span></span>
+<span><span class="co">#fair_trees &lt;- grow_fair_trees(</span></span>
+<span><span class="co">#  x_train,</span></span>
+<span><span class="co">#  y_train,</span></span>
+<span><span class="co">#  s = sensitivity,</span></span>
+<span><span class="co">#  trees = 10L</span></span>
+<span><span class="co">#)</span></span>
+<span></span>
+<span><span class="co"># harvest_fair_trees(fair_trees, x_test) |&gt; head()</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="kernel-trees">kernel trees<a class="anchor" aria-label="anchor" href="#kernel-trees"></a>
+</h3>
+<p>KTBoost … TBD, WIP.</p>
+<p>a secondary virtualenv; I think the repo dependencies are out of date
+(clashing with cache).</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#py_run_string("</span></span>
+<span><span class="co">#import numpy as np</span></span>
+<span><span class="co">#if not hasattr(np, 'object'):</span></span>
+<span><span class="co">#    np.object = object</span></span>
+<span><span class="co">#")</span></span>
+<span></span>
+<span><span class="co">#kernel_trees &lt;- grow_kernel_trees(</span></span>
+<span><span class="co">#  x_train,</span></span>
+<span><span class="co">#  y_train,</span></span>
+<span><span class="co">#  trees = 100L</span></span>
+<span><span class="co">#)</span></span>
+<span></span>
+<span><span class="co"># harvest_kernel_trees(kernel_trees, x_test) |&gt; head()</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="morphboost">MorphBoost<a class="anchor" aria-label="anchor" href="#morphboost"></a>
+</h3>
+</div>
+<div class="section level3">
+<h3 id="msboost">MSBoost<a class="anchor" aria-label="anchor" href="#msboost"></a>
+</h3>
 </div>
 </div>
-  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+  <aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>
 
@@ -229,11 +432,5 @@ probabilistic estimation to gradient boosting.</p>
 </div>
 
     </footer>
-</div>
-
-
-
-
-
-  </body>
+</body>
 </html>

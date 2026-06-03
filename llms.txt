@@ -1,62 +1,50 @@
 # daisugi
 
-# 
+![](reference/figures/logo.png)
 
 ## daisugi: not-so-well-known tree machines
 
-daisugi is an R package that curates novel tree & boosting algorithms.
-It focuses on methods that are not on CRAN, not directly available in R,
-or less widely known. Popular libraries like XGBoost, LightGBM, and
-CatBoost are intentionally excluded & can be accessed through their
-official packages or via bonsai in tidymodels.
+daisugi is an R package collecting experimental, obscure, and emerging
+tree-based machine learning methods.
 
-## Machines
+Rather than reproducing the mainstream boosting ecosystem, daisugi
+focuses on:
 
-novelty trees found within daisugi:
+- probabilistic forests
+- hybrid boosting systems
+- online learners
+- interpretable ensembles
+- experimental tree architectures
+- research-oriented methods rarely exposed to R users
 
-Boulevard
+Popular libraries such as XGBoost, LightGBM, and CatBoost are
+intentionally excluded and are better accessed through their native
+packages or through tidymodels infrastructure.
 
-EBM
-
-FairGBM
-
-GRANDE
-
-KTBoost
-
-MorphBoost
-
-MSBoost
-
-NGBoost
-
-NRGBoost
-
-Perpetual
-
-SnapBoost
-
-WildWood
-
-Yggdrasil
-
-## Installation
-
-You can install the development version of daisugi from
-[GitHub](https://github.com/) with:
-
-``` r
-
-# install.packages("pak")
-pak::pak("frankiethull/daisugi")
-```
+![](reference/figures/readme.png)
 
 # Package index
 
 ## All functions
 
+- [`grow_boulevard_trees()`](https://frankiethull.github.io/daisugi/reference/grow_boulevard_trees.md)
+  : Grow Boulevard Trees
+- [`grow_conditional_trees()`](https://frankiethull.github.io/daisugi/reference/grow_conditional_trees.md)
+  : Grow Conditional Forest
+- [`grow_energy_trees()`](https://frankiethull.github.io/daisugi/reference/grow_energy_trees.md)
+  : Grow Energy-Based Generative Trees
+- [`grow_evolutionary_trees()`](https://frankiethull.github.io/daisugi/reference/grow_evolutionary_trees.md)
+  : Grow Evolutionary Trees
 - [`grow_explainable_trees()`](https://frankiethull.github.io/daisugi/reference/grow_explainable_trees.md)
   : Grow Explainable Trees
+- [`grow_fair_trees()`](https://frankiethull.github.io/daisugi/reference/grow_fair_trees.md)
+  : Grow Fair Trees
+- [`grow_grande_trees()`](https://frankiethull.github.io/daisugi/reference/grow_grande_trees.md)
+  : Grow GRANDE Trees
+- [`grow_kernel_trees()`](https://frankiethull.github.io/daisugi/reference/grow_kernel_trees.md)
+  : Grow kernel-Based Generative Trees
+- [`grow_morph_trees()`](https://frankiethull.github.io/daisugi/reference/grow_morph_trees.md)
+  : Grow Morph Trees
 - [`grow_natural_trees()`](https://frankiethull.github.io/daisugi/reference/grow_natural_trees.md)
   : Grow Natural Gradient Trees
 - [`grow_perpetual_trees()`](https://frankiethull.github.io/daisugi/reference/grow_perpetual_trees.md)
@@ -67,8 +55,24 @@ pak::pak("frankiethull/daisugi")
   : Grow Wild Trees
 - [`grow_yggdrasil_trees()`](https://frankiethull.github.io/daisugi/reference/grow_yggdrasil_trees.md)
   : Grow Yggdrasil Trees
+- [`harvest_boulevard_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_boulevard_trees.md)
+  : Harvest Boulevard Trees
+- [`harvest_conditional_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_conditional_trees.md)
+  : Harvest Conditional Forest
+- [`harvest_energy_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_energy_trees.md)
+  : Harvest Energy-Based Generative Trees
+- [`harvest_evolutionary_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_evolutionary_trees.md)
+  : Harvest Evolutionary Trees
 - [`harvest_explainable_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_explainable_trees.md)
   : Harvest Explainable Trees
+- [`harvest_fair_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_fair_trees.md)
+  : Harvest Fair Trees
+- [`harvest_grande_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_grande_trees.md)
+  : Harvest GRANDE Trees
+- [`harvest_kernel_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_kernel_trees.md)
+  : Harvest kernel-Based Generative Trees
+- [`harvest_morph_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_morph_trees.md)
+  : Harvest Morph Trees
 - [`harvest_natural_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_natural_trees.md)
   : Harvest Natural Gradient Trees
 - [`harvest_perpetual_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_perpetual_trees.md)

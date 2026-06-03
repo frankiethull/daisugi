@@ -23,7 +23,7 @@
 
     <a class="navbar-brand me-2" href="index.html">daisugi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.6.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,6 +46,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/frankiethull/daisugi/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -58,47 +59,184 @@
 <img src="logo.png" class="logo" alt=""><h1 id="daisugi">daisugi<a class="anchor" aria-label="anchor" href="#daisugi"></a>
 </h1>
 </div>
-</div>
-<div class="section level1">
-<h1 id="section"><a class="anchor" aria-label="anchor" href="#section"></a></h1>
+<table class="table"><tr><td width="36%" valign="top">
+<p><img src="reference/figures/logo.png" height="190"></p>
 <div class="section level2">
 <h2 id="daisugi-not-so-well-known-tree-machines">daisugi: not-so-well-known tree machines<a class="anchor" aria-label="anchor" href="#daisugi-not-so-well-known-tree-machines"></a>
 </h2>
-<!-- badges: start -->
-<!-- badges: end -->
-<p>daisugi is an R package that curates novel tree &amp; boosting algorithms. It focuses on methods that are not on CRAN, not directly available in R, or less widely known. Popular libraries like XGBoost, LightGBM, and CatBoost are intentionally excluded &amp; can be accessed through their official packages or via bonsai in tidymodels.</p>
+<table class="table">
+<p>daisugi is an R package collecting experimental, obscure, and emerging tree-based machine learning methods.</p>
+<p>Rather than reproducing the mainstream boosting ecosystem, daisugi focuses on:</p>
+<ul>
+<li>probabilistic forests</li>
+<li>hybrid boosting systems</li>
+<li>online learners</li>
+<li>interpretable ensembles</li>
+<li>experimental tree architectures</li>
+<li>research-oriented methods rarely exposed to R users</li>
+</ul>
+<p>Popular libraries such as XGBoost, LightGBM, and CatBoost are intentionally excluded and are better accessed through their native packages or through tidymodels infrastructure.</p>
+
+<td width="44%" align="right">
+<img src="reference/figures/readme.png" height="460">
+</td>
+
+</table>
+<!-- badges: start --><!-- badges: end --><hr>
 </div>
 <div class="section level2">
-<h2 id="machines">Machines<a class="anchor" aria-label="anchor" href="#machines"></a>
+<h2 id="included-machines-v005">Included Machines v0.0.5<a class="anchor" aria-label="anchor" href="#included-machines-v005"></a>
 </h2>
-<p>novelty trees found within daisugi:</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Boulevard</label></li>
-<li><label><input type="checkbox" checked>EBM</label></li>
-<li><label><input type="checkbox">FairGBM</label></li>
-<li><label><input type="checkbox">GRANDE</label></li>
-<li><label><input type="checkbox">KTBoost</label></li>
-<li><label><input type="checkbox">MorphBoost</label></li>
-<li><label><input type="checkbox">MSBoost</label></li>
-<li><label><input type="checkbox" checked>NGBoost</label></li>
-<li><label><input type="checkbox">NRGBoost</label></li>
-<li><label><input type="checkbox" checked>Perpetual</label></li>
-<li><label><input type="checkbox" checked>SnapBoost</label></li>
-<li><label><input type="checkbox" checked>WildWood</label></li>
-<li><label><input type="checkbox" checked>Yggdrasil</label></li>
-</ul>
+<table class="table">
+<thead><tr>
+<th>Status</th>
+<th>Algorithm</th>
+<th>Focus</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>🚧</td>
+<td>Boulevard</td>
+<td>stochastic gradient boosting</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Conditional Trees</td>
+<td>unbiased recursive partitioning</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>EBM</td>
+<td>interpretable additive boosting</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Evolutionary Trees</td>
+<td>genetic tree optimization</td>
+</tr>
+<tr>
+<td>🚧</td>
+<td>FairGBM</td>
+<td>fairness-aware boosting</td>
+</tr>
+<tr>
+<td>🚧</td>
+<td>GRANDE</td>
+<td>differentiable tree ensembles</td>
+</tr>
+<tr>
+<td>🚧</td>
+<td>KTBoost</td>
+<td>kernel-tree hybrid boosting</td>
+</tr>
+<tr>
+<td>🚧</td>
+<td>MorphBoost</td>
+<td>adaptive boosting structures</td>
+</tr>
+<tr>
+<td>🚧</td>
+<td>MSBoost</td>
+<td>multi-stage boosting</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>NGBoost</td>
+<td>probabilistic prediction</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>NRGBoost</td>
+<td>natural gradient boosting</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Perpetual</td>
+<td>continual tree learning</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>SnapBoost</td>
+<td>heterogeneous boosting systems</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>WildWood</td>
+<td>randomized online forests</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Yggdrasil</td>
+<td>scalable tree ecosystems</td>
+</tr>
+</tbody>
+</table>
+<hr>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of daisugi from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<p>You can install the development version of daisugi from GitHub:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"frankiethull/daisugi"</span><span class="op">)</span></span></code></pre></div>
+<hr>
 </div>
+<div class="section level2">
+<h2 id="philosophy">Philosophy<a class="anchor" aria-label="anchor" href="#philosophy"></a>
+</h2>
+<p>daisugi explores tree systems outside the conventional gradient boosting canon.</p>
+<p>Many included methods emphasize:</p>
+<ul>
+<li>uncertainty estimation</li>
+<li>heterogeneous base learners</li>
+<li>recursive partition hybrids</li>
+<li>online adaptation</li>
+<li>probabilistic outputs</li>
+<li>alternative split mechanics</li>
+<li>interpretable ensemble structures</li>
+</ul>
+<p>The package acts as both:</p>
+<ul>
+<li>a practical modeling toolkit</li>
+<li>a curated collection of unconventional tree algorithms</li>
+</ul>
+<hr>
+</div>
+<div class="section level2">
+<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h2>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://frankiethull.github.io/daisugi/">daisugi</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/grow_yggdrasil_trees.html">grow_yggdrasil_trees</a></span><span class="op">(</span></span>
+<span>x <span class="op">=</span> <span class="va">iris</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>,</span>
+<span>y <span class="op">=</span> <span class="va">iris</span><span class="op">$</span><span class="va">Species</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/harvest_yggdrasil_trees.html">harvest_yggdrasil_trees</a></span><span class="op">(</span><span class="va">model</span>, <span class="va">iris</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
+</h2>
+<ul>
+<li><a href="https://frankiethull.github.io/daisugi/articles/daisugi.html">Getting Started</a></li>
+<li><a href="https://frankiethull.github.io/daisugi/articles/glossary.html">Glossary of Machines</a></li>
+<li><a href="https://frankiethull.github.io/daisugi/reference/index.html">Package Reference</a></li>
+<li><a href="https://frankiethull.github.io/daisugi/news/index.html">Changelog</a></li>
+</ul>
+</div>
+</td></tr></table>
+</div>
+  </main><aside class="col-md-3"><div class="links">
+<h2 data-toc-skip>Links</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/frankiethull/daisugi/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/frankiethull/daisugi/issues" class="external-link">Report a bug</a></li>
+</ul>
 </div>
 
-  </main><aside class="col-md-3"><div class="license">
+<div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>

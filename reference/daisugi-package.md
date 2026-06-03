@@ -12,6 +12,10 @@ Useful links:
 
 - <https://frankiethull.github.io/daisugi/>
 
+- <https://github.com/frankiethull/daisugi>
+
+- Report bugs at <https://github.com/frankiethull/daisugi/issues>
+
 ## Author
 
 **Maintainer**: frank hull <frankiethull@proton.me>

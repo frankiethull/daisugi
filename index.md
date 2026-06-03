@@ -1,52 +1,24 @@
 # daisugi
 
-# 
+![](reference/figures/logo.png)
 
 ## daisugi: not-so-well-known tree machines
 
-daisugi is an R package that curates novel tree & boosting algorithms.
-It focuses on methods that are not on CRAN, not directly available in R,
-or less widely known. Popular libraries like XGBoost, LightGBM, and
-CatBoost are intentionally excluded & can be accessed through their
-official packages or via bonsai in tidymodels.
+daisugi is an R package collecting experimental, obscure, and emerging
+tree-based machine learning methods.
 
-## Machines
+Rather than reproducing the mainstream boosting ecosystem, daisugi
+focuses on:
 
-novelty trees found within daisugi:
+- probabilistic forests
+- hybrid boosting systems
+- online learners
+- interpretable ensembles
+- experimental tree architectures
+- research-oriented methods rarely exposed to R users
 
-Boulevard
+Popular libraries such as XGBoost, LightGBM, and CatBoost are
+intentionally excluded and are better accessed through their native
+packages or through tidymodels infrastructure.
 
-EBM
-
-FairGBM
-
-GRANDE
-
-KTBoost
-
-MorphBoost
-
-MSBoost
-
-NGBoost
-
-NRGBoost
-
-Perpetual
-
-SnapBoost
-
-WildWood
-
-Yggdrasil
-
-## Installation
-
-You can install the development version of daisugi from
-[GitHub](https://github.com/) with:
-
-``` r
-
-# install.packages("pak")
-pak::pak("frankiethull/daisugi")
-```
+![](reference/figures/readme.png)
