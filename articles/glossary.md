@@ -24,8 +24,23 @@ forestry-inspired verbs.
 
 ### Machine Registry
 
-The following registry links implemented and planned engines to their
-originating projects, papers, or repositories. Registy also lists the
-alias in daisugi as well as a set of haikus for TL/DR referencing.
+The following registry links implemented engines to their originating
+projects, papers, or repositories. Registy also lists the alias in
+daisugi as well as a set of haikus for TL/DR referencing.
 
 [TABLE]
+
+### Supported Tasks
+
+| Machine            | Classification | Regression |
+|--------------------|----------------|------------|
+| Boulevard          | ✅             | ❌         |
+| Conditional Trees  | ✅             | ✅         |
+| EBM                | ✅             | ✅         |
+| Evolutionary Trees | ✅             | ✅         |
+| NGBoost            | ✅             | ✅         |
+| NRGBoost           | ✅             | ✅         |
+| Perpetual          | ✅             | ✅         |
+| SnapBoost          | ✅             | ✅         |
+| WildWood           | ✅             | ✅         |
+| Yggdrasil          | ✅             | ✅         |

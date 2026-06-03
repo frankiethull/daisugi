@@ -161,7 +161,7 @@ specialized split strategies.</p>
 <span><span class="op">)</span></span>
 <span><span class="co">#&gt; Downloading uv...Done!</span></span>
 <span><span class="co">#&gt; Train model on 5330 examples</span></span>
-<span><span class="co">#&gt; Model trained in 0:00:00.040509</span></span>
+<span><span class="co">#&gt; Model trained in 0:00:00.038857</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/harvest_yggdrasil_trees.html">harvest_yggdrasil_trees</a></span><span class="op">(</span><span class="va">ydf_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"</span></span></code></pre></div>
@@ -233,7 +233,7 @@ emphasizing aggregation over multiple possible tree prunings.</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/harvest_wild_trees.html">harvest_wild_trees</a></span><span class="op">(</span><span class="va">wild_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "Yes" "No"  "Yes" "Yes" "Yes" "Yes"</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="explainable-boosting-machines">explainable boosting machines<a class="anchor" aria-label="anchor" href="#explainable-boosting-machines"></a>
@@ -258,7 +258,7 @@ structure remains directly inspectable.</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/harvest_explainable_trees.html">harvest_explainable_trees</a></span><span class="op">(</span><span class="va">wild_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "Yes" "No"  "Yes" "Yes" "Yes" "Yes"</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="natural-gradient-boosting-machines">natural gradient boosting machines<a class="anchor" aria-label="anchor" href="#natural-gradient-boosting-machines"></a>
@@ -298,7 +298,7 @@ daisugi for ease-of-use.</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/harvest_energy_trees.html">harvest_energy_trees</a></span><span class="op">(</span><span class="va">energy_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 0.07814176 0.45390831 0.05710839 0.45356610 0.05710839 0.05710839</span></span>
+<span><span class="co">#&gt; [1] 0.07347243 0.45393993 0.07087025 0.45357028 0.19876139 0.18953708</span></span>
 <span></span>
 <span><span class="co"># fun fact: NRG can draw samples: energy_trees$fit$sample(5L)</span></span></code></pre></div>
 </div>

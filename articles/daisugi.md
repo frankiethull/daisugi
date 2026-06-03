@@ -75,7 +75,7 @@ ydf_trees <- grow_yggdrasil_trees(
 )
 #> Downloading uv...Done!
 #> Train model on 5330 examples
-#> Model trained in 0:00:00.040509
+#> Model trained in 0:00:00.038857
 
 harvest_yggdrasil_trees(ydf_trees, x_test) |> head()
 #> [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"
@@ -155,7 +155,7 @@ wild_trees <- grow_wild_trees(
 )
 
 harvest_wild_trees(wild_trees, x_test) |> head()
-#> [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"
+#> [1] "Yes" "No"  "Yes" "Yes" "Yes" "Yes"
 ```
 
 ### explainable boosting machines
@@ -182,7 +182,7 @@ explainable_trees <- grow_explainable_trees(
 )
 
 harvest_explainable_trees(wild_trees, x_test) |> head()
-#> [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"
+#> [1] "Yes" "No"  "Yes" "Yes" "Yes" "Yes"
 ```
 
 ### natural gradient boosting machines
@@ -227,7 +227,7 @@ energy_trees <- grow_energy_trees(
 )
 
 harvest_energy_trees(energy_trees, x_test) |> head()
-#> [1] 0.07814176 0.45390831 0.05710839 0.45356610 0.05710839 0.05710839
+#> [1] 0.07347243 0.45393993 0.07087025 0.45357028 0.19876139 0.18953708
 
 # fun fact: NRG can draw samples: energy_trees$fit$sample(5L)
 ```
