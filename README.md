@@ -49,7 +49,7 @@ packages or through tidymodels infrastructure.
 
 ------------------------------------------------------------------------
 
-## Included Machines v0.0.5
+## Included Machines v0.0.6
 
 | Status | Algorithm          | Focus                            |
 |--------|--------------------|----------------------------------|

@@ -2,11 +2,10 @@ Package: daisugi
 Title: Novel Tree Machines for Classification and Regression
 Version: 0.0.6.9000
 Authors@R: 
-    person("frank", "hull", , "frankiethull@proton.me", role = c("aut", "cre"))
-Description: daisugi provides an interface for not-so-well-known tree machines. 
-    particularly focused on novel tree and boosting algorithms for machine learning tasks. 
-    those tasks being tabular regression and classification problems. daisugi provides a unified interface
-    to YDF, SnapBoost, WildWood, Perpetual, and more.  
+    person("frank", "hull", , "frankiethull@proton.me", role = c("cph", "aut", "cre"))
+Description: daisugi provides a unified interface for specialized and novel tree-based machine learning algorithms. 
+    The package focuses on tabular classification and regression tasks, offering streamlined access to "not-so-well-known" architectures. 
+    Users can implement and compare various backends through a consistent API.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

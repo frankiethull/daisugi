@@ -37,7 +37,7 @@ Popular libraries such as XGBoost, LightGBM, and CatBoost are intentionally excl
 </table>
 <!-- badges: start --><!-- badges: end -->---
 
-## Included Machines v0.0.5
+## Included Machines v0.0.6
 
 | Status | Algorithm | Focus |
 | --- | --- | --- |

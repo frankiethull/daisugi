@@ -44,7 +44,7 @@ A typical daisugi workflow:
 daisugi intentionally avoids imposing a modeling framework and instead focuses on exposing novel algorithms through a lightweight interface.
 
 
-### A Classification Task
+### Solving Classification Problems with daisugi
 
 showcasing how to use daisugi for classification. our dataset comes from forested, a tabular data repo which lists forest attributes & whether an area is "forested" or "non-forested". 
 
@@ -97,28 +97,6 @@ ydf_trees <- grow_yggdrasil_trees(
 )
 
 harvest_yggdrasil_trees(ydf_trees, x_test) |> head()
-```
-
-### snap boosting machines
-
-SnapBoost originates from IBM's Snap ML ecosystem.
-
-Unlike traditional gradient boosting systems, SnapBoost uses heterogeneous Newton boosting where each iteration may alternate between:
-
-- decision trees
-- linear regressors
-- random Fourier feature approximators
-
-This creates a hybrid ensemble structure rather than a purely tree-based booster.
-
-```{r snap}
-snap_trees <- grow_snap_trees(
-  x_train,
-  y_train,
-  trees = 5L
-)
-
-harvest_snap_trees(snap_trees, x_test) |> head()
 ```
 
 ### perpetual 
@@ -187,45 +165,6 @@ explainable_trees <- grow_explainable_trees(
 harvest_explainable_trees(wild_trees, x_test) |> head()
 ```
 
-### natural gradient boosting machines
-
-NGBoost introduces probabilistic prediction into gradient boosting systems.
-
-Rather than predicting only point estimates, NGBoost models predictive distributions directly using natural gradients.
-
-This enables:
-
-- uncertainty estimation
-- probabilistic forecasting
-- calibrated predictive intervals
-
-```{r ng}
-natural_trees <- grow_natural_trees(
-  x_train,
-  y_train,
-  trees = 5L
-)
-
-harvest_natural_trees(natural_trees, x_test) |> head()
-```
-
-
-### energy-based generative boosted trees
-
-NRGBoost is an energy-based generative boosting algorithm. The design does not require a target(y) variable but this logic is added for daisugi for ease-of-use. 
-
-```{r nrg}
-energy_trees <- grow_energy_trees(
-  x_train,
-  y_train |> as.integer() - 1,
-  trees = 5L
-)
-
-harvest_energy_trees(energy_trees, x_test) |> head()
-
-# fun fact: NRG can draw samples: energy_trees$fit$sample(5L)
-```
-
 ### evolutionary trees 
 
 Evolutionary Trees comes from {evtree} R package. Which involves evolutionary learning of global optimal trees for both classification and regression.
@@ -238,21 +177,6 @@ evolutionary_trees <- grow_evolutionary_trees(
 )
 
 harvest_evolutionary_trees(evolutionary_trees, x_test) |> head()
-```
-
-
-### conditional trees 
-
-Conditional Trees (a conditional forest) are ported from the {partykit::cforest} implementation. cforest is a bagging algorithm for the ctree p-value tree-based algorithm.  
-
-```{r ctree}
-conditional_trees <- grow_conditional_trees(
-  x_train,
-  y_train,
-  trees = 10L
-)
-
-harvest_conditional_trees(conditional_trees, x_test) |> head()
 ```
 
 
@@ -270,21 +194,6 @@ TBD, WIP, special handlers to pass types .
 #)
 
 # harvest_grande_trees(grande_trees, x_test) |> head()
-```
-
-
-### Boulevard
-
-Boulevard: Regularized Stochastic Gradient Boosted Trees and Their Limiting Distribution
-
-```{r boulevard}
-boulevard_trees <- grow_boulevard_trees(
-  x_train,
-  y_train |> as.integer(),
-  trees = 10L
-)
-
-harvest_boulevard_trees(boulevard_trees, x_test) |> head()
 ```
 
 

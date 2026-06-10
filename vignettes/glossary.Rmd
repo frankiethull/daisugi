@@ -148,7 +148,7 @@ knitr::kable(
 
 | Machine | Classification | Regression |
 | --- | --- | --- |
-| Boulevard | ✅ | ❌ |
+| Boulevard | ❌ | ✅ |
 | Conditional Trees | ✅ | ✅ |
 | EBM | ✅ | ✅ |
 | Evolutionary Trees | ✅ | ✅ |
