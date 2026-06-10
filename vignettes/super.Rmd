@@ -1,0 +1,32 @@
+---
+title: "super"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{super}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+<table>
+<tr><td width="58%" valign="top">
+
+## SUPER (WIP)
+
+</td><td width="42%" align="right"><img src="super.png" height="480"/></td></tr>
+</table>
+
+
+### super trees, a daisugi meta algoritmn 
+
+```{r setup}
+library(daisugi)
+```
+
+*add superlearner idea: grow_super_trees*
