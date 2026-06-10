@@ -1,0 +1,116 @@
+---
+title: "tidymodels"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{tidymodels}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+<table>
+<tr><td width="58%" valign="top">
+
+## tidymodels (WIP)
+
+additional tidymodels support is planned for daisugi. in particular, we're after the machines that are 'not-so-well-known', perform well, but are not included anywhere else, such as 'ebm' & 'ydf'. allowing ML engineers to swap out other boosters for Yggdrasil or Explainable boosting machines. 
+
+
+</td><td width="42%" align="right"><img src="tidymodels.png" height="480"/></td></tr>
+</table>
+
+
+#### Prepare Dataset
+
+following along with our getting started task, except with a tidymodels perspective, we have the forested data setup below.
+```{r dataset}
+library(daisugi)
+library(forested)
+library(parsnip)
+library(rsample)
+set.seed(5311)
+
+# defining splits for training and testing datasets
+splits <- rsample::initial_split(forested::forested)
+training <- rsample::training(splits)
+testing <- rsample::testing(splits)
+
+
+# (x, y) Training:
+x_train <- training |>
+  # target (and factors as not all engines handle cats)
+  dplyr::select(-forested, -tree_no_tree, -land_type, -county)
+
+# our target variable:
+y_train <- training |> dplyr::select(forested) |> dplyr::pull()
+
+# (x, y) Testing:
+x_test <- testing |>
+  dplyr::select(-forested, -tree_no_tree, -land_type, -county)
+
+y_test <- testing |> dplyr::select(forested) |> dplyr::pull()
+
+head(y_test)
+```
+
+
+### EBMs
+
+The Explainable Boosting Machine is registered as a `boost_tree`, it has a few similar parameters, and many unique ones. a handful of the unique parameters were also registered to dials within daisugi so full-on-total hyperparameter optimization can be done within cross-validation in tidymodels.
+
+check out the registered & tunable parameters. 
+```{r}
+ebm_cls_spec <-
+  boost_tree(
+    # GBM parameters
+    trees = 500,
+    min_n = 2,
+    tree_depth = 5,
+    learn_rate = 0.015,
+    stop_iter = 250
+  ) |>
+  set_mode("classification") |>
+  set_engine(
+    "ebm",
+    # tier 1 ebm parameters
+    num_interactions = 3L,
+    max_bins = 1024L,
+    greedy_ratio = 10L,
+    smoothing_rounds = 75L,
+    regularization_lambda = 0L,
+    regularization_alpha = 0L,
+    # tier 2 ebm parameters
+    max_interaction_bins = 64L,
+    interaction_smoothing_rounds = 75L,
+    outer_bags = 14L,
+    inner_bags = 0L
+  )
+
+ebm_cls_spec
+```
+
+
+
+```{r fit}
+# fit --
+ebm_cls_fit <- ebm_cls_spec |>
+  fit(
+    forested ~ .,
+    data = training |> dplyr::select(-tree_no_tree, -land_type, -county)
+  )
+
+# predictions --
+preds <- predict(ebm_cls_fit, x_test, type = "raw")
+preds
+```
+
+
+### YDFs
+
+tbd
