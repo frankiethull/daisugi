@@ -1,0 +1,119 @@
+---
+title: "regression"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{regression}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+<table>
+<tr><td width="58%" valign="top">
+
+## Solving Regression Problems with daisugi (WIP)
+
+</td><td width="42%" align="right"><img src="regression.png" height="480"/></td></tr>
+</table>
+
+showcasing how to use daisugi for regression. our dataset comes from forested, a tabular data repo which lists forest attributes & whether an area is "forested" or "non-forested". 
+
+for regression, we're switching the target variable (y) from the typical classification, to a regression problem. Based on the information we know, are we able to predict, or estimate, the annual precipitation?
+
+#### Prepare Dataset
+```{r dataset}
+library(daisugi)
+library(forested)
+library(rsample)
+set.seed(5311)
+
+# defining splits for training and testing datasets
+splits <- rsample::initial_split(forested::forested)
+training <- rsample::training(splits)
+testing <- rsample::testing(splits)
+
+
+# (x, y) Training:
+x_train <- training |>
+  # target (and factors as not all engines handle cats)
+  dplyr::select(-forested, -tree_no_tree, -land_type, -county)
+
+# our target variable:
+y_train <- training |> dplyr::select(precip_annual) |> dplyr::pull()
+
+# (x, y) Testing:
+x_test <- testing |>
+  dplyr::select(-forested, -tree_no_tree, -land_type, -county)
+
+y_test <- testing |> dplyr::select(precip_annual) |> dplyr::pull()
+
+head(y_test)
+```
+
+
+```{r setup}
+library(daisugi)
+```
+
+### snap boosting machines
+
+SnapBoost originates from IBM's Snap ML ecosystem.
+
+Unlike traditional gradient boosting systems, SnapBoost uses heterogeneous Newton boosting where each iteration may alternate between:
+
+- decision trees
+- linear regressors
+- random Fourier feature approximators
+
+This creates a hybrid ensemble structure rather than a purely tree-based booster.
+
+```{r snap}
+snap_trees <- grow_snap_trees(
+  x_train,
+  y_train,
+  trees = 5L,
+  task = "regression"
+)
+
+harvest_snap_trees(snap_trees, x_test) |> head()
+```
+
+
+### conditional trees 
+
+Conditional Trees (a conditional forest) are ported from the {partykit::cforest} implementation. cforest is a bagging algorithm for the ctree p-value tree-based algorithm.  
+
+```{r ctree}
+conditional_trees <- grow_conditional_trees(
+  x_train,
+  y_train,
+  trees = 10L,
+  task = "regression"
+)
+
+harvest_conditional_trees(conditional_trees, x_test) |> head()
+```
+
+
+### Boulevard
+
+Boulevard: Regularized Stochastic Gradient Boosted Trees and Their Limiting Distribution. Boulevard introduces subsampling and employs a modified shrinkage algorithm so that at every boosting stage the estimate is given by an average of trees. Therefore as the tree number increases, the prediction should converge.   
+
+*Boulevard boosting is specifically focused on regression tasks and does not support classification by default.* 
+
+```{r boulevard}
+boulevard_trees <- grow_boulevard_trees(
+  x_train,
+  y_train,
+  trees = 10L,
+  task = "regression"
+)
+
+harvest_boulevard_trees(boulevard_trees, x_test) |> head()
+```

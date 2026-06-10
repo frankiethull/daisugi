@@ -1,21 +1,34 @@
 # daisugi (development)
+* tidymodels bindings for `ebm` 
+    - `parsnip` register & added special `dials` hyperparameters
 
-* add support for **GRANDE**
+* improving documentation 
+    - small typos & fixes 
+    - splitting up documentation into parts: 
+        - `daisugi.Rmd` - Getting Started with Classification
+        - `regression.Rmd` - Extended Documentation for Regression
+        - `probabilistic.Rmd` - TBD, Prediction Intervals with-and-without daisugi
+        - `tidymodels.Rmd` - TBD, 'ebm' & 'ydf' engine bindings.
+        - `super.Rmd` - TBD, a super learner, built with daisugi, for daisugi 
+
+* TBD support for **GRANDE**
     - fit with `grow_grande_trees`
     - predict with `harvest_grande_trees`
     - a fairness-aware gradient boosting machine.
         - requires a "sensitivity" contraint group for training. 
 
-* add support for **FairGBM**
+* TBD support for **FairGBM**
     - fit with `grow_fair_trees`
     - predict with `harvest_fair_trees`
     - a fairness-aware gradient boosting machine.
         - requires a "sensitivity" contraint group for training. 
 
-* add support for **KTBoost**
+* TBD support for **KTBoost**
     - fit with `grow_kernel_trees`
     - predict with `harvest_kernel_trees`
     - each boosting iteration chooses either tree or RKHS regression 
+
+* TBD MorphBoost & MSBoost
 
 # daisugi 0.0.6
  * add support for **Boulevard**
