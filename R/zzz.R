@@ -20,6 +20,8 @@
     "interpret",
     delay_load = TRUE
   )
+  # register tidymodels binding
+  make_boost_tree_ebm()
 
   # FairGBM -------
   # notetoself: fairgbm may require separate env ...

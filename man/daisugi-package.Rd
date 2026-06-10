@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-daisugi provides an interface for not-so-well-known tree machines. particularly focused on novel tree and boosting algorithms for machine learning tasks. those tasks being tabular regression and classification problems. daisugi provides a unified interface to YDF, SnapBoost, WildWood, Perpetual, and more.
+daisugi provides a unified interface for specialized and novel tree-based machine learning algorithms. The package focuses on tabular classification and regression tasks, offering streamlined access to "not-so-well-known" architectures. Users can implement and compare various backends through a consistent API.
 }
 \seealso{
 Useful links:
@@ -20,7 +20,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: frank hull \email{frankiethull@proton.me}
+\strong{Maintainer}: frank hull \email{frankiethull@proton.me} [copyright holder]
 
 }
 \keyword{internal}
