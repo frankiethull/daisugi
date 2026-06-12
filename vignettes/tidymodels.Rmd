@@ -17,10 +17,11 @@ knitr::opts_chunk$set(
 <table>
 <tr><td width="58%" valign="top">
 
-## tidymodels (WIP)
+## tidymodels
 
-additional tidymodels support is planned for daisugi. in particular, we're after the machines that are 'not-so-well-known', perform well, but are not included anywhere else, such as 'ebm' & 'ydf'. allowing ML engineers to swap out other boosters for Yggdrasil or Explainable boosting machines. 
+additional tidymodels support is planned for daisugi. in particular, we're after the machines that are 'not-so-well-known', perform well, but are not included anywhere else, such as Explainable Boosting Machines ('ebm') & Yggdrasil Boosting ('ydf'). Allowing ML engineers to swap out other boosters for Yggdrasil or Explainable Boosting Machines.   
 
+daisugi by design will bind these machines to `boost_tree` engines in parsnip, to be friendly and easily swap the engine while maintaining the boosted tree architecture. However, the 'ebm' engine also has a `explainable_boost` binding specific to the engine as well. This allows more flexibility on the user, so they can maintain a boosted tree pipeline, or swap with explainable boost so that *tier 1 & tier 2* parameters are tunable as well. daisugi contains the additional dials for cross-validation hyperparameter tuning. 
 
 </td><td width="42%" align="right"><img src="tidymodels.png" height="480"/></td></tr>
 </table>
@@ -28,7 +29,7 @@ additional tidymodels support is planned for daisugi. in particular, we're after
 
 #### Prepare Dataset
 
-following along with our getting started task, except with a tidymodels perspective, we have the forested data setup below.
+following along with our getting started task, except with a tidymodels perspective, we have the forested data setup below. we no longer need to split into an (x, y) interface & will use the formula method for this tidymodels vignette. 
 ```{r dataset}
 library(daisugi)
 library(forested)
@@ -40,33 +41,17 @@ set.seed(5311)
 splits <- rsample::initial_split(forested::forested)
 training <- rsample::training(splits)
 testing <- rsample::testing(splits)
-
-
-# (x, y) Training:
-x_train <- training |>
-  # target (and factors as not all engines handle cats)
-  dplyr::select(-forested, -tree_no_tree, -land_type, -county)
-
-# our target variable:
-y_train <- training |> dplyr::select(forested) |> dplyr::pull()
-
-# (x, y) Testing:
-x_test <- testing |>
-  dplyr::select(-forested, -tree_no_tree, -land_type, -county)
-
-y_test <- testing |> dplyr::select(forested) |> dplyr::pull()
-
-head(y_test)
 ```
 
 
 ### EBMs
 
-The Explainable Boosting Machine is registered as a `boost_tree`, it has a few similar parameters, and many unique ones. a handful of the unique parameters were also registered to dials within daisugi so full-on-total hyperparameter optimization can be done within cross-validation in tidymodels.
+The Explainable Boosting Machine is registered as a `boost_tree` & as a `explainable_boost` engine, it has a few similar parameters, and many unique ones. a handful of the unique parameters were also registered to dials within daisugi so full-on-total hyperparameter optimization can be done within cross-validation in tidymodels.
 
-check out the registered & tunable parameters. 
+#### boost_tree specification (lite):
+
 ```{r}
-ebm_cls_spec <-
+ebm_cls_spec_lite <-
   boost_tree(
     # GBM parameters
     trees = 500,
@@ -76,8 +61,23 @@ ebm_cls_spec <-
     stop_iter = 250
   ) |>
   set_mode("classification") |>
-  set_engine(
-    "ebm",
+  set_engine("ebm")
+
+ebm_cls_spec_lite
+```
+
+#### explainable_boost specification:
+
+this contains more tunable parameters, adding additional slots than what `boost_tree` contains. check out the registered & tunable parameters. 
+```{r}
+ebm_cls_spec <-
+  explainable_boost(
+    # GBM parameters
+    trees = 500,
+    min_n = 2,
+    tree_depth = 5,
+    learn_rate = 0.015,
+    stop_iter = 250,
     # tier 1 ebm parameters
     num_interactions = 3L,
     max_bins = 1024L,
@@ -90,13 +90,17 @@ ebm_cls_spec <-
     interaction_smoothing_rounds = 75L,
     outer_bags = 14L,
     inner_bags = 0L
-  )
+  ) |>
+  set_mode("classification") |>
+  set_engine("ebm")
 
 ebm_cls_spec
 ```
 
 
 
+
+#### fit:
 ```{r fit}
 # fit --
 ebm_cls_fit <- ebm_cls_spec |>
@@ -104,13 +108,51 @@ ebm_cls_fit <- ebm_cls_spec |>
     forested ~ .,
     data = training |> dplyr::select(-tree_no_tree, -land_type, -county)
   )
-
-# predictions --
-preds <- predict(ebm_cls_fit, x_test, type = "raw")
-preds
 ```
 
+#### pred:
+```{r}
+# predictions --
+preds <- predict(ebm_cls_fit, testing, type = "raw")
+preds |> head()
+```
 
 ### YDFs
 
-tbd
+for the 'ydf' engine, this is specifically the boosting engine and tethered to `boost_tree`. 
+
+
+```{r}
+ydf_cls_spec <-
+  boost_tree(
+    # GBM parameters
+    trees = 500,
+    min_n = 2,
+    tree_depth = 5,
+    learn_rate = 0.015,
+    stop_iter = 250,
+    mtry = 0.2,
+    loss_reduction = 0.1,
+    sample_size = 0.9
+  ) |>
+  set_mode("classification") |>
+  set_engine("ydf")
+
+ydf_cls_spec
+```
+
+```{r}
+ydf_cls_fit <- ydf_cls_spec |>
+  fit(
+    forested ~ .,
+    data = training |> dplyr::select(-tree_no_tree, -land_type, -county)
+  )
+```
+
+```{r}
+preds <- predict(ydf_cls_fit, testing, type = "raw")
+preds |> head()
+```
+
+
+*type = 'raw' is the only method in daisugi 0.0.7, type probas and class support will be added in the future*
