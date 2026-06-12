@@ -27,24 +27,21 @@ train_ebm_regressor <- \(
     x,
     y,
     task = "regression",
-    # basic gbm -
-    trees = trees,
-    early_stop_tree = stop_iter,
+    trees = as.integer(trees),
+    early_stop_tree = as.integer(stop_iter),
     learning_rate = learn_rate,
-    max_leaves = tree_depth,
-    min_samples_leaf = min_n,
-    # tier 1 -
-    interactions = num_interactions,
-    max_bins = max_bins,
-    greedy_ratio = greedy_ratio,
-    smoothing_rounds = smoothing_rounds,
-    reg_alpha = regularization_alpha,
-    reg_lambda = regularization_lambda,
-    # tier 2 -
-    max_interaction_bins = max_interaction_bins,
-    interaction_smoothing_rounds = interaction_smoothing_rounds,
-    outer_bags = outer_bags,
-    inner_bags = inner_bags
+    max_leaves = as.integer(tree_depth),
+    min_samples_leaf = as.integer(min_n),
+    interactions = as.integer(num_interactions),
+    max_bins = as.integer(max_bins),
+    greedy_ratio = as.integer(greedy_ratio),
+    smoothing_rounds = as.integer(smoothing_rounds),
+    reg_alpha = (regularization_alpha),
+    reg_lambda = (regularization_lambda),
+    max_interaction_bins = as.integer(max_interaction_bins),
+    interaction_smoothing_rounds = as.integer(interaction_smoothing_rounds),
+    outer_bags = as.integer(outer_bags),
+    inner_bags = as.integer(inner_bags)
   )
 }
 
@@ -84,8 +81,8 @@ train_ebm_classifier <- \(
     max_bins = as.integer(max_bins),
     greedy_ratio = as.integer(greedy_ratio),
     smoothing_rounds = as.integer(smoothing_rounds),
-    reg_alpha = as.integer(regularization_alpha),
-    reg_lambda = as.integer(regularization_lambda),
+    reg_alpha = (regularization_alpha),
+    reg_lambda = (regularization_lambda),
     max_interaction_bins = as.integer(max_interaction_bins),
     interaction_smoothing_rounds = as.integer(interaction_smoothing_rounds),
     outer_bags = as.integer(outer_bags),
@@ -97,11 +94,11 @@ train_ebm_classifier <- \(
 
 #' @export
 predict_ebm_regression_numeric <- \(object, new_data, ...) {
-  daisugi::harvest_explainable_trees(fit = object$fit$fit, x = data, ...)
+  daisugi::harvest_explainable_trees(fit = object$fit, x = new_data, ...)
 }
 #' @export
 predict_ebm_classification_raw <- \(object, new_data, ...) {
-  daisugi::harvest_explainable_trees(fit = object$fit$fit, x = data, ...)
+  daisugi::harvest_explainable_trees(fit = object$fit, x = new_data, ...)
 }
 # predict_ebm_classification_class
 # predict_ebm_classification_prob
