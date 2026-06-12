@@ -1,15 +1,6 @@
 # daisugi (development)
-* tidymodels bindings for `ebm` 
-    - `parsnip` register & added special `dials` hyperparameters
 
-* improving documentation 
-    - small typos & fixes 
-    - splitting up documentation into parts: 
-        - `daisugi.Rmd` - Getting Started with Classification
-        - `regression.Rmd` - Extended Documentation for Regression
-        - `probabilistic.Rmd` - TBD, Prediction Intervals with-and-without daisugi
-        - `tidymodels.Rmd` - TBD, 'ebm' & 'ydf' engine bindings.
-        - `super.Rmd` - TBD, a super learner, built with daisugi, for daisugi 
+* TBD classification proba scores
 
 * TBD support for **GRANDE**
     - fit with `grow_grande_trees`
@@ -29,6 +20,21 @@
     - each boosting iteration chooses either tree or RKHS regression 
 
 * TBD MorphBoost & MSBoost
+
+# daisugi 0.0.7 
+* initial tidymodels bindings for `ebm` & `ydf` 
+    - `parsnip` register & added special `dials` hyperparameters
+        - `ebm` contains bindings to `boost_tree` and a new custom `explainable_boost` which contains new dials.
+        - refactor fitting and predicting within `yggdrasil` to handle matrices passed from parsnip
+
+* improving documentation 
+    - small typos & fixes 
+    - splitting up documentation into parts: 
+        - `daisugi.Rmd` - Getting Started with Classification
+        - `regression.Rmd` - Extended Documentation for Regression
+        - `probabilistic.Rmd` - TBD, Prediction Intervals with-and-without daisugi
+        - `tidymodels.Rmd` - 'ebm' & 'ydf' engine bindings.
+        - `super.Rmd` - TBD, a super learner, built with daisugi, for daisugi 
 
 # daisugi 0.0.6
  * add support for **Boulevard**
