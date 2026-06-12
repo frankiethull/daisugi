@@ -37,7 +37,7 @@ Popular libraries such as XGBoost, LightGBM, and CatBoost are intentionally excl
 </table>
 <!-- badges: start --><!-- badges: end -->---
 
-## Included Machines v0.0.6
+## Included Machines v0.0.7
 
 | Status | Algorithm | Focus |
 | --- | --- | --- |
@@ -104,7 +104,9 @@ harvest_yggdrasil_trees(model, iris[, 1:4])
 
 ## Further Documentation
 
-- [Get Started](https://frankiethull.github.io/daisugi/articles/daisugi.html) with a Classification Task
-- Learn more about daisugi via the [Glossary.](https://frankiethull.github.io/daisugi/articles/glossary.html)
+- [Get Started](https://frankiethull.github.io/daisugi/articles/daisugi.html) with a Classification Task  
+- Or maybe you prefer [Regression](https://frankiethull.github.io/daisugi/articles/regression.html)
+- Learn more about daisugi via the [Glossary.](https://frankiethull.github.io/daisugi/articles/glossary.html)   
 - A full list of models & their methods can be found in the [Package Index](https://frankiethull.github.io/daisugi/reference/index.html)
-- Notes on each verstion at the [Changelog](https://frankiethull.github.io/daisugi/news/index.html)
+- daisugi also contains [tidymodels](https://frankiethull.github.io/daisugi/articles/tidymodels.html) implementations for Explainable & Yggdrasil Boosting Machines  
+- Notes on each verstion at the [Changelog](https://frankiethull.github.io/daisugi/news/index.html)   

@@ -49,7 +49,7 @@ packages or through tidymodels infrastructure.
 
 ------------------------------------------------------------------------
 
-## Included Machines v0.0.6
+## Included Machines v0.0.7
 
 | Status | Algorithm          | Focus                            |
 |--------|--------------------|----------------------------------|
@@ -121,10 +121,15 @@ harvest_yggdrasil_trees(model, iris[, 1:4])
 
 - [Get
   Started](https://frankiethull.github.io/daisugi/articles/daisugi.html)
-  with a Classification Task
+  with a Classification Task  
+- Or maybe you prefer
+  [Regression](https://frankiethull.github.io/daisugi/articles/regression.html)
 - Learn more about daisugi via the
-  [Glossary.](https://frankiethull.github.io/daisugi/articles/glossary.html)
+  [Glossary.](https://frankiethull.github.io/daisugi/articles/glossary.html)  
 - A full list of models & their methods can be found in the [Package
   Index](https://frankiethull.github.io/daisugi/reference/index.html)
+- daisugi also contains
+  [tidymodels](https://frankiethull.github.io/daisugi/articles/tidymodels.html)
+  implementations for Explainable & Yggdrasil Boosting Machines  
 - Notes on each verstion at the
   [Changelog](https://frankiethull.github.io/daisugi/news/index.html)
