@@ -20,7 +20,8 @@
     "interpret",
     delay_load = TRUE
   )
-  # register tidymodels binding
+  # register tidymodels bindings
+  make_explainable_boost_ebm()
   make_boost_tree_ebm()
 
   # FairGBM -------
@@ -107,4 +108,6 @@
     "ydf",
     delay_load = TRUE
   )
+  # register tidymodels binding
+  make_boost_tree_ydf()
 }
