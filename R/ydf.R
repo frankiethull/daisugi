@@ -16,7 +16,9 @@ grow_yggdrasil_trees <- \(
   trees = 300L,
   ...
 ) {
-  xy <- cbind(x, 'target' = y)
+  xy <- as.data.frame(x)
+  xy$target <- y
+  #  xy <- cbind(x, 'target' = y)
 
   if (task == "classification") {
     ydf <- .pkg_env$ydf$GradientBoostedTreesLearner(
