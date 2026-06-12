@@ -11,8 +11,8 @@
 <script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Novel Tree Machines for Classification and Regression">
-<meta name="description" content="daisugi provides an interface for not-so-well-known tree machines. particularly focused on novel tree and boosting algorithms for machine learning tasks. those tasks being tabular regression and classification problems. daisugi provides a unified interface to YDF, SnapBoost, WildWood, Perpetual, and more.">
-<meta property="og:description" content="daisugi provides an interface for not-so-well-known tree machines. particularly focused on novel tree and boosting algorithms for machine learning tasks. those tasks being tabular regression and classification problems. daisugi provides a unified interface to YDF, SnapBoost, WildWood, Perpetual, and more.">
+<meta name="description" content='daisugi provides a unified interface for specialized and novel tree-based machine learning algorithms. The package focuses on tabular classification and regression tasks, offering streamlined access to "not-so-well-known" architectures. Users can implement and compare various backends through a consistent API.'>
+<meta property="og:description" content='daisugi provides a unified interface for specialized and novel tree-based machine learning algorithms. The package focuses on tabular classification and regression tasks, offering streamlined access to "not-so-well-known" architectures. Users can implement and compare various backends through a consistent API.'>
 <meta property="og:image" content="https://frankiethull.github.io/daisugi/logo.png">
 </head>
 <body>
@@ -23,7 +23,7 @@
 
     <a class="navbar-brand me-2" href="index.html">daisugi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.6.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.7</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,6 +38,10 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="articles/glossary.html">glossary</a></li>
+    <li><a class="dropdown-item" href="articles/probabilistic.html">probabilistic</a></li>
+    <li><a class="dropdown-item" href="articles/regression.html">regression</a></li>
+    <li><a class="dropdown-item" href="articles/super.html">super</a></li>
+    <li><a class="dropdown-item" href="articles/tidymodels.html">tidymodels</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
@@ -85,7 +89,7 @@
 <!-- badges: start --><!-- badges: end --><hr>
 </div>
 <div class="section level2">
-<h2 id="included-machines-v005">Included Machines v0.0.5<a class="anchor" aria-label="anchor" href="#included-machines-v005"></a>
+<h2 id="included-machines-v007">Included Machines v0.0.7<a class="anchor" aria-label="anchor" href="#included-machines-v007"></a>
 </h2>
 <table class="table">
 <thead><tr>
@@ -221,10 +225,15 @@
 </h2>
 <ul>
 <li>
-<a href="https://frankiethull.github.io/daisugi/articles/daisugi.html">Get Started</a> with a Classification Task</li>
-<li>Learn more about daisugi via the <a href="https://frankiethull.github.io/daisugi/articles/glossary.html">Glossary.</a>
+<a href="https://frankiethull.github.io/daisugi/articles/daisugi.html">Get Started</a> with a Classification Task<br>
+</li>
+<li>Or maybe you prefer <a href="https://frankiethull.github.io/daisugi/articles/regression.html">Regression</a>
+</li>
+<li>Learn more about daisugi via the <a href="https://frankiethull.github.io/daisugi/articles/glossary.html">Glossary.</a><br>
 </li>
 <li>A full list of models &amp; their methods can be found in the <a href="https://frankiethull.github.io/daisugi/reference/index.html">Package Index</a>
+</li>
+<li>daisugi also contains <a href="https://frankiethull.github.io/daisugi/articles/tidymodels.html">tidymodels</a> implementations for Explainable &amp; Yggdrasil Boosting Machines<br>
 </li>
 <li>Notes on each verstion at the <a href="https://frankiethull.github.io/daisugi/news/index.html">Changelog</a>
 </li>
@@ -259,7 +268,7 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>frank hull <br><small class="roles"> Author, maintainer </small>   </li>
+<li>frank hull <br><small class="roles"> Copyright holder, author, maintainer </small>   </li>
 </ul>
 </div>
 

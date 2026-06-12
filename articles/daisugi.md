@@ -14,7 +14,7 @@ A typical daisugi workflow:
 daisugi intentionally avoids imposing a modeling framework and instead
 focuses on exposing novel algorithms through a lightweight interface.
 
-### A Classification Task
+### Solving Classification Problems with daisugi
 
 showcasing how to use daisugi for classification. our dataset comes from
 forested, a tabular data repo which lists forest attributes & whether an
@@ -75,37 +75,10 @@ ydf_trees <- grow_yggdrasil_trees(
 )
 #> Downloading uv...Done!
 #> Train model on 5330 examples
-#> Model trained in 0:00:00.038857
+#> Model trained in 0:00:00.039963
 
 harvest_yggdrasil_trees(ydf_trees, x_test) |> head()
 #> [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"
-```
-
-### snap boosting machines
-
-SnapBoost originates from IBM’s Snap ML ecosystem.
-
-Unlike traditional gradient boosting systems, SnapBoost uses
-heterogeneous Newton boosting where each iteration may alternate
-between:
-
-- decision trees
-- linear regressors
-- random Fourier feature approximators
-
-This creates a hybrid ensemble structure rather than a purely tree-based
-booster.
-
-``` r
-
-snap_trees <- grow_snap_trees(
-  x_train,
-  y_train,
-  trees = 5L
-)
-
-harvest_snap_trees(snap_trees, x_test) |> head()
-#> [1] "No" "No" "No" "No" "No" "No"
 ```
 
 ### perpetual
@@ -185,53 +158,6 @@ harvest_explainable_trees(wild_trees, x_test) |> head()
 #> [1] "Yes" "No"  "Yes" "Yes" "Yes" "Yes"
 ```
 
-### natural gradient boosting machines
-
-NGBoost introduces probabilistic prediction into gradient boosting
-systems.
-
-Rather than predicting only point estimates, NGBoost models predictive
-distributions directly using natural gradients.
-
-This enables:
-
-- uncertainty estimation
-- probabilistic forecasting
-- calibrated predictive intervals
-
-``` r
-
-natural_trees <- grow_natural_trees(
-  x_train,
-  y_train,
-  trees = 5L
-)
-#> [iter 0] loss=0.6879 val_loss=0.0000 scale=4.0000 norm=8.0000
-
-harvest_natural_trees(natural_trees, x_test) |> head()
-#> [1] 0 0 0 0 0 0
-```
-
-### energy-based generative boosted trees
-
-NRGBoost is an energy-based generative boosting algorithm. The design
-does not require a target(y) variable but this logic is added for
-daisugi for ease-of-use.
-
-``` r
-
-energy_trees <- grow_energy_trees(
-  x_train,
-  y_train |> as.integer() - 1,
-  trees = 5L
-)
-
-harvest_energy_trees(energy_trees, x_test) |> head()
-#> [1] 0.07347243 0.45393993 0.07087025 0.45357028 0.19876139 0.18953708
-
-# fun fact: NRG can draw samples: energy_trees$fit$sample(5L)
-```
-
 ### evolutionary trees
 
 Evolutionary Trees comes from {evtree} R package. Which involves
@@ -247,26 +173,6 @@ evolutionary_trees <- grow_evolutionary_trees(
 )
 
 harvest_evolutionary_trees(evolutionary_trees, x_test) |> head()
-#>   1   2   3   4   5   6 
-#> Yes Yes Yes Yes Yes Yes 
-#> Levels: Yes No
-```
-
-### conditional trees
-
-Conditional Trees (a conditional forest) are ported from the
-{partykit::cforest} implementation. cforest is a bagging algorithm for
-the ctree p-value tree-based algorithm.
-
-``` r
-
-conditional_trees <- grow_conditional_trees(
-  x_train,
-  y_train,
-  trees = 10L
-)
-
-harvest_conditional_trees(conditional_trees, x_test) |> head()
 #>   1   2   3   4   5   6 
 #> Yes Yes Yes Yes Yes Yes 
 #> Levels: Yes No

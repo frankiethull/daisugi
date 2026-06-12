@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">daisugi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.6.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.7</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,6 +20,10 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/glossary.html">glossary</a></li>
+    <li><a class="dropdown-item" href="../articles/probabilistic.html">probabilistic</a></li>
+    <li><a class="dropdown-item" href="../articles/regression.html">regression</a></li>
+    <li><a class="dropdown-item" href="../articles/super.html">super</a></li>
+    <li><a class="dropdown-item" href="../articles/tidymodels.html">tidymodels</a></li>
   </ul></li>
 <li class="active nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
@@ -36,6 +40,32 @@
       <small>Source: <a href="https://github.com/frankiethull/daisugi/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.0.7" id="daisugi-007">daisugi 0.0.7<a class="anchor" aria-label="anchor" href="#daisugi-007"></a></h2>
+<ul><li>initial tidymodels bindings for <code>ebm</code> &amp; <code>ydf</code>
+<ul><li>
+<code>parsnip</code> register &amp; added special <code>dials</code> hyperparameters
+<ul><li>
+<code>ebm</code> contains bindings to <code>boost_tree</code> and a new custom <code>explainable_boost</code> which contains new dials.</li>
+<li>refactor fitting and predicting within <code>yggdrasil</code> to handle matrices passed from parsnip</li>
+</ul></li>
+</ul></li>
+<li>improving documentation
+<ul><li>small typos &amp; fixes</li>
+<li>splitting up documentation into parts:
+<ul><li>
+<code>daisugi.Rmd</code> - Getting Started with Classification</li>
+<li>
+<code>regression.Rmd</code> - Extended Documentation for Regression</li>
+<li>
+<code>probabilistic.Rmd</code> - TBD, Prediction Intervals with-and-without daisugi</li>
+<li>
+<code>tidymodels.Rmd</code> - ‘ebm’ &amp; ‘ydf’ engine bindings.</li>
+<li>
+<code>super.Rmd</code> - TBD, a super learner, built with daisugi, for daisugi</li>
+</ul></li>
+</ul></li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.0.6" id="daisugi-006">daisugi 0.0.6<a class="anchor" aria-label="anchor" href="#daisugi-006"></a></h2>
 <ul><li>add support for <strong>Boulevard</strong>

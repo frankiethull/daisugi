@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">daisugi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.6.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.7</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,6 +35,10 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/glossary.html">glossary</a></li>
+    <li><a class="dropdown-item" href="../articles/probabilistic.html">probabilistic</a></li>
+    <li><a class="dropdown-item" href="../articles/regression.html">regression</a></li>
+    <li><a class="dropdown-item" href="../articles/super.html">super</a></li>
+    <li><a class="dropdown-item" href="../articles/tidymodels.html">tidymodels</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -284,8 +288,8 @@ sacred trunk rises <br> c++ decision trees <br> fast quiet giant
 <tbody>
 <tr class="odd">
 <td>Boulevard</td>
-<td>✅</td>
 <td>❌</td>
+<td>✅</td>
 </tr>
 <tr class="even">
 <td>Conditional Trees</td>
@@ -334,6 +338,32 @@ sacred trunk rises <br> c++ decision trees <br> fast quiet giant
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section level3">
+<h3 id="tidymodels-interface">tidymodels interface<a class="anchor" aria-label="anchor" href="#tidymodels-interface"></a>
+</h3>
+<table class="table">
+<thead><tr class="header">
+<th>Machine</th>
+<th>Supported?</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>EBM</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>Yggdrasil</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>EBM is supported as a <code>boost_tree</code> as well as an
+<code>explainable_boost</code> model engine. This allows lite-weight as
+well as additional control over the model specification &amp;
+hyperparameter optimization. daisugi contains the additional
+<code>dials</code> necessary for tuning EBMs. Read more about this in <a href="https://frankiethull.github.io/daisugi/articles/tidymodels.html">the
+tidymodels vignette.</a></p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

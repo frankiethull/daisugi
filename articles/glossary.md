@@ -34,7 +34,7 @@ daisugi as well as a set of haikus for TL/DR referencing.
 
 | Machine            | Classification | Regression |
 |--------------------|----------------|------------|
-| Boulevard          | ✅             | ❌         |
+| Boulevard          | ❌             | ✅         |
 | Conditional Trees  | ✅             | ✅         |
 | EBM                | ✅             | ✅         |
 | Evolutionary Trees | ✅             | ✅         |
@@ -44,3 +44,17 @@ daisugi as well as a set of haikus for TL/DR referencing.
 | SnapBoost          | ✅             | ✅         |
 | WildWood           | ✅             | ✅         |
 | Yggdrasil          | ✅             | ✅         |
+
+### tidymodels interface
+
+| Machine   | Supported? |
+|-----------|------------|
+| EBM       | ✅         |
+| Yggdrasil | ✅         |
+
+EBM is supported as a `boost_tree` as well as an `explainable_boost`
+model engine. This allows lite-weight as well as additional control over
+the model specification & hyperparameter optimization. daisugi contains
+the additional `dials` necessary for tuning EBMs. Read more about this
+in [the tidymodels
+vignette.](https://frankiethull.github.io/daisugi/articles/tidymodels.html)

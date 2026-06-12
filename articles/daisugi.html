@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">daisugi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.6.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.7</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,6 +35,10 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/glossary.html">glossary</a></li>
+    <li><a class="dropdown-item" href="../articles/probabilistic.html">probabilistic</a></li>
+    <li><a class="dropdown-item" href="../articles/regression.html">regression</a></li>
+    <li><a class="dropdown-item" href="../articles/super.html">super</a></li>
+    <li><a class="dropdown-item" href="../articles/tidymodels.html">tidymodels</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -102,7 +106,7 @@ instead focuses on exposing novel algorithms through a lightweight
 interface.</p>
 </div>
 <div class="section level3">
-<h3 id="a-classification-task">A Classification Task<a class="anchor" aria-label="anchor" href="#a-classification-task"></a>
+<h3 id="solving-classification-problems-with-daisugi">Solving Classification Problems with daisugi<a class="anchor" aria-label="anchor" href="#solving-classification-problems-with-daisugi"></a>
 </h3>
 <p>showcasing how to use daisugi for classification. our dataset comes
 from forested, a tabular data repo which lists forest attributes &amp;
@@ -161,34 +165,10 @@ specialized split strategies.</p>
 <span><span class="op">)</span></span>
 <span><span class="co">#&gt; Downloading uv...Done!</span></span>
 <span><span class="co">#&gt; Train model on 5330 examples</span></span>
-<span><span class="co">#&gt; Model trained in 0:00:00.038857</span></span>
+<span><span class="co">#&gt; Model trained in 0:00:00.039963</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/harvest_yggdrasil_trees.html">harvest_yggdrasil_trees</a></span><span class="op">(</span><span class="va">ydf_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="snap-boosting-machines">snap boosting machines<a class="anchor" aria-label="anchor" href="#snap-boosting-machines"></a>
-</h3>
-<p>SnapBoost originates from IBM’s Snap ML ecosystem.</p>
-<p>Unlike traditional gradient boosting systems, SnapBoost uses
-heterogeneous Newton boosting where each iteration may alternate
-between:</p>
-<ul>
-<li>decision trees</li>
-<li>linear regressors</li>
-<li>random Fourier feature approximators</li>
-</ul>
-<p>This creates a hybrid ensemble structure rather than a purely
-tree-based booster.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">snap_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_snap_trees.html">grow_snap_trees</a></span><span class="op">(</span></span>
-<span>  <span class="va">x_train</span>,</span>
-<span>  <span class="va">y_train</span>,</span>
-<span>  trees <span class="op">=</span> <span class="fl">5L</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="../reference/harvest_snap_trees.html">harvest_snap_trees</a></span><span class="op">(</span><span class="va">snap_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "No" "No" "No" "No" "No" "No"</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="perpetual">perpetual<a class="anchor" aria-label="anchor" href="#perpetual"></a>
@@ -204,7 +184,7 @@ tuning.</p>
 </ul>
 <p>This creates an AutoML-like boosting workflow with minimal tuning
 overhead.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">perpetual_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_perpetual_trees.html">grow_perpetual_trees</a></span><span class="op">(</span></span>
 <span>  <span class="va">x_train</span>,</span>
 <span>  <span class="va">y_train</span></span>
@@ -225,7 +205,7 @@ emphasizing aggregation over multiple possible tree prunings.</p>
 <li>out-of-bag pruning aggregation</li>
 </ul>
 <p>This produces highly adaptive ensemble behavior.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">wild_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_wild_trees.html">grow_wild_trees</a></span><span class="op">(</span></span>
 <span>  <span class="va">x_train</span>,</span>
 <span>  <span class="va">y_train</span>,</span>
@@ -250,7 +230,7 @@ project.</p>
 </ul>
 <p>They are often considered “glassbox” models because their learned
 structure remains directly inspectable.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">explainable_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_explainable_trees.html">grow_explainable_trees</a></span><span class="op">(</span></span>
 <span>  <span class="va">x_train</span>,</span>
 <span>  <span class="va">y_train</span>,</span>
@@ -261,54 +241,12 @@ structure remains directly inspectable.</p>
 <span><span class="co">#&gt; [1] "Yes" "No"  "Yes" "Yes" "Yes" "Yes"</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="natural-gradient-boosting-machines">natural gradient boosting machines<a class="anchor" aria-label="anchor" href="#natural-gradient-boosting-machines"></a>
-</h3>
-<p>NGBoost introduces probabilistic prediction into gradient boosting
-systems.</p>
-<p>Rather than predicting only point estimates, NGBoost models
-predictive distributions directly using natural gradients.</p>
-<p>This enables:</p>
-<ul>
-<li>uncertainty estimation</li>
-<li>probabilistic forecasting</li>
-<li>calibrated predictive intervals</li>
-</ul>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">natural_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_natural_trees.html">grow_natural_trees</a></span><span class="op">(</span></span>
-<span>  <span class="va">x_train</span>,</span>
-<span>  <span class="va">y_train</span>,</span>
-<span>  trees <span class="op">=</span> <span class="fl">5L</span></span>
-<span><span class="op">)</span></span>
-<span><span class="co">#&gt; [iter 0] loss=0.6879 val_loss=0.0000 scale=4.0000 norm=8.0000</span></span>
-<span></span>
-<span><span class="fu"><a href="../reference/harvest_natural_trees.html">harvest_natural_trees</a></span><span class="op">(</span><span class="va">natural_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 0 0 0 0 0 0</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="energy-based-generative-boosted-trees">energy-based generative boosted trees<a class="anchor" aria-label="anchor" href="#energy-based-generative-boosted-trees"></a>
-</h3>
-<p>NRGBoost is an energy-based generative boosting algorithm. The design
-does not require a target(y) variable but this logic is added for
-daisugi for ease-of-use.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">energy_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_energy_trees.html">grow_energy_trees</a></span><span class="op">(</span></span>
-<span>  <span class="va">x_train</span>,</span>
-<span>  <span class="va">y_train</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span>,</span>
-<span>  trees <span class="op">=</span> <span class="fl">5L</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="../reference/harvest_energy_trees.html">harvest_energy_trees</a></span><span class="op">(</span><span class="va">energy_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 0.07347243 0.45393993 0.07087025 0.45357028 0.19876139 0.18953708</span></span>
-<span></span>
-<span><span class="co"># fun fact: NRG can draw samples: energy_trees$fit$sample(5L)</span></span></code></pre></div>
-</div>
-<div class="section level3">
 <h3 id="evolutionary-trees">evolutionary trees<a class="anchor" aria-label="anchor" href="#evolutionary-trees"></a>
 </h3>
 <p>Evolutionary Trees comes from {evtree} R package. Which involves
 evolutionary learning of global optimal trees for both classification
 and regression.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">evolutionary_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_evolutionary_trees.html">grow_evolutionary_trees</a></span><span class="op">(</span></span>
 <span>  <span class="va">x_train</span>,</span>
 <span>  <span class="va">y_train</span>,</span>
@@ -316,24 +254,6 @@ and regression.</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/harvest_evolutionary_trees.html">harvest_evolutionary_trees</a></span><span class="op">(</span><span class="va">evolutionary_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   1   2   3   4   5   6 </span></span>
-<span><span class="co">#&gt; Yes Yes Yes Yes Yes Yes </span></span>
-<span><span class="co">#&gt; Levels: Yes No</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="conditional-trees">conditional trees<a class="anchor" aria-label="anchor" href="#conditional-trees"></a>
-</h3>
-<p>Conditional Trees (a conditional forest) are ported from the
-{partykit::cforest} implementation. cforest is a bagging algorithm for
-the ctree p-value tree-based algorithm.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">conditional_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_conditional_trees.html">grow_conditional_trees</a></span><span class="op">(</span></span>
-<span>  <span class="va">x_train</span>,</span>
-<span>  <span class="va">y_train</span>,</span>
-<span>  trees <span class="op">=</span> <span class="fl">10L</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="../reference/harvest_conditional_trees.html">harvest_conditional_trees</a></span><span class="op">(</span><span class="va">conditional_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   1   2   3   4   5   6 </span></span>
 <span><span class="co">#&gt; Yes Yes Yes Yes Yes Yes </span></span>
 <span><span class="co">#&gt; Levels: Yes No</span></span></code></pre></div>
@@ -347,7 +267,7 @@ the ctree p-value tree-based algorithm.</p>
 <h3 id="grande">GRANDE<a class="anchor" aria-label="anchor" href="#grande"></a>
 </h3>
 <p>TBD, WIP, special handlers to pass types .</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#grande_trees &lt;- grow_grande_trees(</span></span>
 <span><span class="co">#  x_train,</span></span>
 <span><span class="co">#  y_train,</span></span>
@@ -357,25 +277,10 @@ the ctree p-value tree-based algorithm.</p>
 <span><span class="co"># harvest_grande_trees(grande_trees, x_test) |&gt; head()</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="boulevard">Boulevard<a class="anchor" aria-label="anchor" href="#boulevard"></a>
-</h3>
-<p>Boulevard: Regularized Stochastic Gradient Boosted Trees and Their
-Limiting Distribution</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">boulevard_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_boulevard_trees.html">grow_boulevard_trees</a></span><span class="op">(</span></span>
-<span>  <span class="va">x_train</span>,</span>
-<span>  <span class="va">y_train</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  trees <span class="op">=</span> <span class="fl">10L</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="../reference/harvest_boulevard_trees.html">harvest_boulevard_trees</a></span><span class="op">(</span><span class="va">boulevard_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 1.1563618 1.3625391 0.9486226 1.1628310 1.0813726 1.0374214</span></span></code></pre></div>
-</div>
-<div class="section level3">
 <h3 id="fairgbm">FairGBM<a class="anchor" aria-label="anchor" href="#fairgbm"></a>
 </h3>
 <p>TBD, WIP, out-of-date repo dependencies .</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sensitivity</span> <span class="op">&lt;-</span> <span class="va">training</span><span class="op">$</span><span class="va">tree_no_tree</span></span>
 <span></span>
 <span><span class="co">#fair_trees &lt;- grow_fair_trees(</span></span>
@@ -393,7 +298,7 @@ Limiting Distribution</p>
 <p>KTBoost … TBD, WIP.</p>
 <p>a secondary virtualenv; I think the repo dependencies are out of date
 (clashing with cache).</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#py_run_string("</span></span>
 <span><span class="co">#import numpy as np</span></span>
 <span><span class="co">#if not hasattr(np, 'object'):</span></span>
