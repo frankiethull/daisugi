@@ -94,11 +94,26 @@ train_ebm_classifier <- \(
 
 #' @export
 predict_ebm_regression_numeric <- \(object, new_data, ...) {
-  daisugi::harvest_explainable_trees(fit = object$fit, x = new_data, ...)
+  preds <- daisugi::harvest_explainable_trees(
+    fit = object$fit,
+    x = new_data,
+    ...
+  )
+
+  tibble::as_tibble(data.frame(.pred = preds))
 }
 #' @export
 predict_ebm_classification_raw <- \(object, new_data, ...) {
   daisugi::harvest_explainable_trees(fit = object$fit, x = new_data, ...)
 }
-# predict_ebm_classification_class
+
+#' @export
+predict_ebm_classification_class <- \(object, new_data, ...) {
+  preds <- daisugi::harvest_explainable_trees(
+    fit = object$fit,
+    x = new_data,
+    ...
+  )
+  tibble::as_tibble(data.frame(.pred_class = preds))
+}
 # predict_ebm_classification_prob
