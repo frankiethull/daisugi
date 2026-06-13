@@ -23,6 +23,8 @@
 * TBD MorphBoost & MSBoost
 
 # daisugi 0.0.8
+* clean up `daisugi.Rmd`
+
 * improve `tidymodels` implementations 
     - add parsnip S3 methods for `explainable_boost`
     - modify prediction bridges for `ebm` & `ydf`

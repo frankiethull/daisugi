@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 
 within daisugi, there are a handful of machines that produce probabilistic predictions, in addition to point. Let's dive a bit deeper into those engines as well as an agnostic approach for prediction intervals. 
 
-</td><td width="42%" align="right"><img src="probabilistic.png" height="480"/></td></tr>
+</td><td width="60%" align="right"><img src="probabilistic.png" height="700"/></td></tr>
 </table>
 
 

@@ -7,9 +7,9 @@
 
 <tr>
 
-<td width="36%" valign="top">
+<td width="40%" valign="top">
 
-<img src="man/figures/logo.png" height="190"/>
+<img src="man/figures/logo.png" height="400"/>
 
 ## daisugi: not-so-well-known tree machines
 
