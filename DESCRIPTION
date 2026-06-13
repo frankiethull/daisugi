@@ -1,6 +1,6 @@
 Package: daisugi
 Title: Novel Tree Machines for Classification and Regression
-Version: 0.0.7
+Version: 0.0.8
 Authors@R: 
     person("frank", "hull", , "frankiethull@proton.me", role = c("cph", "aut", "cre"))
 Description: daisugi provides a unified interface for specialized and novel tree-based machine learning algorithms. 
@@ -27,6 +27,8 @@ Imports:
     reticulate,
     rlang,
     rpart,
+    stats,
+    tibble,
     treeClust
 URL: https://frankiethull.github.io/daisugi/, https://github.com/frankiethull/daisugi
 BugReports: https://github.com/frankiethull/daisugi/issues

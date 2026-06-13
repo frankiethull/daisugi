@@ -15,6 +15,9 @@
 #' @importFrom reticulate py_require
 #' @importFrom rlang enquo
 #' @importFrom rpart rpart
+#' @importFrom stats predict
+#' @importFrom stats rnorm
+#' @importFrom tibble as_tibble
 #' @importFrom treeClust rpart.predict.leaves
 ## usethis namespace: end
 NULL
