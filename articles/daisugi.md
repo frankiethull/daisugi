@@ -75,7 +75,7 @@ ydf_trees <- grow_yggdrasil_trees(
 )
 #> Downloading uv...Done!
 #> Train model on 5330 examples
-#> Model trained in 0:00:00.040133
+#> Model trained in 0:00:00.039387
 
 harvest_yggdrasil_trees(ydf_trees, x_test) |> head()
 #> [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"
@@ -128,7 +128,7 @@ wild_trees <- grow_wild_trees(
 )
 
 harvest_wild_trees(wild_trees, x_test) |> head()
-#> [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"
+#> [1] "Yes" "No"  "Yes" "Yes" "Yes" "Yes"
 ```
 
 ### explainable boosting machines
@@ -155,7 +155,7 @@ explainable_trees <- grow_explainable_trees(
 )
 
 harvest_explainable_trees(wild_trees, x_test) |> head()
-#> [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"
+#> [1] "Yes" "No"  "Yes" "Yes" "Yes" "Yes"
 ```
 
 ### evolutionary trees

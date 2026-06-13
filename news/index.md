@@ -2,11 +2,16 @@
 
 ## daisugi 0.0.8
 
+- clean up `daisugi.Rmd`
+
 - improve `tidymodels` implementations
+
   - add parsnip S3 methods for `explainable_boost`
   - modify prediction bridges for `ebm` & `ydf`
     - output tibbles for class & numeric
+
 - add parent class for all machines (preparing for future methods)
+
   - `daisugi_mother` class applied to all fit objects
 
 ## daisugi 0.0.7
