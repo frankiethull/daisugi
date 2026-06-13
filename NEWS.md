@@ -1,12 +1,13 @@
 # daisugi (development)
 
+* WIP `daisugi_mother` class & methods
+
 * TBD classification proba scores
 
 * TBD support for **GRANDE**
     - fit with `grow_grande_trees`
     - predict with `harvest_grande_trees`
-    - a fairness-aware gradient boosting machine.
-        - requires a "sensitivity" contraint group for training. 
+    - a DL tree-like machine
 
 * TBD support for **FairGBM**
     - fit with `grow_fair_trees`
@@ -20,6 +21,15 @@
     - each boosting iteration chooses either tree or RKHS regression 
 
 * TBD MorphBoost & MSBoost
+
+# daisugi 0.0.8
+* improve `tidymodels` implementations 
+    - add parsnip S3 methods for `explainable_boost`
+    - modify prediction bridges for `ebm` & `ydf`
+        - output tibbles for class & numeric 
+
+* add parent class for all machines (preparing for future methods)
+    - `daisugi_mother` class applied to all fit objects  
 
 # daisugi 0.0.7 
 * initial tidymodels bindings for `ebm` & `ydf` 
