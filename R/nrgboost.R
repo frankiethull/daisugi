@@ -33,7 +33,7 @@ grow_energy_trees <- \(
 
   ret <- list(fit = model)
 
-  class(ret) <- c("daisugi_energy_mother", class(ret))
+  class(ret) <- c("daisugi_energy_mother", "daisugi_mother", class(ret))
 
   ret
 }

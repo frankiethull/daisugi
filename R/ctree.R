@@ -28,7 +28,7 @@ grow_conditional_trees <- \(
 
   ret <- list(fit = model)
 
-  class(ret) <- c("daisugi_conditional_mother", class(ret))
+  class(ret) <- c("daisugi_conditional_mother", "daisugi_mother", class(ret))
 
   ret
 }

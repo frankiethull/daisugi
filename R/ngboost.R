@@ -42,7 +42,7 @@ grow_natural_trees <- \(
 
   ret <- list(fit = model)
 
-  class(ret) <- c("daisugi_natural_mother", class(ret))
+  class(ret) <- c("daisugi_natural_mother", "daisugi_mother", class(ret))
 
   ret
 }

@@ -39,7 +39,7 @@ grow_yggdrasil_trees <- \(
 
   ret <- list(fit = model)
 
-  class(ret) <- c("daisugi_ydf_mother", class(ret))
+  class(ret) <- c("daisugi_ydf_mother", "daisugi_mother", class(ret))
   ret
 }
 

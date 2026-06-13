@@ -27,7 +27,7 @@ grow_boulevard_trees <- \(
 
   ret <- list(fit = model)
 
-  class(ret) <- c("daisugi_boulevard_mother", class(ret))
+  class(ret) <- c("daisugi_boulevard_mother", "daisugi_mother", class(ret))
 
   ret
 }

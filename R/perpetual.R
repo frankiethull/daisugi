@@ -42,7 +42,7 @@ grow_perpetual_trees <- \(
 
   ret <- list(fit = model)
 
-  class(ret) <- c("daisugi_perpetual_mother", class(ret))
+  class(ret) <- c("daisugi_perpetual_mother", "daisugi_mother", class(ret))
 
   ret
 }

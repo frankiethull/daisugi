@@ -36,7 +36,7 @@ grow_evolutionary_trees <- \(
 
   ret <- list(fit = model)
 
-  class(ret) <- c("daisugi_evolutionary_mother", class(ret))
+  class(ret) <- c("daisugi_evolutionary_mother", "daisugi_mother", class(ret))
 
   ret
 }

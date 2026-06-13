@@ -39,7 +39,7 @@ grow_snap_trees <- \(
 
   ret <- list(fit = model)
 
-  class(ret) <- c("daisugi_snap_mother", class(ret))
+  class(ret) <- c("daisugi_snap_mother", "daisugi_mother", class(ret))
 
   ret
 }
