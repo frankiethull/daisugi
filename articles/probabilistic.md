@@ -96,7 +96,7 @@ energy_trees <- grow_energy_trees(
 )
 
 harvest_energy_trees(energy_trees, x_test) |> head()
-#> [1] 1532.965 1740.489 1466.145 1493.910 1494.399 1494.236
+#> [1] 1654.971 1521.920 1500.442 1500.442 1650.390 1517.096
 
 # fun fact: NRG can draw samples: energy_trees$fit$sample(5L)
 ```

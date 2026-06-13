@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">daisugi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.8</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,6 +40,20 @@
       <small>Source: <a href="https://github.com/frankiethull/daisugi/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.0.8" id="daisugi-008">daisugi 0.0.8<a class="anchor" aria-label="anchor" href="#daisugi-008"></a></h2>
+<ul><li>improve <code>tidymodels</code> implementations
+<ul><li>add parsnip S3 methods for <code>explainable_boost</code>
+</li>
+<li>modify prediction bridges for <code>ebm</code> &amp; <code>ydf</code>
+<ul><li>output tibbles for class &amp; numeric</li>
+</ul></li>
+</ul></li>
+<li>add parent class for all machines (preparing for future methods)
+<ul><li>
+<code>daisugi_mother</code> class applied to all fit objects</li>
+</ul></li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.0.7" id="daisugi-007">daisugi 0.0.7<a class="anchor" aria-label="anchor" href="#daisugi-007"></a></h2>
 <ul><li>initial tidymodels bindings for <code>ebm</code> &amp; <code>ydf</code>

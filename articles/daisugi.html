@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">daisugi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.8</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -165,7 +165,7 @@ specialized split strategies.</p>
 <span><span class="op">)</span></span>
 <span><span class="co">#&gt; Downloading uv...Done!</span></span>
 <span><span class="co">#&gt; Train model on 5330 examples</span></span>
-<span><span class="co">#&gt; Model trained in 0:00:00.039963</span></span>
+<span><span class="co">#&gt; Model trained in 0:00:00.040133</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/harvest_yggdrasil_trees.html">harvest_yggdrasil_trees</a></span><span class="op">(</span><span class="va">ydf_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"</span></span></code></pre></div>
@@ -213,7 +213,7 @@ emphasizing aggregation over multiple possible tree prunings.</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/harvest_wild_trees.html">harvest_wild_trees</a></span><span class="op">(</span><span class="va">wild_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "Yes" "No"  "Yes" "Yes" "Yes" "Yes"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="explainable-boosting-machines">explainable boosting machines<a class="anchor" aria-label="anchor" href="#explainable-boosting-machines"></a>
@@ -238,7 +238,7 @@ structure remains directly inspectable.</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/harvest_explainable_trees.html">harvest_explainable_trees</a></span><span class="op">(</span><span class="va">wild_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "Yes" "No"  "Yes" "Yes" "Yes" "Yes"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="evolutionary-trees">evolutionary trees<a class="anchor" aria-label="anchor" href="#evolutionary-trees"></a>
@@ -261,66 +261,15 @@ and regression.</p>
 </main>
 </div>
 <div class="section level2">
-<h2 id="future-machines">future machines<a class="anchor" aria-label="anchor" href="#future-machines"></a>
+<h2 id="further-documentation">Further Documentation<a class="anchor" aria-label="anchor" href="#further-documentation"></a>
 </h2>
-<div class="section level3">
-<h3 id="grande">GRANDE<a class="anchor" aria-label="anchor" href="#grande"></a>
-</h3>
-<p>TBD, WIP, special handlers to pass types .</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#grande_trees &lt;- grow_grande_trees(</span></span>
-<span><span class="co">#  x_train,</span></span>
-<span><span class="co">#  y_train,</span></span>
-<span><span class="co">#  trees = 10L</span></span>
-<span><span class="co">#)</span></span>
-<span></span>
-<span><span class="co"># harvest_grande_trees(grande_trees, x_test) |&gt; head()</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="fairgbm">FairGBM<a class="anchor" aria-label="anchor" href="#fairgbm"></a>
-</h3>
-<p>TBD, WIP, out-of-date repo dependencies .</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">sensitivity</span> <span class="op">&lt;-</span> <span class="va">training</span><span class="op">$</span><span class="va">tree_no_tree</span></span>
-<span></span>
-<span><span class="co">#fair_trees &lt;- grow_fair_trees(</span></span>
-<span><span class="co">#  x_train,</span></span>
-<span><span class="co">#  y_train,</span></span>
-<span><span class="co">#  s = sensitivity,</span></span>
-<span><span class="co">#  trees = 10L</span></span>
-<span><span class="co">#)</span></span>
-<span></span>
-<span><span class="co"># harvest_fair_trees(fair_trees, x_test) |&gt; head()</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="kernel-trees">kernel trees<a class="anchor" aria-label="anchor" href="#kernel-trees"></a>
-</h3>
-<p>KTBoost … TBD, WIP.</p>
-<p>a secondary virtualenv; I think the repo dependencies are out of date
-(clashing with cache).</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#py_run_string("</span></span>
-<span><span class="co">#import numpy as np</span></span>
-<span><span class="co">#if not hasattr(np, 'object'):</span></span>
-<span><span class="co">#    np.object = object</span></span>
-<span><span class="co">#")</span></span>
-<span></span>
-<span><span class="co">#kernel_trees &lt;- grow_kernel_trees(</span></span>
-<span><span class="co">#  x_train,</span></span>
-<span><span class="co">#  y_train,</span></span>
-<span><span class="co">#  trees = 100L</span></span>
-<span><span class="co">#)</span></span>
-<span></span>
-<span><span class="co"># harvest_kernel_trees(kernel_trees, x_test) |&gt; head()</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="morphboost">MorphBoost<a class="anchor" aria-label="anchor" href="#morphboost"></a>
-</h3>
-</div>
-<div class="section level3">
-<h3 id="msboost">MSBoost<a class="anchor" aria-label="anchor" href="#msboost"></a>
-</h3>
-</div>
+<p>Looking for more use cases?</p>
+<ul>
+<li>daisugi for <a href="https://frankiethull.github.io/daisugi/articles/regression.html">regression</a>
+</li>
+<li>interface with <a href="https://frankiethull.github.io/daisugi/articles/tidymodels.html">tidymodels</a>
+</li>
+</ul>
 </div>
   <aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

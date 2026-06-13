@@ -10,13 +10,13 @@ Source:
 [`DESCRIPTION`](https://github.com/frankiethull/daisugi/blob/main/DESCRIPTION)
 
 hull f (2026). *daisugi: Novel Tree Machines for Classification and
-Regression*. R package version 0.0.7,
+Regression*. R package version 0.0.8,
 <https://frankiethull.github.io/daisugi/>.
 
     @Manual{,
       title = {daisugi: Novel Tree Machines for Classification and Regression},
       author = {frank hull},
       year = {2026},
-      note = {R package version 0.0.7},
+      note = {R package version 0.0.8},
       url = {https://frankiethull.github.io/daisugi/},
     }
