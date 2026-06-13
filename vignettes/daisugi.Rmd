@@ -180,60 +180,8 @@ harvest_evolutionary_trees(evolutionary_trees, x_test) |> head()
 ```
 
 
-## future machines 
+## Further Documentation 
+Looking for more use cases?   
 
-### GRANDE
-
-TBD, WIP, special handlers to pass types .
-
-```{r}
-#grande_trees <- grow_grande_trees(
-#  x_train,
-#  y_train,
-#  trees = 10L
-#)
-
-# harvest_grande_trees(grande_trees, x_test) |> head()
-```
-
-
-### FairGBM
-
-TBD, WIP, out-of-date repo dependencies .
-```{r fair}
-sensitivity <- training$tree_no_tree
-
-#fair_trees <- grow_fair_trees(
-#  x_train,
-#  y_train,
-#  s = sensitivity,
-#  trees = 10L
-#)
-
-# harvest_fair_trees(fair_trees, x_test) |> head()
-```
-
-### kernel trees
-
-KTBoost ... TBD, WIP.
-
-a secondary virtualenv; I think the repo dependencies are out of date (clashing with cache). 
-
-```{r}
-#py_run_string("
-#import numpy as np
-#if not hasattr(np, 'object'):
-#    np.object = object
-#")
-
-#kernel_trees <- grow_kernel_trees(
-#  x_train,
-#  y_train,
-#  trees = 100L
-#)
-
-# harvest_kernel_trees(kernel_trees, x_test) |> head()
-```
-
-### MorphBoost
-### MSBoost
+- daisugi for [regression](https://frankiethull.github.io/daisugi/articles/regression.html)
+- interface with [tidymodels](https://frankiethull.github.io/daisugi/articles/tidymodels.html)
