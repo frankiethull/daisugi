@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 <table>
 <tr><td width="58%" valign="top">
 
-## Solving Regression Problems with daisugi (WIP)
+## Solving Regression Problems with daisugi
 
 </td><td width="42%" align="right"><img src="regression.png" height="480"/></td></tr>
 </table>
@@ -117,3 +117,9 @@ boulevard_trees <- grow_boulevard_trees(
 
 harvest_boulevard_trees(boulevard_trees, x_test) |> head()
 ```
+
+## Further Documentation 
+Looking for more use cases?   
+
+- interface with [tidymodels](https://frankiethull.github.io/daisugi/articles/tidymodels.html)   
+
