@@ -28,9 +28,8 @@ focuses on:
 - experimental tree architectures
 - research-oriented methods rarely exposed to R users
 
-Popular libraries such as XGBoost, LightGBM, and CatBoost are
-intentionally excluded and are better accessed through their native
-packages or through tidymodels infrastructure.
+**Note:** popular libraries such as XGBoost, LightGBM, & CatBoost *are
+included* but modified to use `daisugi` defaults.
 
 </td>
 
@@ -51,23 +50,26 @@ packages or through tidymodels infrastructure.
 
 ## Included Machines v0.0.7
 
-| Status | Algorithm          | Focus                            |
-|--------|--------------------|----------------------------------|
-| ✅     | Boulevard          | stochastic gradient boosting     |
-| ✅     | Conditional Trees  | unbiased recursive partitioning  |
-| ✅     | EBM                | interpretable additive boosting  |
-| ✅     | Evolutionary Trees | genetic tree optimization        |
-| 🚧     | FairGBM            | fairness-aware boosting          |
-| 🚧     | GRANDE             | differentiable tree ensembles    |
-| 🚧     | KTBoost            | kernel-tree hybrid boosting      |
-| 🚧     | MorphBoost         | adaptive boosting structures     |
-| 🚧     | MSBoost            | multi-stage boosting             |
-| ✅     | NGBoost            | natural gradient prediction      |
-| ✅     | NRGBoost           | energy-based generative boosting |
-| ✅     | Perpetual          | continual tree learning          |
-| ✅     | SnapBoost          | heterogeneous boosting systems   |
-| ✅     | WildWood           | randomized online forests        |
-| ✅     | Yggdrasil          | scalable tree ecosystems         |
+| Status | Algorithm          | Focus                               |
+|--------|--------------------|-------------------------------------|
+| ✅     | Boulevard          | stochastic gradient boosting        |
+| ✅     | Conditional Trees  | unbiased recursive partitioning     |
+| ✅     | EBM                | interpretable additive boosting     |
+| ✅     | Evolutionary Trees | genetic tree optimization           |
+| ✅     | Extreme            | eXtreme gradient boosted **forest** |
+| 🚧     | FairGBM            | fairness-aware boosting             |
+| 🚧     | GRANDE             | differentiable tree ensembles       |
+| 🚧     | KTBoost            | kernel-tree hybrid boosting         |
+| ✅     | Langevin           | Catboost with SGLB                  |
+| ✅     | Linear             | LightGBM with GBDT-PL               |
+| 🚧     | MorphBoost         | adaptive boosting structures        |
+| 🚧     | MSBoost            | multi-stage boosting                |
+| ✅     | NGBoost            | natural gradient prediction         |
+| ✅     | NRGBoost           | energy-based generative boosting    |
+| ✅     | Perpetual          | continual tree learning             |
+| ✅     | SnapBoost          | heterogeneous boosting systems      |
+| ✅     | WildWood           | randomized online forests           |
+| ✅     | Yggdrasil          | scalable tree ecosystems            |
 
 ------------------------------------------------------------------------
 

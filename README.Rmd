@@ -31,7 +31,7 @@ Rather than reproducing the mainstream boosting ecosystem, daisugi focuses on:
 - experimental tree architectures
 - research-oriented methods rarely exposed to R users
 
-Popular libraries such as XGBoost, LightGBM, and CatBoost are intentionally excluded and are better accessed through their native packages or through tidymodels infrastructure.
+**Note:** popular libraries such as XGBoost, LightGBM, & CatBoost *are included* but modified to use `daisugi` defaults.
 
 </td><td width="44%" align="right"><img src="man/figures/readme.png" height="460"/></td></tr>
 </table>
@@ -45,9 +45,12 @@ Popular libraries such as XGBoost, LightGBM, and CatBoost are intentionally excl
 | ✅ | Conditional Trees | unbiased recursive partitioning |
 | ✅ | EBM | interpretable additive boosting |
 | ✅ | Evolutionary Trees | genetic tree optimization |
+| ✅ | Extreme | eXtreme gradient boosted **forest** |
 | 🚧 | FairGBM | fairness-aware boosting |
 | 🚧 | GRANDE | differentiable tree ensembles |
 | 🚧 | KTBoost | kernel-tree hybrid boosting |
+| ✅ | Langevin | Catboost with SGLB |
+| ✅ | Linear | LightGBM with GBDT-PL |
 | 🚧 | MorphBoost | adaptive boosting structures |
 | 🚧 | MSBoost | multi-stage boosting |
 | ✅ | NGBoost | natural gradient prediction |
