@@ -49,7 +49,8 @@ grow_extreme_trees <- \(
     booster = "gbtree",
     objective = objective,
     tree_method = "hist",
-    sampling_method = "gradient_based",
+    # keep off for CPUs:
+    #sampling_method = "gradient_based",
     num_parallel_tree = num_parallel_tree,
     subsample = 0.5,
     colsample_bynode = 0.6,
