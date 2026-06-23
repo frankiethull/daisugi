@@ -22,6 +22,13 @@
 
 * TBD MorphBoost & MSBoost
 
+# daisugi 0.0.9
+* add *the three well-known* boosting algorithms with a twist
+    - catboost based on the langevin boosting methodology
+    - lightgbm with the GBDT-PL methodology
+    - xgboost as a boosted forest
+    - add `gaiden.Rmd`
+
 # daisugi 0.0.8
 * clean up `daisugi.Rmd`
 

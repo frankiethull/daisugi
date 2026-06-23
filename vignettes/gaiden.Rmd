@@ -1,0 +1,139 @@
+---
+title: "gaiden"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{gaiden}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+<table>
+<tr><td width="58%" valign="top">Gaiden: A Side Tale of Three Giants
+
+</td><td width="42%" align="right"><img src="gaiden.png" height="480"/></td></tr>
+</table>Modern gradient boosting is dominated by three giants:
+
+- XGBoost
+- LightGBM
+- CatBoost
+
+Most practitioners know these libraries through their default configurations. Yet hidden within each framework are lesser-known capabilities that fundamentally change how boosting behaves.
+
+This vignette explores three such paths:
+
+- "extreme": boosting forests rather than individual trees.
+- "linear": piecewise-linear leaves with stochastic tree dropout.
+- "langevin": stochastic gradient Langevin boosting and posterior sampling.
+
+Like any good gaiden, this is a side story.
+
+Our examples use the "forester" dataset, which contains measurements describing forests and timber volume.
+
+### Prepare Dataset
+
+```{r}
+library(daisugi)
+library(forested)
+library(rsample)
+
+set.seed(5311)
+
+# defining splits for training and testing datasets
+splits <- rsample::initial_split(forested::forested)
+training <- rsample::training(splits)
+testing <- rsample::testing(splits)
+
+
+# (x, y) Training:
+x_train <- training |>
+  # target (and factors as not all engines handle cats)
+  dplyr::select(-forested, -tree_no_tree, -land_type, -county)
+
+# our target variable:
+y_train <- training |> dplyr::select(precip_annual) |> dplyr::pull()
+
+# (x, y) Testing:
+x_test <- testing |>
+  dplyr::select(-forested, -tree_no_tree, -land_type, -county)
+
+y_test <- testing |> dplyr::select(precip_annual) |> dplyr::pull()
+
+head(y_test)
+```
+
+
+### extreme
+
+XGBoost is traditionally viewed as a boosted tree algorithm.
+
+However, XGBoost also supports adding multiple trees at each boosting iteration. Instead of boosting trees, one may boost forests. Number of parallel trees is default to 10 in daisugi.
+
+```{r}
+xtreme_trees <- grow_extreme_trees(
+  x_train,
+  y_train,
+  trees = 10L,
+  num_parallel_tree = 20L,
+  task = "regression"
+)
+
+harvest_extreme_trees(xtreme_trees, x_test) |> head()
+```
+
+Each boosting stage contributes an entire forest, blending ideas from random forests and gradient boosting.
+
+### linear
+
+LightGBM contains support for linear models inside terminal nodes.
+
+Combined with DART dropout, the resulting machine behaves differently from conventional boosted trees. Rather than assigning a constant prediction to each leaf, local linear models are fit inside the partitions.
+
+```{r}
+linear_dart <- grow_linear_trees(
+  x_train,
+  y_train,
+  trees = 5L,
+  task = "regression"
+)
+
+harvest_linear_trees(linear_dart, x_test) |> head()
+```
+
+Piecewise-linear boosting occupies a middle ground between tree ensembles and classical regression models.
+
+### langevin
+
+CatBoost supports stochastic gradient Langevin boosting (SGLB).
+
+Rather than following a purely deterministic optimization path, controlled noise is introduced during training. Combined with posterior sampling, the resulting ensemble resembles a Bayesian sampling procedure over forests.
+
+```{r}
+langevin_trees <- grow_langevin_trees(
+  x_train,
+  y_train,
+  trees = 25L,
+  task = "regression"
+)
+
+harvest_langevin_trees(langevin_trees, x_test) |> head()
+```
+
+
+### Closing Thoughts
+
+The giants are well known.
+
+Their hidden forms are less so.
+
+machine| giant| unusual path
+"extreme"| XGBoost| boosting forests rather than trees
+"linear"| LightGBM| linear models inside leaves with tree dropout
+"langevin"| CatBoost| Langevin dynamics and posterior-style sampling
