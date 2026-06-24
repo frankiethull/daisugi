@@ -20,8 +20,10 @@ VignetteBuilder: knitr
 Depends:
     R (>= 4.1.0)
 Imports: 
+    catboost,
     dials,
     evtree,
+    lightgbm,
     parsnip,
     partykit,
     reticulate,
@@ -29,6 +31,7 @@ Imports:
     rpart,
     stats,
     tibble,
-    treeClust
+    treeClust,
+    xgboost
 URL: https://frankiethull.github.io/daisugi/, https://github.com/frankiethull/daisugi
 BugReports: https://github.com/frankiethull/daisugi/issues
