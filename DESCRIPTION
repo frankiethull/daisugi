@@ -33,5 +33,7 @@ Imports:
     tibble,
     treeClust,
     xgboost
+Remotes:
+    catboost/catboost/catboost/R-package
 URL: https://frankiethull.github.io/daisugi/, https://github.com/frankiethull/daisugi
 BugReports: https://github.com/frankiethull/daisugi/issues
