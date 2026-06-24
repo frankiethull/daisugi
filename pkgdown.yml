@@ -3,12 +3,13 @@ pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   daisugi: daisugi.html
+  gaiden: gaiden.html
   glossary: glossary.html
   probabilistic: probabilistic.html
   regression: regression.html
   super: super.html
   tidymodels: tidymodels.html
-last_built: 2026-06-13T06:20Z
+last_built: 2026-06-24T03:12Z
 urls:
   reference: https://frankiethull.github.io/daisugi/reference
   article: https://frankiethull.github.io/daisugi/articles

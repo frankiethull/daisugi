@@ -3,6 +3,7 @@
 ### All vignettes
 
 - [daisugi](https://frankiethull.github.io/daisugi/articles/daisugi.md):
+- [gaiden](https://frankiethull.github.io/daisugi/articles/gaiden.md):
 - [glossary](https://frankiethull.github.io/daisugi/articles/glossary.md):
 - [probabilistic](https://frankiethull.github.io/daisugi/articles/probabilistic.md):
 - [regression](https://frankiethull.github.io/daisugi/articles/regression.md):

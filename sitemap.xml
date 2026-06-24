@@ -3,6 +3,7 @@
 <url><loc>https://frankiethull.github.io/daisugi/LICENSE-text.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/LICENSE.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/articles/daisugi.html</loc></url>
+<url><loc>https://frankiethull.github.io/daisugi/articles/gaiden.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/articles/glossary.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/articles/index.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/articles/probabilistic.html</loc></url>
@@ -18,9 +19,12 @@
 <url><loc>https://frankiethull.github.io/daisugi/reference/grow_energy_trees.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/reference/grow_evolutionary_trees.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/reference/grow_explainable_trees.html</loc></url>
+<url><loc>https://frankiethull.github.io/daisugi/reference/grow_extreme_trees.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/reference/grow_fair_trees.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/reference/grow_grande_trees.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/reference/grow_kernel_trees.html</loc></url>
+<url><loc>https://frankiethull.github.io/daisugi/reference/grow_langevin_trees.html</loc></url>
+<url><loc>https://frankiethull.github.io/daisugi/reference/grow_linear_trees.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/reference/grow_morph_trees.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/reference/grow_natural_trees.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/reference/grow_perpetual_trees.html</loc></url>
@@ -32,9 +36,12 @@
 <url><loc>https://frankiethull.github.io/daisugi/reference/harvest_energy_trees.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/reference/harvest_evolutionary_trees.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/reference/harvest_explainable_trees.html</loc></url>
+<url><loc>https://frankiethull.github.io/daisugi/reference/harvest_extreme_trees.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/reference/harvest_fair_trees.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/reference/harvest_grande_trees.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/reference/harvest_kernel_trees.html</loc></url>
+<url><loc>https://frankiethull.github.io/daisugi/reference/harvest_langevin_trees.html</loc></url>
+<url><loc>https://frankiethull.github.io/daisugi/reference/harvest_linear_trees.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/reference/harvest_morph_trees.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/reference/harvest_natural_trees.html</loc></url>
 <url><loc>https://frankiethull.github.io/daisugi/reference/harvest_perpetual_trees.html</loc></url>

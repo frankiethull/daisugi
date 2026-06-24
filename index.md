@@ -17,8 +17,7 @@ focuses on:
 - experimental tree architectures
 - research-oriented methods rarely exposed to R users
 
-Popular libraries such as XGBoost, LightGBM, and CatBoost are
-intentionally excluded and are better accessed through their native
-packages or through tidymodels infrastructure.
+**Note:** popular libraries such as XGBoost, LightGBM, & CatBoost *are
+included* but modified to use `daisugi` defaults.
 
 ![](reference/figures/readme.png)

@@ -23,7 +23,7 @@
 
     <a class="navbar-brand me-2" href="index.html">daisugi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.8</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.9</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +37,8 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/glossary.html">glossary</a></li>
+<li><a class="dropdown-item" href="articles/gaiden.html">gaiden</a></li>
+    <li><a class="dropdown-item" href="articles/glossary.html">glossary</a></li>
     <li><a class="dropdown-item" href="articles/probabilistic.html">probabilistic</a></li>
     <li><a class="dropdown-item" href="articles/regression.html">regression</a></li>
     <li><a class="dropdown-item" href="articles/super.html">super</a></li>
@@ -79,7 +80,7 @@
 <li>experimental tree architectures</li>
 <li>research-oriented methods rarely exposed to R users</li>
 </ul>
-<p>Popular libraries such as XGBoost, LightGBM, and CatBoost are intentionally excluded and are better accessed through their native packages or through tidymodels infrastructure.</p>
+<p><strong>Note:</strong> popular libraries such as XGBoost, LightGBM, &amp; CatBoost <em>are included</em> but modified to use <code>daisugi</code> defaults.</p>
 
 <td width="44%" align="right">
 <img src="reference/figures/readme.png" height="460">
@@ -119,6 +120,12 @@
 <td>genetic tree optimization</td>
 </tr>
 <tr>
+<td>✅</td>
+<td>Extreme</td>
+<td>eXtreme gradient boosted <strong>forest</strong>
+</td>
+</tr>
+<tr>
 <td>🚧</td>
 <td>FairGBM</td>
 <td>fairness-aware boosting</td>
@@ -132,6 +139,16 @@
 <td>🚧</td>
 <td>KTBoost</td>
 <td>kernel-tree hybrid boosting</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Langevin</td>
+<td>Catboost with SGLB</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Linear</td>
+<td>LightGBM with GBDT-PL</td>
 </tr>
 <tr>
 <td>🚧</td>

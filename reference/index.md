@@ -12,12 +12,18 @@
   : Grow Evolutionary Trees
 - [`grow_explainable_trees()`](https://frankiethull.github.io/daisugi/reference/grow_explainable_trees.md)
   : Grow Explainable Trees
+- [`grow_extreme_trees()`](https://frankiethull.github.io/daisugi/reference/grow_extreme_trees.md)
+  : Grow Extreme Trees
 - [`grow_fair_trees()`](https://frankiethull.github.io/daisugi/reference/grow_fair_trees.md)
   : Grow Fair Trees
 - [`grow_grande_trees()`](https://frankiethull.github.io/daisugi/reference/grow_grande_trees.md)
   : Grow GRANDE Trees
 - [`grow_kernel_trees()`](https://frankiethull.github.io/daisugi/reference/grow_kernel_trees.md)
   : Grow kernel-Based Generative Trees
+- [`grow_langevin_trees()`](https://frankiethull.github.io/daisugi/reference/grow_langevin_trees.md)
+  : Grow Langevin Trees
+- [`grow_linear_trees()`](https://frankiethull.github.io/daisugi/reference/grow_linear_trees.md)
+  : Grow Linear (Dart) Trees
 - [`grow_morph_trees()`](https://frankiethull.github.io/daisugi/reference/grow_morph_trees.md)
   : Grow Morph Trees
 - [`grow_natural_trees()`](https://frankiethull.github.io/daisugi/reference/grow_natural_trees.md)
@@ -40,12 +46,18 @@
   : Harvest Evolutionary Trees
 - [`harvest_explainable_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_explainable_trees.md)
   : Harvest Explainable Trees
+- [`harvest_extreme_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_extreme_trees.md)
+  : Harvest extreme Trees
 - [`harvest_fair_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_fair_trees.md)
   : Harvest Fair Trees
 - [`harvest_grande_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_grande_trees.md)
   : Harvest GRANDE Trees
 - [`harvest_kernel_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_kernel_trees.md)
   : Harvest kernel-Based Generative Trees
+- [`harvest_langevin_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_langevin_trees.md)
+  : Harvest Langevin Trees
+- [`harvest_linear_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_linear_trees.md)
+  : Harvest Linear Trees
 - [`harvest_morph_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_morph_trees.md)
   : Harvest Morph Trees
 - [`harvest_natural_trees()`](https://frankiethull.github.io/daisugi/reference/harvest_natural_trees.md)

@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">daisugi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.8</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.9</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,8 @@
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/glossary.html">glossary</a></li>
+<li><a class="dropdown-item" href="../articles/gaiden.html">gaiden</a></li>
+    <li><a class="dropdown-item" href="../articles/glossary.html">glossary</a></li>
     <li><a class="dropdown-item" href="../articles/probabilistic.html">probabilistic</a></li>
     <li><a class="dropdown-item" href="../articles/regression.html">regression</a></li>
     <li><a class="dropdown-item" href="../articles/super.html">super</a></li>
@@ -265,7 +266,7 @@ tethered to <code>boost_tree</code>.</p>
 <span>    data <span class="op">=</span> <span class="va">training</span> <span class="op">|&gt;</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">tree_no_tree</span>, <span class="op">-</span><span class="va">land_type</span>, <span class="op">-</span><span class="va">county</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="co">#&gt; Train model on 5330 examples</span></span>
-<span><span class="co">#&gt; Model trained in 0:00:01.121944</span></span></code></pre></div>
+<span><span class="co">#&gt; Model trained in 0:00:01.233525</span></span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">preds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">ydf_cls_fit</span>, <span class="va">testing</span>, type <span class="op">=</span> <span class="st">"raw"</span><span class="op">)</span></span>
 <span><span class="va">preds</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>

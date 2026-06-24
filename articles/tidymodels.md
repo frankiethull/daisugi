@@ -182,7 +182,7 @@ ydf_cls_fit <- ydf_cls_spec |>
     data = training |> dplyr::select(-tree_no_tree, -land_type, -county)
   )
 #> Train model on 5330 examples
-#> Model trained in 0:00:01.121944
+#> Model trained in 0:00:01.233525
 ```
 
 ``` r
