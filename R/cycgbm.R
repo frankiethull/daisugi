@@ -28,9 +28,10 @@ grow_cyc_gbm <- \(
     ...
   )
 
-  model <- cyc$fit(x, y)
+  # NB: fit() returns None (not self), so keep the fitted object
+  cyc$fit(x, y)
 
-  ret <- list(fit = model)
+  ret <- list(fit = cyc)
 
   class(ret) <- c("daisugi_cycgbm_mother", "daisugi_mother", class(ret))
 
@@ -56,5 +57,6 @@ harvest_cyc_gbm <- \(fit, x, ...) {
   preds <- fit$fit$predict(x)
   # predict returns distribution params (2 x n for normal);
   # first row is the mean
-  as.vector(preds[1, ])
+  preds_r <- reticulate::py_to_r(preds)
+  as.vector(preds_r[1, ])
 }

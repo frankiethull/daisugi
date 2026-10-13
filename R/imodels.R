@@ -148,13 +148,15 @@ grow_tao <- \(
     y <- as.integer(y) - 1L
   }
 
+  tao_mod <- reticulate::import("imodels.tree.tao", delay_load = TRUE)
+
   if (task == "classification") {
-    tao <- daisugi:::.pkg_env$imodels$tao$TaoTreeClassifier(
+    tao <- tao_mod$TaoTreeClassifier(
       n_iters = as.integer(trees),
       ...
     )
   } else if (task == "regression") {
-    tao <- daisugi:::.pkg_env$imodels$tao$TaoTreeRegressor(
+    tao <- tao_mod$TaoTreeRegressor(
       n_iters = as.integer(trees),
       ...
     )
