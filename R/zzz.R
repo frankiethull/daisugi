@@ -18,6 +18,9 @@
 .pkg_env$ydf <- NULL
 
 .onLoad <- function(...) {
+  # Pin Python to 3.11: snapml has no cp313 wheels (only cp39-cp312)
+  reticulate::py_require(python_version = "3.11")
+
   # EBM -------
   reticulate::py_require("interpret")
   .pkg_env$interpret <- reticulate::import(
