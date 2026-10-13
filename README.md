@@ -53,6 +53,9 @@ included* but modified to use `daisugi` defaults.
 | Status | Algorithm          | Focus                               |
 |--------|--------------------|-------------------------------------|
 | ✅     | Boulevard          | stochastic gradient boosting        |
+| ✅     | ChimeraBoost       | numba-accelerated boosting          |
+| ✅     | CycGBM             | distributional boosting             |
+| ✅     | FIGS               | interpretable greedy tree sums      |
 | ✅     | Conditional Trees  | unbiased recursive partitioning     |
 | ✅     | EBM                | interpretable additive boosting     |
 | ✅     | Evolutionary Trees | genetic tree optimization           |
@@ -67,7 +70,10 @@ included* but modified to use `daisugi` defaults.
 | ✅     | NGBoost            | natural gradient prediction         |
 | ✅     | NRGBoost           | energy-based generative boosting    |
 | ✅     | Perpetual          | continual tree learning             |
+| ✅     | SkopeRules         | interpretable rule lists            |
 | ✅     | SnapBoost          | heterogeneous boosting systems      |
+| ✅     | STreeD             | optimal sparse trees                |
+| ✅     | TAO                | tree alternating optimization       |
 | ✅     | WildWood           | randomized online forests           |
 | ✅     | Yggdrasil          | scalable tree ecosystems            |
 

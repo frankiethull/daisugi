@@ -1,6 +1,10 @@
 .pkg_env <- new.env()
 
 .pkg_env$grande <- NULL
+.pkg_env$imodels <- NULL
+.pkg_env$pystreed <- NULL
+.pkg_env$chimeraboost <- NULL
+.pkg_env$cycgbm <- NULL
 .pkg_env$fairgbm <- NULL
 .pkg_env$interpret <- NULL
 .pkg_env$KTBoost <- NULL
@@ -40,6 +44,14 @@
   reticulate::py_require("git+https://github.com/s-marton/GRANDE.git")
   .pkg_env$grande <- reticulate::import(
     "GRANDE",
+    delay_load = TRUE
+  )
+
+  # imodels ------- (FIGS, SkopeRules, TAO)
+  # https://github.com/csinva/imodels
+  reticulate::py_require("imodels")
+  .pkg_env$imodels <- reticulate::import(
+    "imodels",
     delay_load = TRUE
   )
 
@@ -99,6 +111,31 @@
   reticulate::py_require("wildwood")
   .pkg_env$wildwood <- reticulate::import(
     "wildwood",
+    delay_load = TRUE
+  )
+
+  # pystreed ------- (optimal sparse trees)
+  # https://github.com/xuemei1997/pystreed
+  reticulate::py_require("pystreed")
+  reticulate::py_require("scikit-survival")
+  .pkg_env$pystreed <- reticulate::import(
+    "pystreed",
+    delay_load = TRUE
+  )
+
+  # chimeraboost -------
+  # https://github.com/ChimeraBoost/chimeraboost
+  reticulate::py_require("chimeraboost")
+  .pkg_env$chimeraboost <- reticulate::import(
+    "chimeraboost",
+    delay_load = TRUE
+  )
+
+  # cyc-gbm ------- (distributional boosting)
+  # https://github.com/cyc-gbm/cyc-gbm
+  reticulate::py_require("cyc-gbm")
+  .pkg_env$cycgbm <- reticulate::import(
+    "cyc_gbm",
     delay_load = TRUE
   )
 
