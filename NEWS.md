@@ -1,3 +1,17 @@
+# daisugi 0.0.10
+
+* add **MIBoost** (`grow_miboost_trees` / `harvest_miboost_trees`) via the
+  `booami` CRAN package: multiple imputation boosting, pure R
+
+* finish **GRANDE** binding and vendor **MorphBoost** Python source
+
+* pin Python to 3.11 (`snapml` has no cp313 wheels)
+
+* drop **scikit-garden**, **PkBoost**, **KTBoost** (abandoned upstream);
+  document blocked engines (FairGBM, pysortd need sklearn compat fixes)
+
+* open #23 to investigate **GPBoost** (KTBoost author's active project)
+
 # daisugi (development)
 
 * WIP `daisugi_mother` class & methods
