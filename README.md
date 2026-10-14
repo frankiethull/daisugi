@@ -62,7 +62,6 @@ included* but modified to use `daisugi` defaults.
 | 🚧     | FairGBM            | fairness-aware boosting             |
 | ✅     | FIGS               | interpretable greedy tree sums      |
 | ✅     | GRANDE             | differentiable tree ensembles       |
-| 🚧     | KTBoost            | kernel-tree hybrid boosting         |
 | ✅     | Langevin           | Catboost with SGLB                  |
 | ✅     | Linear             | LightGBM with GBDT-PL               |
 | ✅     | MIBoost            | multiple imputation boosting        |
@@ -86,12 +85,13 @@ included* but modified to use `daisugi` defaults.
 |--------------|---------------------------------------------------------------|
 | scikit-garden| abandoned upstream since 2017, does not build on modern Python|
 | PkBoost      | no Linux/macOS wheels published, sdist requires Rust toolchain|
+| KTBoost      | abandoned upstream since 2021; author moved to GPBoost (#23)  |
 
 ### Blocked engines
 
-KTBoost, FairGBM, and pysortd require scikit-learn \< 1.6, which conflicts
-with the shared Python environment (ngboost and others need \>= 1.6).
-These need per-engine virtualenvs or upstream fixes before they can be added.
+FairGBM and pysortd break on scikit-learn >= 1.6 due to removed APIs
+(`force_all_finite`, `_validate_data`). These need vendoring with patches
+or upstream fixes before they can be added.
 
 ------------------------------------------------------------------------
 
