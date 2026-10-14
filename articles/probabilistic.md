@@ -96,7 +96,7 @@ energy_trees <- grow_energy_trees(
 )
 
 harvest_energy_trees(energy_trees, x_test) |> head()
-#> [1] 1875.153 1609.010 1493.680 1493.680 1807.362 1858.673
+#> [1] 1644.842 1532.952 1494.072 1494.072 1631.957 1631.958
 
 # fun fact: NRG can draw samples: energy_trees$fit$sample(5L)
 ```
@@ -119,7 +119,7 @@ cyc_trees <- grow_cyc_gbm(
 )
 
 harvest_cyc_gbm(cyc_trees, x_test) |> head()
-#> [1] 1191.705 1011.503 1413.094 1547.353 1931.019 1798.652
+#> [1] 1191.706 1011.505 1413.095 1547.355 1931.020 1798.653
 ```
 
 ### Model Agnostic Conformity with {predictset}
