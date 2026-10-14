@@ -1,29 +1,19 @@
 # daisugi 0.0.10
 
 * add **MIBoost** (`grow_miboost_trees` / `harvest_miboost_trees`) via the
-  `booami` CRAN package: multiple imputation boosting for data with missing
-  values, pure R implementation
+  `booami` CRAN package: multiple imputation boosting, pure R
 
-* finish **GRANDE** binding: fix `initialize_grande_and_control()` typo,
-  complete `harvest_grande_trees()` to return R numeric predictions
+* finish **GRANDE** binding and vendor **MorphBoost** Python source
 
-* vendor **MorphBoost** Python source to `inst/python/morphboost.py`
-  (MIT, no PyPI package); wire up via `reticulate::import_from_path()`,
-  complete `harvest_morph_trees()`
+* add batch 1 engines: **FIGS**, **SkopeRules**, **TAO**, **STreeD**,
+  **ChimeraBoost**, **CycGBM**
 
-* add batch 1 interpretable engines from `imodels`: **FIGS**
-  (`grow_figs_trees`), **SkopeRules** (`grow_skoperules_trees`,
-  classification only), **TAO** (`grow_tao_trees`)
+* pin Python to 3.11 (`snapml` has no cp313 wheels)
 
-* add **STreeD** optimal sparse trees (`grow_streed_trees`) via `pystreed`
+* drop **scikit-garden**, **PkBoost**, **KTBoost** (abandoned upstream);
+  document blocked engines (FairGBM, pysortd need sklearn compat fixes)
 
-* add **ChimeraBoost** (`grow_chimeraboost_trees`) and **CycGBM**
-  (`grow_cycgbm_trees`, distributional boosting returning the mean)
-
-* pin Python to 3.11 in `zzz.R` (`snapml` has no cp313 wheels)
-
-* drop **scikit-garden** (abandoned 2017) and **PkBoost** (no Linux/macOS
-  wheels); document in README
+* open #23 to investigate **GPBoost** (KTBoost author's active project)
 
 # daisugi (development)
 
