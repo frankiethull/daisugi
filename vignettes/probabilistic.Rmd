@@ -105,6 +105,22 @@ harvest_energy_trees(energy_trees, x_test) |> head()
 # fun fact: NRG can draw samples: energy_trees$fit$sample(5L)
 ```
 
+#### CycGBM
+##### cyclical gradient boosting machines
+
+CycGBM is a distributional booster: rather than point estimates, it models the full predictive distribution. `harvest_cyc_gbm()` returns the mean of the predictive distribution for point prediction.
+
+```{r cycgbm}
+cyc_trees <- grow_cyc_gbm(
+  x_train,
+  y_train,
+  trees = 10L,
+  task = "regression"
+)
+
+harvest_cyc_gbm(cyc_trees, x_test) |> head()
+```
+
 ### Model Agnostic Conformity with {predictset}
 
 #### perpetual with predictset 
