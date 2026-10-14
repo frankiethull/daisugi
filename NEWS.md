@@ -1,3 +1,30 @@
+# daisugi 0.0.10
+
+* add **MIBoost** (`grow_miboost_trees` / `harvest_miboost_trees`) via the
+  `booami` CRAN package: multiple imputation boosting for data with missing
+  values, pure R implementation
+
+* finish **GRANDE** binding: fix `initialize_grande_and_control()` typo,
+  complete `harvest_grande_trees()` to return R numeric predictions
+
+* vendor **MorphBoost** Python source to `inst/python/morphboost.py`
+  (MIT, no PyPI package); wire up via `reticulate::import_from_path()`,
+  complete `harvest_morph_trees()`
+
+* add batch 1 interpretable engines from `imodels`: **FIGS**
+  (`grow_figs_trees`), **SkopeRules** (`grow_skoperules_trees`,
+  classification only), **TAO** (`grow_tao_trees`)
+
+* add **STreeD** optimal sparse trees (`grow_streed_trees`) via `pystreed`
+
+* add **ChimeraBoost** (`grow_chimeraboost_trees`) and **CycGBM**
+  (`grow_cycgbm_trees`, distributional boosting returning the mean)
+
+* pin Python to 3.11 in `zzz.R` (`snapml` has no cp313 wheels)
+
+* drop **scikit-garden** (abandoned 2017) and **PkBoost** (no Linux/macOS
+  wheels); document in README
+
 # daisugi (development)
 
 * WIP `daisugi_mother` class & methods
