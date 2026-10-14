@@ -37,28 +37,49 @@ Rather than reproducing the mainstream boosting ecosystem, daisugi focuses on:
 </table>
 <!-- badges: start --><!-- badges: end -->---
 
-## Included Machines v0.0.7
+## Included Machines v0.0.10
 
 | Status | Algorithm | Focus |
 | --- | --- | --- |
 | ✅ | Boulevard | stochastic gradient boosting |
+| ✅ | ChimeraBoost | chimera gradient boosting |
 | ✅ | Conditional Trees | unbiased recursive partitioning |
+| ✅ | CycGBM | distributional gradient boosting |
 | ✅ | EBM | interpretable additive boosting |
 | ✅ | Evolutionary Trees | genetic tree optimization |
 | ✅ | Extreme | eXtreme gradient boosted **forest** |
 | 🚧 | FairGBM | fairness-aware boosting |
-| 🚧 | GRANDE | differentiable tree ensembles |
+| ✅ | FIGS | interpretable greedy tree sums |
+| ✅ | GRANDE | differentiable tree ensembles |
 | 🚧 | KTBoost | kernel-tree hybrid boosting |
 | ✅ | Langevin | Catboost with SGLB |
 | ✅ | Linear | LightGBM with GBDT-PL |
-| 🚧 | MorphBoost | adaptive boosting structures |
+| ✅ | MIBoost | multiple imputation boosting |
+| ✅ | MorphBoost | adaptive boosting structures |
 | 🚧 | MSBoost | multi-stage boosting |
 | ✅ | NGBoost | natural gradient prediction |
 | ✅ | NRGBoost | energy-based generative boosting |
 | ✅ | Perpetual | continual tree learning |
+| ✅ | SkopeRules | interpretable rule extraction |
 | ✅ | SnapBoost | heterogeneous boosting systems |
+| ✅ | STreeD | optimal sparse decision trees |
+| ✅ | TAO | tree alternating optimization |
 | ✅ | WildWood | randomized online forests |
 | ✅ | Yggdrasil | scalable tree ecosystems |
+---
+
+### Dropped engines
+
+| Algorithm | Reason |
+| --- | --- |
+| scikit-garden | abandoned upstream since 2017, does not build on modern Python |
+| PkBoost | no Linux/macOS wheels published, sdist requires Rust toolchain |
+
+### Blocked engines
+
+KTBoost, FairGBM, and pysortd require scikit-learn < 1.6, which conflicts
+with the shared Python environment (ngboost and others need >= 1.6).
+These need per-engine virtualenvs or upstream fixes before they can be added.
 ---
 
 ## Installation
