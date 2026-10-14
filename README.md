@@ -48,7 +48,7 @@ included* but modified to use `daisugi` defaults.
 
 ------------------------------------------------------------------------
 
-## Included Machines v0.0.7
+## Included Machines v0.0.10
 
 | Status | Algorithm          | Focus                               |
 |--------|--------------------|-------------------------------------|
@@ -61,11 +61,11 @@ included* but modified to use `daisugi` defaults.
 | ✅     | Evolutionary Trees | genetic tree optimization           |
 | ✅     | Extreme            | eXtreme gradient boosted **forest** |
 | 🚧     | FairGBM            | fairness-aware boosting             |
-| 🚧     | GRANDE             | differentiable tree ensembles       |
-| 🚧     | KTBoost            | kernel-tree hybrid boosting         |
+| ✅     | GRANDE             | differentiable tree ensembles       |
 | ✅     | Langevin           | Catboost with SGLB                  |
 | ✅     | Linear             | LightGBM with GBDT-PL               |
-| 🚧     | MorphBoost         | adaptive boosting structures        |
+| ✅     | MIBoost            | multiple imputation boosting        |
+| ✅     | MorphBoost         | adaptive boosting structures        |
 | 🚧     | MSBoost            | multi-stage boosting                |
 | ✅     | NGBoost            | natural gradient prediction         |
 | ✅     | NRGBoost           | energy-based generative boosting    |
@@ -76,6 +76,22 @@ included* but modified to use `daisugi` defaults.
 | ✅     | TAO                | tree alternating optimization       |
 | ✅     | WildWood           | randomized online forests           |
 | ✅     | Yggdrasil          | scalable tree ecosystems            |
+
+------------------------------------------------------------------------
+
+### Dropped engines
+
+| Algorithm     | Reason                                                         |
+|---------------|----------------------------------------------------------------|
+| scikit-garden | abandoned upstream since 2017, does not build on modern Python |
+| PkBoost       | no Linux/macOS wheels, sdist requires Rust toolchain          |
+| KTBoost       | abandoned upstream since 2021; author moved to GPBoost (#23)   |
+
+### Blocked engines
+
+FairGBM and pysortd break on scikit-learn >= 1.6 due to removed APIs
+(`force_all_finite`, `_validate_data`). These need vendoring with patches
+or upstream fixes before they can be added.
 
 ------------------------------------------------------------------------
 
