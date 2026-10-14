@@ -20,6 +20,7 @@ VignetteBuilder: knitr
 Depends:
     R (>= 4.1.0)
 Imports: 
+    booami,
     catboost,
     dials,
     evtree,
