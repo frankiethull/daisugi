@@ -36,6 +36,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/gaiden.html">gaiden</a></li>
     <li><a class="dropdown-item" href="../articles/glossary.html">glossary</a></li>
+    <li><a class="dropdown-item" href="../articles/interpretable.html">interpretable</a></li>
     <li><a class="dropdown-item" href="../articles/probabilistic.html">probabilistic</a></li>
     <li><a class="dropdown-item" href="../articles/regression.html">regression</a></li>
     <li><a class="dropdown-item" href="../articles/super.html">super</a></li>
@@ -176,9 +177,31 @@ daisugi for ease-of-use.</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/harvest_energy_trees.html">harvest_energy_trees</a></span><span class="op">(</span><span class="va">energy_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 1535.437 1536.923 1490.876 1489.866 1959.145 1490.229</span></span>
+<span><span class="co">#&gt; [1] 1837.627 1837.643 1518.032 1518.032 1783.239 1822.116</span></span>
 <span></span>
 <span><span class="co"># fun fact: NRG can draw samples: energy_trees$fit$sample(5L)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level4">
+<h4 id="cycgbm">CycGBM<a class="anchor" aria-label="anchor" href="#cycgbm"></a>
+</h4>
+<div class="section level5">
+<h5 id="cyclical-gradient-boosting-machines">cyclical gradient boosting machines<a class="anchor" aria-label="anchor" href="#cyclical-gradient-boosting-machines"></a>
+</h5>
+<p>CycGBM is a distributional booster: rather than point estimates, it
+models the full predictive distribution. <code>harvest_cyc_gbm()</code>
+returns the mean of the predictive distribution for point
+prediction.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">cyc_trees</span> <span class="op">&lt;-</span> <span class="fu">grow_cyc_gbm</span><span class="op">(</span></span>
+<span>  <span class="va">x_train</span>,</span>
+<span>  <span class="va">y_train</span>,</span>
+<span>  trees <span class="op">=</span> <span class="fl">10L</span>,</span>
+<span>  task <span class="op">=</span> <span class="st">"regression"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">harvest_cyc_gbm</span><span class="op">(</span><span class="va">cyc_trees</span>, <span class="va">x_test</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 1191.706 1011.504 1413.094 1547.354 1931.019 1798.652</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -209,7 +232,7 @@ tuning.</p>
 </ul>
 <p>This creates an AutoML-like boosting workflow with minimal tuning
 overhead.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">perpetual_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grow_perpetual_trees.html">grow_perpetual_trees</a></span><span class="op">(</span></span>
 <span>  <span class="va">x_train</span>,</span>
 <span>  <span class="va">y_train</span></span>
@@ -238,7 +261,7 @@ overhead.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer>

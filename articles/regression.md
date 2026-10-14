@@ -119,3 +119,21 @@ boulevard_trees <- grow_boulevard_trees(
 harvest_boulevard_trees(boulevard_trees, x_test) |> head()
 #> [1] 1258.671 1725.029 1778.961 1426.504 2404.590 1642.045
 ```
+
+### ChimeraBoost
+
+ChimeraBoost is a numba-accelerated gradient boosting implementation,
+actively maintained as a Python-only package.
+
+``` r
+
+chimera_trees <- grow_chimera(
+  x_train,
+  y_train,
+  trees = 10L,
+  task = "regression"
+)
+
+harvest_chimera(chimera_trees, x_test) |> head()
+#> [1] 1217.532 1087.240 1383.867 1446.147 2029.177 1754.936
+```
