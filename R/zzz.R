@@ -53,12 +53,12 @@
 
   # MorphBoost -------
   # https://github.com/BorisKriuk/morphboost
-  # does not contain setup.py or pyproject.toml but requirements.txt
-  #   py_require("morphboost@git+https://github.com/BorisKriuk/morphboost.git")
-  #  .pkg_env$morph <- reticulate::import(
-  #    "morphboost",
-  #    delay_load = TRUE
-  #  )
+  # vendored to inst/python/morphboost.py (MIT, no PyPI package)
+  .pkg_env$morph <- reticulate::import_from_path(
+    "morphboost",
+    path = system.file("python", package = "daisugi"),
+    delay_load = TRUE
+  )
 
   # MSBoost -------
   # https://github.com/Agnij-Moitra/MSBoost
