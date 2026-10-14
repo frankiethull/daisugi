@@ -23,7 +23,7 @@
 
     <a class="navbar-brand me-2" href="index.html">daisugi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.9</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.10</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,7 +91,7 @@
 <!-- badges: start --><!-- badges: end --><hr>
 </div>
 <div class="section level2">
-<h2 id="included-machines-v007">Included Machines v0.0.7<a class="anchor" aria-label="anchor" href="#included-machines-v007"></a>
+<h2 id="included-machines-v0010">Included Machines v0.0.10<a class="anchor" aria-label="anchor" href="#included-machines-v0010"></a>
 </h2>
 <table class="table">
 <thead><tr>
@@ -147,14 +147,9 @@
 <td>fairness-aware boosting</td>
 </tr>
 <tr>
-<td>🚧</td>
+<td>✅</td>
 <td>GRANDE</td>
 <td>differentiable tree ensembles</td>
-</tr>
-<tr>
-<td>🚧</td>
-<td>KTBoost</td>
-<td>kernel-tree hybrid boosting</td>
 </tr>
 <tr>
 <td>✅</td>
@@ -167,7 +162,12 @@
 <td>LightGBM with GBDT-PL</td>
 </tr>
 <tr>
-<td>🚧</td>
+<td>✅</td>
+<td>MIBoost</td>
+<td>multiple imputation boosting</td>
+</tr>
+<tr>
+<td>✅</td>
 <td>MorphBoost</td>
 <td>adaptive boosting structures</td>
 </tr>
@@ -224,6 +224,40 @@
 </tbody>
 </table>
 <hr>
+<div class="section level3">
+<h3 id="dropped-engines">Dropped engines<a class="anchor" aria-label="anchor" href="#dropped-engines"></a>
+</h3>
+<table class="table">
+<colgroup>
+<col width="18%">
+<col width="81%">
+</colgroup>
+<thead><tr>
+<th>Algorithm</th>
+<th>Reason</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>scikit-garden</td>
+<td>abandoned upstream since 2017, does not build on modern Python</td>
+</tr>
+<tr>
+<td>PkBoost</td>
+<td>no Linux/macOS wheels, sdist requires Rust toolchain</td>
+</tr>
+<tr>
+<td>KTBoost</td>
+<td>abandoned upstream since 2021; author moved to GPBoost (#23)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level3">
+<h3 id="blocked-engines">Blocked engines<a class="anchor" aria-label="anchor" href="#blocked-engines"></a>
+</h3>
+<p>FairGBM and pysortd break on scikit-learn &gt;= 1.6 due to removed APIs (<code>force_all_finite</code>, <code>_validate_data</code>). These need vendoring with patches or upstream fixes before they can be added.</p>
+<hr>
+</div>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>

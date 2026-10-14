@@ -75,7 +75,7 @@ ydf_trees <- grow_yggdrasil_trees(
 )
 #> Downloading uv...Done!
 #> Train model on 5330 examples
-#> Model trained in 0:00:00.042154
+#> Model trained in 0:00:00.027552
 
 harvest_yggdrasil_trees(ydf_trees, x_test) |> head()
 #> [1] "Yes" "Yes" "Yes" "Yes" "Yes" "Yes"
