@@ -61,6 +61,6 @@ harvest_morph_trees <- \(fit, x, ...) {
   if (is.data.frame(x)) {
     x <- as.matrix(x)
   }
-  #TODO: probas
-  fit$fit$predict(x)
+  preds <- fit$fit$predict(x)
+  as.numeric(reticulate::py_to_r(preds))
 }
