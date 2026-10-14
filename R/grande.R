@@ -77,8 +77,9 @@ harvest_grande_trees <- \(fit, x, ...) {
   if (is.data.frame(x)) {
     x <- as.matrix(x)
   }
-  #TODO: probas
-  fit$fit$predict(x)
+  preds <- fit$fit$predict(x)
+  # Convert to R vector
+  as.numeric(reticulate::py_to_r(preds))
 }
 
 # GRANDE requires all params to be set
@@ -137,7 +138,7 @@ initialize_grande_and_control <- \(trees = 10L) {
 force_grande_fit <- \(
   x_train,
   y_train,
-  grande_control = initialize_grand_and_control()
+  grande_control = initialize_grande_and_control()
 ) {
   reticulate::py_run_string(
     "
